@@ -8,12 +8,11 @@
 
   devops/devops
   orchestration_tools/orchestration_tools
-  ansible/ansible
 
 .. toctree::
   :maxdepth: 2
-  :caption: Ansible Overview
-  :name: _ansible_overview
+  :caption: Ansible example
+  :name: _ansible_example
   :hidden:
 
   ansible_architecture/ansible_architecture
