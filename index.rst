@@ -103,6 +103,7 @@ Hosted POC clusters follow a standard naming convention:
 - **Cluster IP** - 10.**21**.\ *XYZ*\ .37
 
 If provisioned from the marketing pool:
+
 - **Cluster Name** - MKT\ *XYZ*
 - **Subnet** - 10.**20**.\ *XYZ*\ .0
 - **Cluster IP** - 10.**20**.\ *XYZ*\ .37
@@ -177,27 +178,27 @@ Credentials
 Each cluster has a dedicated domain controller VM, **DC**, responsible for providing AD services for the **NTNXLAB.local** domain. The domain is populated with the following Users and Groups:
 
 .. list-table::
-   :widths: 25 35 40
-   :header-rows: 1
+  :widths: 25 35 40
+  :header-rows: 1
 
-   * - Group
-     - Username(s)
-     - Password
-   * - Administrators
-     - Administrator
-     - nutanix/4u
-   * - SSP Admins
-     - adminuser01-adminuser25
-     - nutanix/4u
-   * - SSP Developers
-     - devuser01-devuser25
-     - nutanix/4u
-   * - SSP Power Users
-     - poweruser01-poweruser25
-     - nutanix/4u
-   * - SSP Basic Users
-     - basicuser01-basicuser25
-     - nutanix/4u
+  * - Group
+    - Username(s)
+    - Password
+  * - Administrators
+    - Administrator
+    - nutanix/4u
+  * - SSP Admins
+    - adminuser01-adminuser25
+    - nutanix/4u
+  * - SSP Developers
+    - devuser01-devuser25
+    - nutanix/4u
+  * - SSP Power Users
+    - poweruser01-poweruser25
+    - nutanix/4u
+  * - SSP Basic Users
+    - basicuser01-basicuser25
+    - nutanix/4u
 
 Access Instructions
 +++++++++++++++++++
