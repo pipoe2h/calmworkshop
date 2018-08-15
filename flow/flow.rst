@@ -1,4 +1,4 @@
-.. _enable_flow:
+.. _flow:
 
 -------------
 Flow
