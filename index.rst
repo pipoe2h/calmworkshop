@@ -11,16 +11,6 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Ansible example
-  :name: _ansible_example
-  :hidden:
-
-  ansible_architecture/ansible_architecture
-  ansible_modules/ansible_modules
-  ansible/ansible
-
-.. toctree::
-  :maxdepth: 2
   :caption: Nutanix Calm
   :name: _nutanix_calm
   :hidden:
@@ -31,12 +21,20 @@
 
 .. toctree::
   :maxdepth: 2
+  :caption: Ansible example
+  :name: _ansible_example
+  :hidden:
+
+  ansible_architecture/ansible_architecture
+  ansible_modules/ansible_modules
+  ansible/ansible
+
+.. toctree::
+  :maxdepth: 2
   :caption: Optional Labs
   :name: _optional_labs
   :hidden:
 
-  authentication/authentication
-  ssp/ssp
   flow/flow
 
 .. toctree::
@@ -54,9 +52,9 @@
 Getting Started
 ---------------
 
-Welcome to the Nutanix Partner Calm Workshop! This workbook accompanies an instructor-led session that introduces Nutanix technologies and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+Welcome to the Nutanix Partner Calm Workshop! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
-At the end of the bootcamp, attendees should understand the basic concepts and technologies that make up the Nutanix Enterprise Cloud stack and should be well prepared for a hosted or onsite proof-of-concept (POC) engagement.
+At the end of the workshop, attendees should understand the basic concepts and technologies that make up Nutanix Calm and should be well prepared to demo and talk about Calm.
 
 What's New
 ++++++++++
@@ -66,17 +64,17 @@ What's New
     - PC 5.7.1
 
 - Optional Lab Updates:
-    - Calm
     - Flow
+    - Ansible
 
 Agenda
 ++++++
 
 - Introductions
-- Nutanix Technology Overview
-- Nutanix Configuration Labs
-- Deploying and Managing Workloads
-- Monitoring and Managing the Environment
+- Technology Overview
+- Nutanix Calm
+- Ansible Example
+- Optional Labs
 
 Introductions
 +++++++++++++
@@ -118,17 +116,17 @@ For example:
 Throughout the Workshop there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
 
 .. list-table::
-   :widths: 25 75
-   :header-rows: 1
+  :widths: 25 75
+  :header-rows: 1
 
-   * - IP Address
-     - Description
-   * - 10.21.\ *XYZ*\ .37
-     - Nutanix Cluster Virtual IP
-   * - 10.21.\ *XYZ*\ .39
-     - **PC** VM IP, Prism Central
-   * - 10.21.\ *XYZ*\ .40
-     - **DC** VM IP, NTNXLAB.local Domain Controller
+  * - IP Address
+    - Description
+  * - 10.21.\ *XYZ*\ .37
+    - Nutanix Cluster Virtual IP
+  * - 10.21.\ *XYZ*\ .39
+    - **PC** VM IP, Prism Central
+  * - 10.21.\ *XYZ*\ .40
+    - **DC** VM IP, NTNXLAB.local Domain Controller
 
 Each cluster is configured with 2 VLANs which can be used for VMs:
 
@@ -157,24 +155,24 @@ Credentials
   The *<Cluster Password>* is unique to each cluster and will be provided by the leader of the Workshop.
 
 .. list-table::
-   :widths: 25 35 40
-   :header-rows: 1
+  :widths: 25 35 40
+  :header-rows: 1
 
-   * - Credential
-     - Username
-     - Password
-   * - Prism Element
-     - admin
-     - *<Cluster Password>*
-   * - Prism Central
-     - admin
-     - *<Cluster Password>*
-   * - Controller VM
-     - nutanix
-     - *<Cluster Password>*
-   * - Prism Central VM
-     - nutanix
-     - *<Cluster Password>*
+  * - Credential
+    - Username
+    - Password
+  * - Prism Element
+    - admin
+    - *<Cluster Password>*
+  * - Prism Central
+    - admin
+    - *<Cluster Password>*
+  * - Controller VM
+    - nutanix
+    - *<Cluster Password>*
+  * - Prism Central VM
+    - nutanix
+    - *<Cluster Password>*
 
 Each cluster has a dedicated domain controller VM, **DC**, responsible for providing AD services for the **NTNXLAB.local** domain. The domain is populated with the following Users and Groups:
 
