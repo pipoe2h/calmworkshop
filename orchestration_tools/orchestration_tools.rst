@@ -1,10 +1,14 @@
-***************************************************
-Orchestration Tools - Comparison
-***************************************************
+.. _orchestration_tools:
+
+-------------------
+Orchestration Tools
+
+Comparison
+-------------------
 
 
 Introduction
-************
+++++++++++++
 
 Development, deployment and maintenance of virtual servers requires a sophisticated set of tools. Updating your application is
 only one part of the process - next is managing the deployment of that application across servers. This is known as cloud
@@ -21,7 +25,7 @@ Selecting the best cloud configuration management system is a daunting task, reg
 single platform like Azure or across multiple vendors.
 
 Difference between Orchestrate & Automate
-*****************************************
++++++++++++++++++++++++++++++++++++++++++
 
 **Orchestration:**
 
@@ -42,13 +46,13 @@ Every IT organization should be using an orchestrator. Simply put, you can orche
 I’ve seen IT organizations where the networking team is using one tool, the infrastructure teams are using two different tools, and the AppDev teams are using another tool, where there is obviously no strategic direction. These tools are usually not free and more importantly, the time it takes to train your team is a significant investment. So now, you have various teams in an organization learning different tools and all fighting to accomplish nearly the same thing.
 
 Puppet Overview
-***************
++++++++++++++++
 
 Puppet is a solution that lets you control whats installed/configured on multiple machines from a single central machine. This single central machine is referred to as the “Puppet Master”, and the machines it controls are called “Puppet Agents” (aka nodes or slaves).
 
 In a puppetised environment, each agent checks-in with the puppet-master to see if it is set up the way it’s supposed to. If the answer is yes then nothing happens, if not, then the puppet master tells the agent what it should look like, then the node makes changes to itself accordingly to reflect this.
 
-.. figure:: http://s3.nutanixworkshops.com/calm/orchestration/image1.png
+.. figure:: images/image1.png
 
 The way this works is that on the puppet master you can define a “Desired State” for each of your nodes.   This desired state is declared in a syntax similar to a hash table’s syntax.
 
@@ -61,11 +65,11 @@ If a node doesn’t resemble a desired state, then we say that a “drift” has
 - The node then sents a “Report” back to the puppet master. You can view these reports and integrate them with other systems.
 
 Chef Overview
-*************
++++++++++++++
 
 Chef is a configuration management tool for dealing with machine setup on physical servers, virtual machines and in the cloud. Many companies use Chef software to control and manage their infrastructure including Facebook, Etsy, Cheezburger, and Indiegogo.
 
-.. figure:: http://s3.nutanixworkshops.com/calm/orchestration/image3.png
+.. figure:: images/image3.png
 
 Chef helps solve this problem by treating infrastructure as code. Rather than manually changing anything, the machine setup is described in a Chef recipe.
 
@@ -158,7 +162,7 @@ Global variable that is stored as JSON data and is accessible from a Chef server
 - It helps you manage and configure nodes information on the server in an easy way.
 
 Ansible Overview
-****************
+++++++++++++++++
 
 Ansible can be thought of as general purpose tool for managing servers. This means that Ansible can be used as a:
 
@@ -172,7 +176,7 @@ Ansible can be thought of as general purpose tool for managing servers. This mea
 
 Ansible has a controller-client type architecture, where you have one server (aka the controller) controlling lots of other servers (aka clients). However in ansible, you don’t need to install any ansible specific software on the client’s themselves. You only install ansible on the controller. I.e. it is an agentless architecture.  The controller communicates with all the clients via standard ssh.
 
-.. figure:: http://s3.nutanixworkshops.com/calm/orchestration/image2.png
+.. figure:: images/image2.png
 
 Ansible playbooks are essentially 1 or more scripts written in yaml. The puppet equivalent to playbooks is puppet manifests.
 
@@ -201,7 +205,7 @@ In order for a client to be controlled by the Ansible server, it needs to have t
 - Abstractions are kept to a minimum, e.g. for installing packages on rhel based OS, you need to use the yum’s built-in module, whereas for ubuntu, you use apt’s built-in module instead
 
 Puppet+Chef+Ansible: Installation & Ease of Use
-***********************************************
++++++++++++++++++++++++++++++++++++++++++++++++
 
 **Puppet**
 
@@ -227,7 +231,7 @@ consulting and training services.
 
 
 Puppet+Chef+Ansible: User Interface
-***********************************
++++++++++++++++++++++++++++++++++++
 
 Open Source Puppet only has a CLI, while Puppet Enterprise has the CLI and a web UI. The bread and butter of Puppet are
 modules which contain the code that configures and manages your nodes. Installing modules is easy via the command line, but
@@ -248,7 +252,7 @@ Hat.
 
 
 Puppet+Chef+Ansible: Code Base
-******************************
+++++++++++++++++++++++++++++++
 
 For these cloud orchestration platforms, we judged code bases on the breadth of modules, preconfigured system configurations,
 and community created tools. Essentially, how much code is out there that my team and I can use to get this into our
@@ -282,7 +286,7 @@ filter by multiple categories and module versions.
 
 
 Puppet+Chef+Ansible: Scalability
-********************************
+++++++++++++++++++++++++++++++++
 
 This is what matters in the end - when you’re scaling systems to thousands and tens of thousands of nodes, you want the
 ability to keep every VM under the fold.
@@ -308,7 +312,7 @@ As long as you have SSH authorized keys for each node, you can add as many as yo
 the master server.
 
 Summary
-*******
++++++++
 
 So in the end, which platform is best? Well, it depends on your needs.
 Personally, I like Ansible because I came from a Python development background, and AWS has created OpsWorks for Ansible,
@@ -321,8 +325,3 @@ Many companies run multiple cloud management solutions, and just as many run mul
 environments. It’s important to evaluate multiple open source solutions before investing in an enterprise license. While all
 three limit you to around ten nodes on the open source versions, it’s a great way to test a cloud management solution being
 implemented in one of your divisions.
-
-
-.. |image0| image:: orchestration/media/image1.png
-.. |image1| image:: orchestration/media/image2.png
-.. |image2| image:: orchestration/media/image3.png
