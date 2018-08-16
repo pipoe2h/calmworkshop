@@ -1,32 +1,15 @@
-*************
+.. _calm_overview:
+
+-------------
 Calm Overview
-*************
+-------------
 
 Overview
-********
+++++++++
 
-Calm allows Nutanix Enterprise customers to seamlessly select, provision, deploy & manage their Business Apps across all their infrastructure, both private and public cloud. Calm ties together a Marketplace, App Lifecycle, Monitoring & Remediation by providing single control-point for managing heterogeneous infrastructure, be it VMs or containers, or even baremetal servers. Calm will eventually support all the components required to manage a complete Software Defined Data Center. 
+Calm provides advanced application-level orchestration that transforms how IT teams manage applications and support the business. Fully integrated into the Nutanix platform, Calm delivers a powerful, common management framework that can be simultaneously leveraged by multiple IT teams to rapidly create and deliver applications.
 
-.. figure:: http://s3.nutanixworkshops.com/calm/nucalm/image16.png
-
-To enable adoption and encourage enterprises to use the NTNX platform, Calm will not restrict itself to Nutanix (AHV/Xi), but support multiple platforms used by customers so that customers get used to a single self-service and automation interface via which they can interact with all their infrastructure and use it as a bridge to move more and more into the Nutanix ecosystem and future offerings.
-
-Prism Central VM sized depending on requirements
-
-- Small: 12Gb + 4Gb for Calm.
-- Large: 32Gb + 8Gb for Calm.
-
-Calm is deployed alongside SSP in the Prism Central VM. Calm consumes multiple Nutanix internal services and is not a standalone component. By extension, users must have a Nutanix Prism Central VM to enable Calm functionality.
-
-**Use Cases**
-
-- Automation for complex applications
-   - Not only provisioning, but also self service.
-- Enable application self service for multiple teams
-   - Setup Complex applications with a single click.
-   - Quickly get dev/test environments ready to go.
-- Single view to provision and manage hybrid clouds
-   - Private hypervisors and public cloud together.
+By approaching applications as complete entities, not just virtual machines (VMs), Calm automates how applications are created, consumed and governed. Calm delivers simple, repeatable and automated management of applications across a variety of environments, including private and public clouds.
 
 
 WHAT: Calm Components
@@ -36,19 +19,19 @@ WHAT: Calm Components
 
 **Application-focus**
 
-Calm is an application-centric view of IT infrastructure, as compared to the existing VM-centric views for most IT management planes. As IT evolves to microservices with a focus on self-service and the business user, the business increasingly consumes applications, not the VMs or containers underlying the application. The basic unit of creation within Calm is the application, with a single VM being a simpler application with n=1. Applications containing multiple VMs or containers are provisioned, managed and deleted as a set instead of independent units. 
+Calm is an application-centric view of IT infrastructure, as compared to the existing VM-centric views for most IT management planes. As IT evolves to microservices with a focus on self-service and the business user, the business increasingly consumes applications, not the VMs or containers underlying the application. The basic unit of creation within Calm is the application, with a single VM being a simpler application with n=1. Applications containing multiple VMs or containers are provisioned, managed and deleted as a set instead of independent units.
 
 Calm understands dependencies between components in an application, allowing it to manage and perform multi-VM operations at an application level. Changes like scale up for one component propagate across the application, with Calm resolving other tasks like editing load balancers appropriately.
 
-1-Click application provisioning is possible with Calm’s application-focused interface, whether the application is a single VM or multiple VMs being provisioned in the backend. 
+1-Click application provisioning is possible with Calm’s application-focused interface, whether the application is a single VM or multiple VMs being provisioned in the backend.
 
 **Marketplace**
 
 Calm contains a global Marketplace which is a marketplace to publish and consume applications. While initially Nutanix and select partners will publish applications to this Marketplace, over time, NTNX will open up this Marketplace to a larger group of partners and developers.
 
-Publishers can upload their application designs (a.k.a. blueprints) to the Marketplace. After review, these will be published and made available to consumers who choose to select and launch these applications within thier infrastructure. 
+Publishers can upload their application designs (a.k.a. blueprints) to the Marketplace. After review, these will be published and made available to consumers who choose to select and launch these applications within thier infrastructure.
 
-Application blueprints contain the instrumentation to provision the application across 1 or more platforms, procedures to upgrade, scale up and scale down the app as well as other common operations performed on the application by operations and devops teams. 
+Application blueprints contain the instrumentation to provision the application across 1 or more platforms, procedures to upgrade, scale up and scale down the app as well as other common operations performed on the application by operations and devops teams.
 
 Admins can whitelist blueprints, design and publish their own application blueprints for internal consumption, and be able to launch these blueprints across multiple-clouds.
 
@@ -70,7 +53,7 @@ The runbook engine will also be called out to by internal entities within the Nu
 
 **Environments**
 
-Calm provides support for multiple environments in the customer datacenter (dev/QA/staging/production etc). Each environment will have its own constraints and the same blueprint may be deployed at a different scale or on a different provider depending on the user role and environment requested. This will also enable the usage of Calm for building more complex CI/CD pipelines for customer infrastructure. 
+Calm provides support for multiple environments in the customer datacenter (dev/QA/staging/production etc). Each environment will have its own constraints and the same blueprint may be deployed at a different scale or on a different provider depending on the user role and environment requested. This will also enable the usage of Calm for building more complex CI/CD pipelines for customer infrastructure.
 
 **CI-CD Pipelines**
 
@@ -80,7 +63,7 @@ Calm enables continuous integration and deployment pipelines across multiple env
 
 Calm provides a chargeback and budgeting mechanism via the budgets entity. For private clouds (AHV/ESXi), it lets the user define the costs (per vCPU/GB RAM/GB storage) of infrastructure per cluster and builds a consumption model based on its usage by business groups. For public clouds (Xi/AWS), Calm tracks approximate usage via available platform APIs, showing overall expenditure across hybrid clouds as a single unified view. IT can add a surcharge to the public cloud cost to account for software licensing and management overhead that they may incur.
 
-Quotas are supported in Calm v1.0, carried over from SSP. However, over time, NTNX expects to deprecate these and move customers over to thinking about all their application VMs and infrastructure in $ terms. 
+Quotas are supported in Calm v1.0, carried over from SSP. However, over time, NTNX expects to deprecate these and move customers over to thinking about all their application VMs and infrastructure in $ terms.
 
 **Policy Engine**
 
@@ -88,11 +71,11 @@ The Calm policy engine adds a global layer of policy-based controls to the self-
 
 - Expiry
 
-Expiry policies control the lifetime of the applications provisioned using Calm. Admins can control and set this to a hard date or a relative value. Expiry extensions can be requested and must be approved by the admin of the system. 
+Expiry policies control the lifetime of the applications provisioned using Calm. Admins can control and set this to a hard date or a relative value. Expiry extensions can be requested and must be approved by the admin of the system.
 
 - Underutilized Infra
 
-Using monitoring hooks and data from platform APIs, users can set policies to scale down or shutdown/stop underutilized applications, saving IT resources on AHV nodes and $ on Xi. 
+Using monitoring hooks and data from platform APIs, users can set policies to scale down or shutdown/stop underutilized applications, saving IT resources on AHV nodes and $ on Xi.
 
 - Suspend & Archive
 
@@ -104,11 +87,11 @@ A scheduler allows Calm users to schedule application-specific events to occur o
 
 - Budget Policies
 
-Budget policies control the behavior of the budget entity in the system. They can control what happens when a budget is exceeded (suspend/delete/require approvals) and can also be used to control which team gets to use which budget or related platform. 
+Budget policies control the behavior of the budget entity in the system. They can control what happens when a budget is exceeded (suspend/delete/require approvals) and can also be used to control which team gets to use which budget or related platform.
 
 - Approvals
 
-Approval policies are used to request permissions for any specified event in the system. Approvals are a blocking action and must be resolved before the activity can proceed. Approvals will be in system as well as sent via email. Calm will integrate with ServiceNow approval flows and could potentially call out to other means like configured SMS gateways etc. 
+Approval policies are used to request permissions for any specified event in the system. Approvals are a blocking action and must be resolved before the activity can proceed. Approvals will be in system as well as sent via email. Calm will integrate with ServiceNow approval flows and could potentially call out to other means like configured SMS gateways etc.
 
 - Notifications
 
@@ -116,7 +99,7 @@ Notifications in the Calm system are similar to approvals, but are non-blocking 
 
 **Licensing**
 
-Licensing for Calm: 
+Licensing for Calm:
 
 - Separate SKU, works with both Prism Starter & Pro
 
@@ -135,13 +118,13 @@ The business care about Apps, not VMs.  Managing Apps is challenging. Apps are c
 
 .. figure:: http://s3.nutanixworkshops.com/calm/nucalm/image18.png
 
-Hybrid Clouds add another layer of challenges.  Environments and plattforms are evolving faster than applications, where each platform or environment requires subject matter experts to manage them.  Calm incorporates instrumentation needed to manage this complexity from a single control-point. 
+Hybrid Clouds add another layer of challenges.  Environments and plattforms are evolving faster than applications, where each platform or environment requires subject matter experts to manage them.  Calm incorporates instrumentation needed to manage this complexity from a single control-point.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/nucalm/image19.png
 
 **Application-Focus**
 
-As Nutanix moves up the stack from the IT infrastructure team towards devops and then to the business user, NTNX will provide context that the business user understands. With an application focus, the end-user, who does not understand the specifics of public and private cloud, can request exactly the application that is needed. This does not assume any knowledge about how the application is architected or how many VMs or containers are being provisioned in the backend. A simple consumption model where the user files a request and is charged as per usage is what we aim to provide with the Calm interface. 
+As Nutanix moves up the stack from the IT infrastructure team towards devops and then to the business user, NTNX will provide context that the business user understands. With an application focus, the end-user, who does not understand the specifics of public and private cloud, can request exactly the application that is needed. This does not assume any knowledge about how the application is architected or how many VMs or containers are being provisioned in the backend. A simple consumption model where the user files a request and is charged as per usage is what we aim to provide with the Calm interface.
 
 The Nutanix Enterprise OS abstracts away all these notions and bridges the gap between the private and the public cloud with a consumption focus.
 
@@ -153,7 +136,7 @@ The ability to quickly try out partner and third-party applications helps NTNX b
 
 **Multi-cloud**
 
-Most enterprises are either already using multiple cloud providers or evaluating options across both newer and legacy infrastructure. Customers prefer to have a single automation plane across all their infrastructure, not just Nutanix AHV. Most of our customers will have both AHV and VMware, with Xi and upcoming AWS also in use. In such cases, Calm provides an onramp to our customers onto both AHV and Xi from other clouds. All NTNX Marketplace blueprints are configured for Nutanix as the primary choice. 
+Most enterprises are either already using multiple cloud providers or evaluating options across both newer and legacy infrastructure. Customers prefer to have a single automation plane across all their infrastructure, not just Nutanix AHV. Most of our customers will have both AHV and VMware, with Xi and upcoming AWS also in use. In such cases, Calm provides an onramp to our customers onto both AHV and Xi from other clouds. All NTNX Marketplace blueprints are configured for Nutanix as the primary choice.
 
 Having Calm as the common management plane also ensures that no matter what other provider the customer uses, the Nutanix management and automation plane still provides value to the customer.
 
@@ -163,11 +146,11 @@ Application mobility is a requirements as enterprise customers have multiple pla
 
 **Runbooks**
 
-Most applications used in the enterprise are custom or developed in-house. As a result, it becomes impossible to provide templates for such applications. Every large customer has their own process and architecture that is used to manage their applications and associated infrastructure. In such cases, the ability to define custom runbooks in addition to pre-packaged ones is a necessity to enable automation for all use-cases.  
+Most applications used in the enterprise are custom or developed in-house. As a result, it becomes impossible to provide templates for such applications. Every large customer has their own process and architecture that is used to manage their applications and associated infrastructure. In such cases, the ability to define custom runbooks in addition to pre-packaged ones is a necessity to enable automation for all use-cases.
 
 **Environments**
 
-Environments are a way for users to carve out applications and infrastructure based on its usage and restrict access permissions for different teams. Different constraints may apply on an environment basis and may even have access to different infrastructure. 
+Environments are a way for users to carve out applications and infrastructure based on its usage and restrict access permissions for different teams. Different constraints may apply on an environment basis and may even have access to different infrastructure.
 
 **CI-CD Pipelines**
 
@@ -175,7 +158,7 @@ The CI-CD pipeline is used to track code promotion and build automation/testing 
 
 **Budgets**
 
-Budgets are an important component of self-service, since admins need to track usage of infrastructure across users and teams in the enterprise. With hybrid cloud becoming the norm, IT must be able to normalize and track usage across both public and private clouds in $ terms. Introducing usage tracking and accountability via budgets also ensures that teams use infrastructure judiciously, returning resources back to IT once they are no longer in use rather than hoarding infrastructure. 
+Budgets are an important component of self-service, since admins need to track usage of infrastructure across users and teams in the enterprise. With hybrid cloud becoming the norm, IT must be able to normalize and track usage across both public and private clouds in $ terms. Introducing usage tracking and accountability via budgets also ensures that teams use infrastructure judiciously, returning resources back to IT once they are no longer in use rather than hoarding infrastructure.
 
 **Policy Engine**
 
@@ -183,7 +166,7 @@ The policy engine was born from the realization that business rules and infrastr
 
 **Competition**
 
-Calm is an opinionated and UX-first automation layer that enables NTNX customers to manage their federated infrastructure. 
+Calm is an opinionated and UX-first automation layer that enables NTNX customers to manage their federated infrastructure.
 
 NTNX competition in the automation and orchestration plane is NOT VMware vRA. As we launch Xi and bring Calm to Prism on-prem and the Xi control plane, the competition will be AWS foremost, with the possibility of smaller startups out-innovating NTNX as a company. This is why Calm is not be benchmarked to vRA features, though NTNX will prioritize features as per customer requirements for the Entery.
 
@@ -191,15 +174,15 @@ NTNX competition in the automation and orchestration plane is NOT VMware vRA. As
 Key Terms
 *********
 
-Brief definition of key terms used in document. 
+Brief definition of key terms used in document.
 
 **Infrastructure**
 
-Infrastructure is plain-jane infrastructure comprised of IaaS, consisting of Compute, Network & Storage. Infrastructure is 
-dumb and does not understand the applications running on top of it. Infrastructure can be provided by multiple Providers. 
-Some of these providers are in-house captive, some are pay-as-you-go utility providers. Irrespective of origin all 
-infrastructure costs real dollars to run per unit-of-time. Some infrastructure comes with (practically) infinite capacity 
-vs others have hard limits. A good analogy is energy consumption from Electricity companies vs having on-prem Diesel 
+Infrastructure is plain-jane infrastructure comprised of IaaS, consisting of Compute, Network & Storage. Infrastructure is
+dumb and does not understand the applications running on top of it. Infrastructure can be provided by multiple Providers.
+Some of these providers are in-house captive, some are pay-as-you-go utility providers. Irrespective of origin all
+infrastructure costs real dollars to run per unit-of-time. Some infrastructure comes with (practically) infinite capacity
+vs others have hard limits. A good analogy is energy consumption from Electricity companies vs having on-prem Diesel
 Generators. Examples are AWS, vCenter, Azure.
 
 **Service**
@@ -231,7 +214,7 @@ Blueprints are App Recipes. These recipes encompass App Architecture, Infrastruc
 
 **App**
 
-App is a deployed Blueprint. Every time a Blueprint runs it creates a new App instance. Apps have their own life cycle. 
+App is a deployed Blueprint. Every time a Blueprint runs it creates a new App instance. Apps have their own life cycle.
 
 Also could be considered as a collection of 1 or more VMs managed by Calm.
 
@@ -243,7 +226,7 @@ E.g. a typical dynamic website.
 
 An App has the following life cycle steps:
 
-1. Instantiation: A blueprint is instantiated to setup the application. Instantiation is 
+1. Instantiation: A blueprint is instantiated to setup the application. Instantiation is
 
    i. Provision the Infrastructure components (compute, storage, network)
 
@@ -262,43 +245,43 @@ The visual design & content of your application.  Where all application specs ar
 
 Important components:
 
-1. App Architecture: 
+1. App Architecture:
 
 App architecture specifies how the different components in the target App are connected. This comprises of nodes of different types (compute, storage, network) and the connections between them.
 
-2. Infrastructure choices: 
+2. Infrastructure choices:
 
 Any useful blueprint needs Infrastructure for instantiation. A blueprint can specify the exact infrastructure needed (n AWS VM, m Nutanix VM), a predefined palette or can be completely left to user to specify at instantiation time (late binding). The blueprint developer can also specify policies (or constraints) on the type of infrastructure needed. The platform will not let a blueprint be instantiated if the policies are not met. Other additional policies can be overlaid on the blueprint specified ones later, depending on the organisation setup.
 
-3. Provisioning steps: 
+3. Provisioning steps:
 
 Provisioning is the action of creating infrastructure components (VMs, Firewalls, Containers, Storage,...). Provisioning is usually performed by calling out the Provider specific APIs or commands.
 
-4. App Bits: 
+4. App Bits:
 
 App Bits are the actual software needed for the application to run. A blueprint should have URIs pointing to repositories from where the actual bits are fetched. A blueprint should not bundle the application bits, for size & IP concerns.
 
-5. Deployment steps: 
+5. Deployment steps:
 
 Deployment steps are the commands/scripts needed to setup the App bits to run on the provisioned infrastructure. These are the steps run on each node of infrastructure to setup the node-specific software. Since some of these nodes are virtual endpoints (S3 buckets) these steps can also be specified in terms of API operations that virtual endpoint supports.
 
-6. Command Steps: 
+6. Command Steps:
 
 Command steps are common actions needed to maintain an application. Some of these steps run only on one node in the application while others are multi-node orchestrated flows. Examples include: upgrade, scale-up, scale-down, backup, restore, start, stop. Most of these Commands are specified by the Blueprint developer but the end consumer (with appropriate permissions) should be able to add more to simplify their common use-cases.
 
-7. Monitoring Endpoints: 
+7. Monitoring Endpoints:
 
 A blueprint optionally includes the steps needed to configure common monitoring solutions to setup monitoring for the newly deployed App. The blueprint specifies health checks and metrics along with warning & error thresholds for each node. In addition the blueprint specifies endpoints into the Calm platform where monitoring should feed alerts and other data.
 
-8. Remediation steps: 
+8. Remediation steps:
 
 Remediation steps are needed to get the App to a healthy stage after monitoring or Calm detects runtime errors or alerts. They are triggered by data from the underlying platform or monitoring endpoints.
 
-9. Licensing & Monetization: 
+9. Licensing & Monetization:
 
 A blueprint needs to include machine-readable bits on its licensing restrictions. This informs Calm if the blueprint is editable or shareable by the consumer. Calm can hide the actual scripts from the consumer if  so specified. Monetization decides if the blueprint publisher charges a cost for using it. See Chargeback.
 
-10. Policies: 
+10. Policies:
 
 Policies are requirements for other different components for a blueprint. Policies specify what meta-objectives have to be met for a successful instantiation and use. For example, a policy can specify that the desired App can be instantiated on on-prem Infrastructure, or that a specific node type always requires more than 4 GB RAM.
 
@@ -314,9 +297,9 @@ Marketplace is the exchange channel between blueprint publishers and consumers. 
 Key Actors / Dramatis Persona
 *****************************
 
-1.	Publisher / Producer: The publisher is responsible for developing Blueprints. 
+1.	Publisher / Producer: The publisher is responsible for developing Blueprints.
 
-2.	Consumer / Customer: The consumer uses the Blueprints to deploy and manage desired Apps. 
+2.	Consumer / Customer: The consumer uses the Blueprints to deploy and manage desired Apps.
 
 3.	Infrastructure Admin (Admin): The Infrastructure Admin is responsible for buying, setting up and maintaining the IaaS. This includes one or more people in the IT group that maintain and run the Infrastructure Platforms. Examples are the vCenter Admin team, the Xi Admin team, The inhouse AWS Admin team.
 
@@ -336,7 +319,7 @@ In designing the NTNX App Store we have two main choices, with different mix-n-m
 
 Two sided markets are notoriously hard to bootstrap. The usual approach is to create a high quality walled garden to build a customer base and then getting more third party producers in. This avoids the chicken and egg problem of bringing of both producers and consumers onboard at the same time.
 
-We have an additional wrinkle in that Calm can be deployed in a completely isolated on-prem installations where the users might want to publish Blueprints for internal consumption. 
+We have an additional wrinkle in that Calm can be deployed in a completely isolated on-prem installations where the users might want to publish Blueprints for internal consumption.
 
 .. figure:: http://s3.nutanixworkshops.com/calm/nucalm/image1.png
 
@@ -349,11 +332,11 @@ A Marketplace allows consumers to discover needed services. In our case customer
 
 **Reputation Metrics**
 
-Marketplace keeps track of reputation, ratings & feedback of both producers and consumers. This greatly aids Discovery. 
+Marketplace keeps track of reputation, ratings & feedback of both producers and consumers. This greatly aids Discovery.
 
 **Transaction Guarantees**
 
-Marketplace provides transaction guarantees to producers and consumers when they enter into an exchange (when Blueprints are consumed or updated). If we allow monetization this guarantees the producer gets paid (in whatever virtual currency). 
+Marketplace provides transaction guarantees to producers and consumers when they enter into an exchange (when Blueprints are consumed or updated). If we allow monetization this guarantees the producer gets paid (in whatever virtual currency).
 
 **Enforceable Property Rights**
 
@@ -375,7 +358,7 @@ Marketplace provides curation and approvals for consuming blueprints, enforced b
 Publishers
 **********
 
-Publishers produce the Blueprints for use by Consumers. 
+Publishers produce the Blueprints for use by Consumers.
 
 **Publisher personas**
 
@@ -431,5 +414,3 @@ Consumer Workflow:
 .. |image6| image:: nucalm/media/image16.png
 .. |image7| image:: nucalm/media/image18.png
 .. |image8| image:: nucalm/media/image19.png
-
-

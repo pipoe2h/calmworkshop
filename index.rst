@@ -15,9 +15,8 @@
   :name: _nutanix_calm
   :hidden:
 
-  calm_overview/calm_overview
-  calm/calm
-  calm_positioning/calm_positioning
+  what_is_calm/what_is_calm
+  calm_lab/calm_lab
 
 .. toctree::
   :maxdepth: 2
