@@ -20,8 +20,8 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Nutanix Calm
-  :name: _nutanix_calm
+  :caption: Nutanix Calm Lab
+  :name: _nutanix_calm_lab
   :hidden:
 
   lab_calm/lab_calm
@@ -35,30 +35,19 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Ansible
-  :name: _ansible
+  :caption: Ansible Lab
+  :name: _ansible_lab
   :hidden:
 
   ansible/ansible
 
 .. toctree::
   :maxdepth: 2
-  :caption: Flow
-  :name: _flow
+  :caption: Flow Lab
+  :name: _flow_lab
   :hidden:
 
   flow/flow
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Reference
-  :name: _reference
-  :hidden:
-
-  devops/devops
-  orchestration_tools/orchestration_tools
-  ansible_architecture/ansible_architecture
-  ansible_modules/ansible_modules
 
 .. toctree::
   :maxdepth: 2
