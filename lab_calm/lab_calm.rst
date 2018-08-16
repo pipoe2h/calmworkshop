@@ -1,8 +1,8 @@
-.. _calm:
+.. _lab_calm:
 
-----
-Calm
-----
+----------
+Lab - Calm
+----------
 
 Overview
 ++++++++
