@@ -24,8 +24,11 @@
   :name: _nutanix_calm_lab
   :hidden:
 
-  lab_calm/lab_calm
-
+  calm_enable/calm_enable
+  calm_blueprint_mysql/calm_blueprint_mysql
+  calm_blueprint_lamp/calm_blueprint_lamp
+  calm_marketplace/calm_marketplace
+  
 .. toctree::
   :maxdepth: 2
   :caption: Optional Labs
