@@ -6,8 +6,8 @@
   :name: _technology_overview
   :hidden:
 
-  devops/devops
-  orchestration_tools/orchestration_tools
+  what_is_nutanix/what_is_nutanix
+  nutanix_terminology/nutanix_terminology
 
 .. toctree::
   :maxdepth: 2
@@ -21,21 +21,23 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Ansible example
-  :name: _ansible_example
-  :hidden:
-
-  ansible_architecture/ansible_architecture
-  ansible_modules/ansible_modules
-  ansible/ansible
-
-.. toctree::
-  :maxdepth: 2
   :caption: Optional Labs
   :name: _optional_labs
   :hidden:
 
+  ansible/ansible
   flow/flow
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Reference
+  :name: _reference
+  :hidden:
+
+  devops/devops
+  orchestration_tools/orchestration_tools
+  ansible_architecture/ansible_architecture
+  ansible_modules/ansible_modules
 
 .. toctree::
   :maxdepth: 2

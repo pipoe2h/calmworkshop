@@ -68,7 +68,7 @@ The main function call to access a URL via this library is open_url. It can take
 
 **url_password:** the password for the above listed username
 
-**http_agent:** if you wnat to set the http agent
+**http_agent:** if you want to set the http agent
 
 **force_basic_auth:** for ce the usage of the basic authentication
 
@@ -88,7 +88,7 @@ A more sophisticated example is to push actual information to a REST API. For ex
 Beware that the data json structure needs to be processed by json.dumps. The result of the query can be formatted as json and further used as a json structure:
 
 .. code-block:: python
-  
+
   resp = open_url(...)
   resp_json = json.loads(resp.read())
 
