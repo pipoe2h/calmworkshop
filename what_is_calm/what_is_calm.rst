@@ -1,7 +1,7 @@
 .. _what_is_calm:
 
 ------------
-What Is calm
+What Is Calm
 ------------
 
 Overview
@@ -113,7 +113,7 @@ Nutanix Marketplace Empowers Self-Service
 
 - One-Click App Provisioning
 - Pre-integrated blueprints
-- Self-service based onuser role and group 
+- Self-service based onuser role and group
 
 .. figure:: images/what_is_calm_11.png
 

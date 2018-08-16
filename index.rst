@@ -16,7 +16,8 @@
   :hidden:
 
   what_is_calm/what_is_calm
-  calm_lab/calm_lab
+  selling_calm/selling_calm
+  lab_calm/lab_calm
 
 .. toctree::
   :maxdepth: 2
