@@ -32,6 +32,7 @@
   :name: _optional_labs
   :hidden:
 
+
 .. toctree::
   :maxdepth: 2
   :caption: Ansible
