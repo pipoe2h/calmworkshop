@@ -1,7 +1,8 @@
-.. _lab_ansible:
--------------
-Lab - Ansible
--------------
+.. _ansible:
+
+-------
+Ansible
+-------
 
 Overview
 ++++++++
@@ -540,7 +541,7 @@ that you use CentOS Server v7 to test these modules.
 
 Download the playbook.tar (see link below) and copy it to directory /etc/ansible/ on the server hosting Ansible.
 
-:download:`playbooks.tar </lamp_example.tar.gz>`
+:download:`playbooks.tar <lamp_example.tar.gz>`
 
 Extract the archive as follows:
 
