@@ -17,6 +17,13 @@
 
   what_is_calm/what_is_calm
   selling_calm/selling_calm
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Nutanix Calm
+  :name: _nutanix_calm
+  :hidden:
+
   lab_calm/lab_calm
 
 .. toctree::
@@ -25,7 +32,20 @@
   :name: _optional_labs
   :hidden:
 
+.. toctree::
+  :maxdepth: 2
+  :caption: Ansible
+  :name: _ansible
+  :hidden:
+
   ansible/ansible
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Flow
+  :name: _flow
+  :hidden:
+
   flow/flow
 
 .. toctree::
