@@ -42,7 +42,9 @@
   :name: _ansible_lab
   :hidden:
 
-  ansible/ansible
+  ansible_install/ansible_install
+  ansible_basics/ansible_basics
+  ansible_lamp_playbook/ansible_lamp_playbook
 
 .. toctree::
   :maxdepth: 2
