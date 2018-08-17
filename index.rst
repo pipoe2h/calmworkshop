@@ -94,8 +94,10 @@ Agenda
 - Introductions
 - Technology Overview
 - Nutanix Calm
-- Ansible Example
+- Nutanix Calm Lab
 - Optional Labs
+  - Ansible Lab
+  - Flow Lab
 
 Introductions
 +++++++++++++
