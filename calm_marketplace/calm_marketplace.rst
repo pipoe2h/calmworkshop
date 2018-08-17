@@ -1,8 +1,8 @@
-.. _lab_calm:
+.. _calm_marketplace:
 
-----------
-Lab - Calm
-----------
+----------------
+Calm Marketplace
+----------------
 
 Overview
 ++++++++

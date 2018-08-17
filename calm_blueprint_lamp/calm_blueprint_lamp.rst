@@ -1,8 +1,8 @@
-.. _lab_calm:
+.. _calm_blueprint_lamp:
 
-----------
-Lab - Calm
-----------
+--------------------
+Calm Blueprint: LAMP
+--------------------
 
 Overview
 ++++++++

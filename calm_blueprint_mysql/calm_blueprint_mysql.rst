@@ -1,8 +1,8 @@
-.. _lab_calm:
+.. _calm_blueprint_mysql:
 
-----------
-Lab - Calm
-----------
+---------------------
+Calm Blueprint: MySQL
+---------------------
 
 Overview
 ++++++++

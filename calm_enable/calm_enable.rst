@@ -1,8 +1,8 @@
-.. _lab_calm:
+.. _calm_enable:
 
-----------
-Lab - Calm
-----------
+-----------
+Calm Enable
+-----------
 
 Overview
 ++++++++
