@@ -25,10 +25,10 @@
   :hidden:
 
   calm_enable/calm_enable
-  calm_blueprint_mysql/calm_blueprint_mysql
-  calm_blueprint_lamp/calm_blueprint_lamp
+  calm_mysql_blueprint/calm_mysql_blueprint
+  calm_lamp_blueprint/calm_lamp_blueprint
   calm_marketplace/calm_marketplace
-  
+
 .. toctree::
   :maxdepth: 2
   :caption: Optional Labs
@@ -50,7 +50,11 @@
   :name: _flow_lab
   :hidden:
 
-  flow/flow
+  flow_enable/flow_enable
+  flow_quarantine_vm/flow_quarantine_vm
+  flow_isolate_environments/flow_isolate_environments
+  flow_secure_app/flow_secure_app
+  flow_visualization/flow_visualization
 
 .. toctree::
   :maxdepth: 2
