@@ -1,7 +1,7 @@
-.. _calm_blueprint_mysql:
+.. _calm_mysql_blueprint:
 
 ---------------------
-Calm Blueprint: MySQL
+Calm: MySQL Blueprint
 ---------------------
 
 Overview
@@ -192,3 +192,12 @@ Select **Audit > Create** to view the progress of your application. After **MySQ
 Note the status changes to **Running** after the Blueprint has been successfully provisioned.
 
 .. figure:: https://s3.amazonaws.com/s3.nutanixworkshops.com/calm/lab1/image25.png
+
+Takeaways
++++++++++
+
+- The Blueprint Editor provides a simple UI for modeling potentially complex applications.
+- Blueprints are tied to SSP Projects which can be used to enforce quotas and role based access control.
+- Having a Blueprint install and configure binaries means no longer creating specific images for individual applications. Instead the application can be modified through changes to the Blueprint or installation script, both of which can be stored in source code repositories.
+- Variables allow another dimension of customizing an application without having to edit the underlying Blueprint.
+- Application status can be monitored in real time.

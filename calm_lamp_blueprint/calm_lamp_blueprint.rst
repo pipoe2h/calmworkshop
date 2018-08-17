@@ -1,7 +1,7 @@
-.. _calm_blueprint_lamp:
+.. _calm_lamp_blueprint:
 
 --------------------
-Calm Blueprint: LAMP
+Calm: LAMP Blueprint
 --------------------
 
 Overview
@@ -254,3 +254,10 @@ Select the **Apache_PHP** Service. This will hold the execution of **HAProxy** i
 Click **Save**.
 
 Click **Launch**. Specify a unique **Application Name** (e.g. CalmIntro*<INITIALS>*-2) and click **Create**.
+
+Takeaways
++++++++++
+
+- Applications typically span across multiple VMs, each responsible for different services. Calm is capable of automated and orchestrating full applications.
+- Dependencies between services can be easily modeled in the Blueprint Editor.
+- Users can quickly provision entire application stacks for production or testing for repeatable results without time lost to manual configuration.

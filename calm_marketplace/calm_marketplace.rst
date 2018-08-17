@@ -1,8 +1,8 @@
 .. _calm_marketplace:
 
-----------------
-Calm Marketplace
-----------------
+-----------------
+Calm: Marketplace
+-----------------
 
 Overview
 ++++++++
@@ -230,16 +230,6 @@ Monitor the provisioning of the Blueprint until complete.
 Takeaways
 +++++++++
 
-- Nutanix Calm is a fully integrated component of the Nutanix stack. Easily enabled, highly available out of the box in a Scale Out Prism Central deployment, and takes advantage of non-disruptive One Click upgrades for new features and fixes.
-- By using different projects assigned to different clusters and users, administrators can ensure that workloads are deployed the right way each time.  For example, a developer can be a Project Admin for a dev/test project, so they have full control to deploy to their development clusters or to a cloud, while having Read Only access to production projects, allowing them access to logs but no ability to alter production workloads.
-- The Blueprint Editor provides a simple UI for modeling potentially complex applications.
-- Blueprints are tied to SSP Projects which can be used to enforce quotas and role based access control.
-- Having a Blueprint install and configure binaries means no longer creating specific images for individual applications. Instead the application can be modified through changes to the Blueprint or installation script, both of which can be stored in source code repositories.
-- Variables allow another dimension of customizing an application without having to edit the underlying Blueprint.
-- Application status can be monitored in real time.
-- Applications typically span across multiple VMs, each responsible for different services. Calm is capable of automated and orchestrating full applications.
-- Dependencies between services can be easily modeled in the Blueprint Editor.
-- Users can quickly provision entire application stacks for production or testing for repeatable results without time lost to manual configuration.
 - By using pre-seeded Blueprints from the Nutanix Marketplace, users can quickly try out new applications.
 - Marketplace Blueprints can be cloned and modified to suit a user's needs. For example, the pre-seeded LAMP Blueprint could be a starting point for a developer looking to swap PHP for a Go application server.
 - Marketplace Blueprints can use local disk images or automatically download associated disk images. Users can create their own keys and slipstream them into Blueprints (via cloud-init) to control access.
