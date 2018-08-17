@@ -17,7 +17,17 @@
 
   what_is_calm/what_is_calm
   selling_calm/selling_calm
-  lab_calm/lab_calm
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Nutanix Calm Lab
+  :name: _nutanix_calm_lab
+  :hidden:
+
+  calm_enable/calm_enable
+  calm_mysql_blueprint/calm_mysql_blueprint
+  calm_lamp_blueprint/calm_lamp_blueprint
+  calm_marketplace/calm_marketplace
 
 .. toctree::
   :maxdepth: 2
@@ -25,19 +35,28 @@
   :name: _optional_labs
   :hidden:
 
-  ansible/ansible
-  flow/flow
 
 .. toctree::
   :maxdepth: 2
-  :caption: Reference
-  :name: _reference
+  :caption: Ansible Lab
+  :name: _ansible_lab
   :hidden:
 
-  devops/devops
-  orchestration_tools/orchestration_tools
-  ansible_architecture/ansible_architecture
-  ansible_modules/ansible_modules
+  ansible_install/ansible_install
+  ansible_basics/ansible_basics
+  ansible_lamp_playbook/ansible_lamp_playbook
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Flow Lab
+  :name: _flow_lab
+  :hidden:
+
+  flow_enable/flow_enable
+  flow_quarantine_vm/flow_quarantine_vm
+  flow_isolate_environments/flow_isolate_environments
+  flow_secure_app/flow_secure_app
+  flow_visualization/flow_visualization
 
 .. toctree::
   :maxdepth: 2
@@ -75,8 +94,10 @@ Agenda
 - Introductions
 - Technology Overview
 - Nutanix Calm
-- Ansible Example
+- Nutanix Calm Lab
 - Optional Labs
+  - Ansible Lab
+  - Flow Lab
 
 Introductions
 +++++++++++++
