@@ -21,9 +21,9 @@ From **Prism Central > Apps**, select **Blueprints** from the sidebar and select
 
 In **Application Overview > Services**, click :fa:`plus-circle`.
 
-Note **Service1** appears in the **Workspace** and the **Configuration Pane** reflects the configuration of the selected Service. You can rearrange the Service icons on the Workspace by clicking and dragging them.
+Note **Service2** appears in the **Workspace** and the **Configuration Pane** reflects the configuration of the selected Service. You can rearrange the Service icons on the Workspace by clicking and dragging them.
 
-With the Apache service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.
+With the Apache service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **VM**.
 
 - **Service Name** - APACHE_PHP
 - **Name** - APACHE_PHP_AHV
