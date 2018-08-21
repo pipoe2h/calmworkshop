@@ -68,6 +68,13 @@ Click **Save**.
 Adding DB Service
 .................
 
+.. note::
+
+  Application Overview
+  ....................
+
+  The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Actions, and Application Profiles.
+
 In **Application Overview > Services**, click :fa:`plus-circle`.
 
 Note **Service1** appears in the **Workspace** and the **Configuration Pane** reflects the configuration of the selected Service.
