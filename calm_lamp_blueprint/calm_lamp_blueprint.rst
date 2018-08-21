@@ -229,7 +229,7 @@ Select the HAProxy service icon in the workspace window again and scroll to the 
 
 Fill out the following fields:
 
-- **Click** - Configure install
+- **Click** - Configure uninstall
 - **Click** - + Task
 - **Name Task** - uninstall_haproxy
 - **Type** - Execute
@@ -253,7 +253,7 @@ Select the **Apache_PHP** Service. This will hold the execution of **HAProxy** i
 
 Click **Save**.
 
-Click **Launch**. Specify a unique **Application Name** (e.g. CalmIntro*<INITIALS>*-2) and click **Create**.
+Click **Launch**. Specify a unique **Application Name** (e.g. CalmLAMP*<INITIALS>*-2) and click **Create**.
 
 Takeaways
 +++++++++

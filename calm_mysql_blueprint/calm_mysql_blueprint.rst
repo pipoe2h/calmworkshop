@@ -70,10 +70,7 @@ Adding DB Service
 
 .. note::
 
-  Application Overview
-  ....................
-
-  The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Actions, and Application Profiles.
+  Application Overview - The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Actions, and Application Profiles.
 
 In **Application Overview > Services**, click :fa:`plus-circle`.
 
@@ -184,7 +181,7 @@ Launching the Blueprint
 
 From the toolbar at the top of the Blueprint Editor, click **Launch**.
 
-In the **Name of the Application** field, specify a unique name (e.g. CalmIntro*<INITIALS>*-1).
+In the **Name of the Application** field, specify a unique name (e.g. CalmMySQL*<INITIALS>*-1).
 
 .. note::
 
