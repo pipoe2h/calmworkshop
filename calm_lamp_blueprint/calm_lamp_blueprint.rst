@@ -229,7 +229,7 @@ Select the HAProxy service icon in the workspace window again and scroll to the 
 
 Fill out the following fields:
 
-- **Click** - Configure install
+- **Click** - Configure uninstall
 - **Click** - + Task
 - **Name Task** - uninstall_haproxy
 - **Type** - Execute
