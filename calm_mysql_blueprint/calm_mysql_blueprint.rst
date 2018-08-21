@@ -181,7 +181,7 @@ Launching the Blueprint
 
 From the toolbar at the top of the Blueprint Editor, click **Launch**.
 
-In the **Name of the Application** field, specify a unique name (e.g. CalmIntro*<INITIALS>*-1).
+In the **Name of the Application** field, specify a unique name (e.g. CalmMySQL*<INITIALS>*-1).
 
 .. note::
 
