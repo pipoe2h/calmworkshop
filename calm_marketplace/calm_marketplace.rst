@@ -81,6 +81,7 @@ Select the **Mongo_ConfigSet** Service and make the following changes in the **C
 - Update the **VM Configuration > Image** to **CentOS**.
 - Update the **Network Adapters > NIC** to **Primary**.
 - Update the **Connection > Credential** to **CENTOS**.
+- Uncheck **Guest Customization**
 
 Repeat these steps for the **Mongo_Router** and **Mongo_ReplicaSet** Services.
 
