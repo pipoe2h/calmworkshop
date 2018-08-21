@@ -70,10 +70,7 @@ Adding DB Service
 
 .. note::
 
-  Application Overview
-  ....................
-
-  The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Actions, and Application Profiles.
+  Application Overview - The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Actions, and Application Profiles.
 
 In **Application Overview > Services**, click :fa:`plus-circle`.
 
