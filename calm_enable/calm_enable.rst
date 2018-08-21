@@ -79,8 +79,8 @@ Select |proj-icon| **Projects** from the sidebar.
 
 Fill out the following fields:
 
-- **Project Name** - Calm
-- **Description** - Calm
+- **Project Name** - Calm-*intials*
+- **Description** - Calm-*intials*
 
 Under **Users, Groups, and Roles**, click **+ User**.
 
