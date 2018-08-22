@@ -222,7 +222,7 @@ Create SSH KEY
   $ ssh-keygen
   Generating public/private rsa key pair.
   Enter file in which to save the key (/home/ansible/.ssh/id_rsa):      **Press Enter**
-  Created directory '/home/test/.ssh'.
+  Created directory '/home/ansible/.ssh'.
   Enter passphrase (empty for no passphrase):                          **Press Enter**
   Enter same passphrase again:                                         **Press Enter**
   Your identification has been saved in /home/ansible/.ssh/id_rsa.
