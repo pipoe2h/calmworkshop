@@ -60,6 +60,12 @@ Copy and paste the following script into the **Script** field:
 
   #!/bin/bash
   set -ex
+
+  sudo setenforce 0
+  sudo sed -i 's/permissive/disabled/' /etc/sysconfig/selinux
+  sudo systemctl stop firewalld
+  sudo systemctl disable firewalld
+
   # -*- Install httpd and php
   sudo yum update -y
   sudo yum -y install epel-release
@@ -129,7 +135,7 @@ To take advantage of a scale out web tier our application needs to be able to lo
 
 In **Application Overview > Services**, click :fa:`plus-circle`.
 
-Select **Service1** and fill out the following fields in the **Configuration Pane**:
+Select **Service3** and fill out the following fields in the **Configuration Pane**:
 
 - **Service Name** - HAProxy
 - **Name** - HAPROXYAHV
@@ -168,6 +174,8 @@ Copy and paste the following script into the **Script** field:
 
   sudo setenforce 0
   sudo sed -i 's/permissive/disabled/' /etc/sysconfig/selinux
+  sudo systemctl stop firewalld
+  sudo systemctl disable firewalld
 
   port=80
   sudo yum update -y

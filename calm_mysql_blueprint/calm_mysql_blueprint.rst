@@ -142,8 +142,8 @@ Copy and paste the following script into the **Script** field:
   sudo firewall-cmd --add-service=mysql --permanent
   sudo firewall-cmd --reload
 
-  #mysql -u @@{Mysql_user}@@ -p@@{Mysql_password}@@ <<-EOF
-  mysql -u @@{Mysql_user}@@ <<-EOF
+  mysql -u @@{Mysql_user}@@ -p@@{Mysql_password}@@ <<-EOF
+  #mysql -u @@{Mysql_user}@@ <<-EOF
   CREATE DATABASE @@{Database_name}@@;
   GRANT ALL PRIVILEGES ON homestead.* TO '@@{Database_name}@@'@'%' identified by 'secret';
 
