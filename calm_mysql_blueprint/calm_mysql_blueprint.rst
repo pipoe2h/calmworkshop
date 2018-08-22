@@ -129,7 +129,7 @@ Copy and paste the following script into the **Script** field:
   #Mysql secure installation
   mysql -u root<<-EOF
 
-  #UPDATE mysql.user SET Password=PASSWORD('@@{Mysql_password}@@') WHERE User='@@{Mysql_user}@@';
+  UPDATE mysql.user SET Password=PASSWORD('@@{Mysql_password}@@') WHERE User='@@{Mysql_user}@@';
   DELETE FROM mysql.user WHERE User='@@{Mysql_user}@@' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
   DELETE FROM mysql.user WHERE User='';
   DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';
@@ -142,8 +142,8 @@ Copy and paste the following script into the **Script** field:
   sudo firewall-cmd --add-service=mysql --permanent
   sudo firewall-cmd --reload
 
-  #mysql -u @@{Mysql_user}@@ -p@@{Mysql_password}@@ <<-EOF
-  mysql -u @@{Mysql_user}@@ <<-EOF
+  mysql -u @@{Mysql_user}@@ -p@@{Mysql_password}@@ <<-EOF
+  #mysql -u @@{Mysql_user}@@ <<-EOF
   CREATE DATABASE @@{Database_name}@@;
   GRANT ALL PRIVILEGES ON homestead.* TO '@@{Database_name}@@'@'%' identified by 'secret';
 
