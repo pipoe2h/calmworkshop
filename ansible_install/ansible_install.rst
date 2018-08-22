@@ -221,12 +221,12 @@ Create SSH KEY
 
   $ ssh-keygen
   Generating public/private rsa key pair.
-  Enter file in which to save the key (/home/nucalm/.ssh/id_rsa):      **Press Enter**
+  Enter file in which to save the key (/home/ansible/.ssh/id_rsa):      **Press Enter**
   Created directory '/home/test/.ssh'.
   Enter passphrase (empty for no passphrase):                          **Press Enter**
   Enter same passphrase again:                                         **Press Enter**
-  Your identification has been saved in /home/test/.ssh/id_rsa.
-  Your public key has been saved in /home/test/.ssh/id_rsa.pub.
+  Your identification has been saved in /home/ansible/.ssh/id_rsa.
+  Your public key has been saved in /home/ansible/.ssh/id_rsa.pub.
   The key fingerprint is:
   f0:00:a0:12:6f:27:1b:2e:38:a2:4b:37:d8:65:5c:36 test@CentOS.localdomain
   The key's randomart image is:
