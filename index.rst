@@ -25,8 +25,9 @@
   :hidden:
 
   calm_enable/calm_enable
+  calm_sshkey_creation/calm_sshkey_creation
   calm_mysql_blueprint/calm_mysql_blueprint
-  calm_lamp_blueprint/calm_lamp_blueprint
+  calm_3twa_blueprint/calm_3twa_blueprint
   calm_marketplace/calm_marketplace
 
 .. toctree::
@@ -34,17 +35,6 @@
   :caption: Optional Labs
   :name: _optional_labs
   :hidden:
-
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Ansible Lab
-  :name: _ansible_lab
-  :hidden:
-
-  ansible_install/ansible_install
-  ansible_basics/ansible_basics
-  ansible_lamp_playbook/ansible_lamp_playbook
 
 .. toctree::
   :maxdepth: 2

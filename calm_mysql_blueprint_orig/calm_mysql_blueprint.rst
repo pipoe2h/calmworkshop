@@ -15,7 +15,7 @@ In this exercise you will explore the basics of Nutanix Calm by building and dep
 Creating Blueprint
 ..................
 
-From **Prism Central > Apps** (**Prism Central > Calm** if you're running 5.8.1 or later), select **Blueprints** from the sidebar and click **+ Create Application Blueprint**.
+From **Prism Central > Apps**, select **Blueprints** from the sidebar and click **+ Create Application Blueprint**.
 
 Specify **CalmIntro<INITIALS>** in the **Blueprint Name** field.
 Enter a **Description** in the Description field.
@@ -26,18 +26,17 @@ Click **Proceed** to continue.
 Click **Credentials >** :fa:`plus-circle` and fill out the following fields then click **Save**:
 
 - **Credential Name** - CENTOS
-- **Username** - centos
-- **Secret** - Key
-- **Key** - Paste in your private key from the previous lesson
-
-.. figure:: images/credential.png
+- **Username** - root
+- **Secret** - Password
+- **Password** - nutanix/4u
 
 Click **Back**.
 
 .. note::
-   Credentials are unique to each Blueprint.
-   Each Blueprint requires a minimum of 1 Credential.
-.. note::
+
+  Credentials are unique to each Blueprint.
+
+  Each Blueprint requires a minimum of 1 Credential.
 
 Click **Save** to save your Blueprint.
 
@@ -50,50 +49,28 @@ Variables can be used in scripts executed against objects using the **@@{variabl
 
 In the **Configuration Pane** under **Variable List**, fill out the following fields:
 
-+------------------------+------------------------------------------------------+------------+
-| **Variable Name**      | **Value**                                            | **Secret** |
-+------------------------+------------------------------------------------------+------------+
-| Mysql\_user            | root                                                 |            |
-+------------------------+------------------------------------------------------+------------+
-| Mysql\_password        | nutanix/4u                                           | X          |
-+------------------------+------------------------------------------------------+------------+
-| Database\_name         | homestead                                            |            |
-+------------------------+------------------------------------------------------+------------+
-| INSTANCE\_PUBLIC\_KEY  | Paste in your public key from the previous lesson    |            |
-+------------------------+------------------------------------------------------+------------+
++----------------------+------------------------------------------------------+------------+
+| **Variable Name**    | **Value**                                            | **Secret** |
++----------------------+------------------------------------------------------+------------+
+| Mysql\_user          | root                                                 |            |
++----------------------+------------------------------------------------------+------------+
+| Mysql\_password      | nutanix/4u                                           | X          |
++----------------------+------------------------------------------------------+------------+
+| Database\_name       | homestead                                            |            |
++----------------------+------------------------------------------------------+------------+
+| App\_git\_link       | https://github.com/ideadevice/quickstart-basic.git   |            |
++----------------------+------------------------------------------------------+------------+
 
-.. figure:: images/variables.png
+.. figure:: images/mysql1.png
 
 Click **Save**.
-
-Adding a Downloadable Image
-...........................
-
-All VMs in AHV are based off of a disk image.  You have the option of selecting an image that's already managed by Prism Central, or specifying a Downloadable Image via a URI.  If the latter is chosen, during the application deployment Prism Central will automatically download and create the image specified.  If an image with the same URI already exists on the cluster, it will skip the download and use that instead.
-
-In this lab we're going to use a downloadable image, which is the same image used by most of the pre-seeded marketplace applications.
-
-Near the top, click **Configuration > Downloadable Image Configuration** :fa:`plus-circle` and fill out the following fields:
-
-- **Package Name** - CentOS\_7\_Cloud
-- **Description** - CentOS 7 Cloud Image
-- **Image Name** - CentOS\_7\_Cloud
-- **Image Type** - Disk Image
-- **Architecture** - X86\_64
-- **Source URI** - http://download.nutanix.com/calm/CentOS-7-x86\_64-GenericCloud.qcow2
-- **Product Name** - CentOS
-- **Product Version** - 7
-
-.. figure:: images/image_config.png
-
-Click **Back** and then **Save**.
 
 Adding DB Service
 .................
 
 .. note::
-   Application Overview - The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Application Profiles, and Actions.
-.. note::
+
+  Application Overview - The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Actions, and Application Profiles.
 
 In **Application Overview > Services**, click :fa:`plus-circle`.
 
@@ -104,46 +81,33 @@ Fill out the following fields:
 - **Service Name** - MySQL
 - **Name** - MySQLAHV
 
-.. note::
-   This defines the name of the substrate within Calm. Names can only contain alphanumeric characters, spaces, and underscores.
-.. note::
+  .. note:: This defines the name of the substrate within Calm. Names can only contain alphanumeric characters, spaces, and underscores.
 
 - **Cloud** - Nutanix
 - **OS** - Linux
 - **VM Name** - MYSQL-@@{calm_array_index}@@-@@{calm_time}@@
-- **Image** - CentOS\_7\_Cloud 
+- **Image** - CentOS
 - **Device Type** - Disk
 - **Device Bus** - SCSI
 - Select **Bootable**
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory (GiB)** - 4
-- Select **Guest Customization**
-- Leave **Cloud-init** selected and paste in the following script
-.. code-block:: bash
-
-  #cloud-config
-  users:
-    - name: centos
-      ssh-authorized-keys:
-        - @@{INSTANCE_PUBLIC_KEY}@@
-      sudo: ['ALL=(ALL) NOPASSWD:ALL']
-
-.. code-block:: bash
 - Select :fa:`plus-circle` under **Network Adapters (NICs)**
 - **NIC** - Primary
 - **Credential** - CENTOS
 
-Click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the issue, and **Save** again.
+.. note::
 
-With the MySQL service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.  Name the Package as **MYSQL_PACKAGE**, and then click the **Configure install** button.
+  Ensure selecting the **Credential** is the final selection made before proceeding to the next step, selecting other fields can clear your **Credential** selection.
 
-On the Blueprint Canvas section, a **Package Install** field will pop up next to the MySQL Service tile:
+With the MySQL service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.
 
-.. figure:: images/package_install.png
+Fill out the following fields:
 
-Click on the **+ Task** button, and fill out the following fields on the **Configuration Panel** on the right:
-
+- **Package Name** - MYSQL_PACKAGE
+- **Click** - Configure install
+- **Click** - + Task
 - **Name Task** - Install_sql
 - **Type** - Execute
 - **Script Type** - Shell
@@ -156,12 +120,11 @@ Copy and paste the following script into the **Script** field:
   #!/bin/bash
   set -ex
 
-  sudo yum install -y "http://repo.mysql.com/mysql-community-release-el7.rpm"
-  sudo yum update -y
-  sudo yum install -y mysql-community-server.x86_64
+  yum install -y "http://repo.mysql.com/mysql-community-release-el7.rpm"
+  yum update -y
+  yum install -y mysql-community-server.x86_64
 
-  sudo /bin/systemctl start mysqld
-  sudo /bin/systemctl enable mysqld
+  /bin/systemctl start mysqld
 
   #Mysql secure installation
   mysql -u root<<-EOF
@@ -174,7 +137,13 @@ Copy and paste the following script into the **Script** field:
   FLUSH PRIVILEGES;
   EOF
 
+  sudo yum install firewalld -y
+  sudo service firewalld start
+  sudo firewall-cmd --add-service=mysql --permanent
+  sudo firewall-cmd --reload
+
   mysql -u @@{Mysql_user}@@ -p@@{Mysql_password}@@ <<-EOF
+  #mysql -u @@{Mysql_user}@@ <<-EOF
   CREATE DATABASE @@{Database_name}@@;
   GRANT ALL PRIVILEGES ON homestead.* TO '@@{Database_name}@@'@'%' identified by 'secret';
 
@@ -182,9 +151,10 @@ Copy and paste the following script into the **Script** field:
   EOF
 
 .. note::
-   You can click the **Pop Out** icon on the script field for a larger window to view/edit scripts.
-   Looking at the script you can see the package will install MySQL, configure the credentials and create a database based on the variables specified earlier in the exercise.
-.. note::
+
+  You can click the **Pop Out** icon on the script field for a larger window to view/edit scripts.
+
+  Looking at the script you can see the package will install MySQL, configure the credentials and create a database based on the variables specified earlier in the exercise.
 
 Select the MySQL service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
 
@@ -202,9 +172,7 @@ Copy and paste the following script into the **Script** field:
   #!/bin/bash
   echo "Goodbye!"
 
-.. note::
-   The uninstall script can be used for removing packages, updating network services like DHCP and DNS, removing entries from Active Directory, etc. It is not being used for this simple example.
-.. note::
+.. note:: The uninstall script can be used for removing packages, updating network services like DHCP and DNS, removing entries from Active Directory, etc. It is not being used for this simple example.
 
 Click **Save**. You will be prompted with specific errors if there are validation issues such as missing fields or unacceptable characters.
 
@@ -216,8 +184,8 @@ From the toolbar at the top of the Blueprint Editor, click **Launch**.
 In the **Name of the Application** field, specify a unique name (e.g. CalmMySQL*<INITIALS>*-1).
 
 .. note::
-   A single Blueprint can be launched multiple times within the same environment but each instance requires a unique **Application Name** in Calm.
-.. note::
+
+  A single Blueprint can be launched multiple times within the same environment but each instance requires a unique **Application Name** in Calm.
 
 Click **Create**.
 
