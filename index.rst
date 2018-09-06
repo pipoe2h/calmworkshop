@@ -38,8 +38,8 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Flow Lab
-  :name: _flow_lab
+  :caption: Optional Flow Lab
+  :name: _optional_flow_lab
   :hidden:
 
   flow_enable/flow_enable
