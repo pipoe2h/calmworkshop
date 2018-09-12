@@ -12,6 +12,11 @@ Creating Blueprint (MySQL)
 
 In this exercise you will explore the basics of Nutanix Calm by building and deploying a Blueprint that installs and configures a single service, MySQL, on a CentOS image.
 
+Depending on how comfortable you are with SSH Keys, in this lab you'll have two options:
+
+ - **Cloud Track** - We'll use a Cloud based CentOS image which does not allow password based authentication, instead it relies on *SSH keys*.  Most Public Clouds authenticate in this manner.  If you're comfortable with SSH keys, we recommend you follow this track.
+ - **Local Track** - We'll use a local CentOS image which allows password based authentication.  If you've never used SSH keys before, we recommend you follow this track.
+
 Creating Blueprint
 ..................
 
@@ -23,16 +28,27 @@ Select **Calm** from the **Project** drop down menu and click **Proceed**.
 
 Click **Proceed** to continue.
 
-Click **Credentials >** :fa:`plus-circle` and fill out the following fields then click **Save**:
+Click **Credentials >** :fa:`plus-circle` and depending on which track you're on, do *one* of the two following steps:
+
+**Cloud Track**:
 
 - **Credential Name** - CENTOS
 - **Username** - centos
 - **Secret** - Key
 - **Key** - Paste in your private key from the previous lesson
 
-.. figure:: images/credential.png
+.. figure:: images/keycredential.png
 
-Click **Back**.
+**Local Track**:
+
+- **Credential Name** - CENTOS
+- **Username** - root
+- **Secret** - Password
+- **Password** - nutanix/4u
+
+.. figure:: images/passcredential.png
+
+Click **Save**, and then **Back**.
 
 .. note::
    Credentials are unique to each Blueprint.
@@ -59,7 +75,8 @@ In the **Configuration Pane** under **Variable List**, fill out the following fi
 +------------------------+------------------------------------------------------+------------+
 | Database\_name         | homestead                                            |            |
 +------------------------+------------------------------------------------------+------------+
-| INSTANCE\_PUBLIC\_KEY  | Paste in your public key from the previous lesson    |            |
+| INSTANCE\_PUBLIC\_KEY  | Only required for the **Cloud Track**.               |            |
+|                        | Paste in your public key from the previous lesson.   |            |
 +------------------------+------------------------------------------------------+------------+
 
 .. figure:: images/variables.png
@@ -69,11 +86,9 @@ Click **Save**.
 Adding a Downloadable Image
 ...........................
 
-All VMs in AHV are based off of a disk image.  You have the option of selecting an image that's already managed by Prism Central, or specifying a Downloadable Image via a URI.  If the latter is chosen, during the application deployment Prism Central will automatically download and create the image specified.  If an image with the same URI already exists on the cluster, it will skip the download and use that instead.
+All VMs in AHV are based off of a disk image.  You have the option of selecting an image that's already managed by Prism Central (**Local Track**), or specifying a Downloadable Image via a URI (**Cloud Track**).  If the latter is chosen, during the application deployment Prism Central will automatically download and create the image specified.  If an image with the same URI already exists on the cluster, it will skip the download and use that instead.
 
-In this lab we're going to use a downloadable image, which is the same image used by most of the pre-seeded marketplace applications.
-
-Near the top, click **Configuration > Downloadable Image Configuration** :fa:`plus-circle` and fill out the following fields:
+If you're on the **Cloud Track**, then follow these steps.  If you're on the **Local Track**, skip to the next section (**Adding DB Service**).  Near the top, click **Configuration > Downloadable Image Configuration** :fa:`plus-circle` and fill out the following fields:
 
 - **Package Name** - CentOS\_7\_Cloud
 - **Description** - CentOS 7 Cloud Image
@@ -83,6 +98,10 @@ Near the top, click **Configuration > Downloadable Image Configuration** :fa:`pl
 - **Source URI** - http://download.nutanix.com/calm/CentOS-7-x86\_64-GenericCloud.qcow2
 - **Product Name** - CentOS
 - **Product Version** - 7
+
+.. note::
+   This Cloud based image is the same that's used for the majority of the Nutanix Pre-Seeded Application Blueprints.
+.. note::
 
 .. figure:: images/image_config.png
 
@@ -107,29 +126,39 @@ Fill out the following fields:
 .. note::
    This defines the name of the substrate within Calm. Names can only contain alphanumeric characters, spaces, and underscores.
 .. note::
-
 - **Cloud** - Nutanix
 - **OS** - Linux
 - **VM Name** - MYSQL-@@{calm_array_index}@@-@@{calm_time}@@
-- **Image** - CentOS\_7\_Cloud 
+- **Image**
+
+  - **Cloud Track** - CentOS\_7\_Cloud
+  - **Local Track** - CentOS
+
 - **Device Type** - Disk
 - **Device Bus** - SCSI
 - Select **Bootable**
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory (GiB)** - 4
-- Select **Guest Customization**
-- Leave **Cloud-init** selected and paste in the following script
-.. code-block:: bash
+- **Guest Customization** - Depending on your track:
 
-  #cloud-config
-  users:
-    - name: centos
-      ssh-authorized-keys:
-        - @@{INSTANCE_PUBLIC_KEY}@@
-      sudo: ['ALL=(ALL) NOPASSWD:ALL']
+  - **Cloud Track** - Select Guest Customization
 
-.. code-block:: bash
+    - Leave **Cloud-init** selected and paste in the following script
+
+      .. code-block:: bash
+      
+        #cloud-config
+        users:
+          - name: centos
+            ssh-authorized-keys:
+              - @@{INSTANCE_PUBLIC_KEY}@@
+            sudo: ['ALL=(ALL) NOPASSWD:ALL']
+      
+      .. code-block:: bash
+
+  - **Local Track** - Leave Guest Customization Unselected
+
 - Select :fa:`plus-circle` under **Network Adapters (NICs)**
 - **NIC** - Primary
 - **Credential** - CENTOS
@@ -158,6 +187,10 @@ Copy and paste the following script into the **Script** field:
 
   sudo yum install -y "http://repo.mysql.com/mysql-community-release-el7.rpm"
   sudo yum update -y
+  sudo setenforce 0
+  sudo sed -i 's/enforcing/disabled/g' /etc/selinux/config /etc/selinux/config
+  sudo systemctl stop firewalld || true
+  sudo systemctl disable firewalld || true
   sudo yum install -y mysql-community-server.x86_64
 
   sudo /bin/systemctl start mysqld
@@ -236,4 +269,5 @@ Takeaways
 - Blueprints are tied to SSP Projects which can be used to enforce quotas and role based access control.
 - Having a Blueprint install and configure binaries means no longer creating specific images for individual applications. Instead the application can be modified through changes to the Blueprint or installation script, both of which can be stored in source code repositories.
 - Variables allow another dimension of customizing an application without having to edit the underlying Blueprint.
+- There are multiple ways of authenticating to a VM (keys or passwords), which is dependent upon the source image.
 - Application status can be monitored in real time.

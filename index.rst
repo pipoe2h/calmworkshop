@@ -42,6 +42,7 @@
   :name: _flow_lab
   :hidden:
 
+  what_is_flow/what_is_flow
   flow_enable/flow_enable
   flow_quarantine_vm/flow_quarantine_vm
   flow_isolate_environments/flow_isolate_environments
@@ -71,12 +72,11 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
-    - AOS 5.6
-    - PC 5.7.1
+    - AOS|PC 5.8.1
+
 
 - Optional Lab Updates:
     - Flow
-    - Ansible
 
 Agenda
 ++++++
