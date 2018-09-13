@@ -12,6 +12,13 @@ Calm Blueprint (3TWA)
 
 In this exercise you will extend the MySQL Blueprint created previously into a basic 3 Tier Web Application (a Task Manager), as shown below.  You'll also add the ability to perform Day 2 operations (scaling) to the blueprint.
 
+As with the previous MySQL Lab, this lab has two tracks:
+
+ - **Cloud Track** - We'll use a Cloud based CentOS image which does not allow password based authentication, instead it relies on *SSH keys*.  Most Public Clouds authenticate in this manner.  If you're comfortable with SSH keys, we recommend you follow this track.
+ - **Local Track** - We'll use a local CentOS image which allows password based authentication.  If you've never used SSH keys before, we recommend you follow this track.
+
+You **must** follow the same track as you did for the MySQL lab.
+
 .. figure:: images/3twa1.png
 
 Creating the Web Server
@@ -37,18 +44,25 @@ With the WebServer service icon selected in the workspace window, scroll to the 
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory (GiB)** - 4
-- Select **Guest Customization**
-- Leave **Cloud-init** selected and paste in the following script
-.. code-block:: bash
+- **Guest Customization** - Depending on your track:
 
-  #cloud-config
-  users:
-    - name: centos
-      ssh-authorized-keys:
-        - @@{INSTANCE_PUBLIC_KEY}@@
-      sudo: ['ALL=(ALL) NOPASSWD:ALL']
+  - **Cloud Track** - Select Guest Customization
 
-.. code-block:: bash
+    - Leave **Cloud-init** selected and paste in the following script
+
+      .. code-block:: bash
+
+        #cloud-config
+        users:
+          - name: centos
+            ssh-authorized-keys:
+              - @@{INSTANCE_PUBLIC_KEY}@@
+            sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
+      .. code-block:: bash
+
+  - **Local Track** - Leave Guest Customization Unselected
+
 - Select :fa:`plus-circle` under **Network Adapters (NICs)**
 - **NIC** - Primary
 - **Credential** - CENTOS
@@ -73,6 +87,10 @@ Copy and paste the following script into the **Script** field:
 
   sudo yum update -y
   sudo yum -y install epel-release
+  sudo setenforce 0
+  sudo sed -i 's/enforcing/disabled/g' /etc/selinux/config /etc/selinux/config
+  sudo systemctl stop firewalld || true
+  sudo systemctl disable firewalld || true
   sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
   sudo yum update -y
   sudo yum install -y nginx php56w-fpm php56w-cli php56w-mcrypt php56w-mysql php56w-mbstring php56w-dom git unzip
@@ -118,10 +136,11 @@ Copy and paste the following script into the **Script** field:
   sudo git clone https://github.com/ideadevice/quickstart-basic.git /var/www/laravel
   sudo sed -i 's/DB_HOST=.*/DB_HOST=@@{MySQL.address}@@/' /var/www/laravel/.env
   
+  sudo su - -c "cd /var/www/laravel; composer install"
   if [ "@@{calm_array_index}@@" == "0" ]; then
-    sudo su - -c "cd /var/www/laravel; composer install; php artisan migrate"
+   sudo su - -c "cd /var/www/laravel; php artisan migrate"
   fi
-  
+
   sudo chown -R nginx:nginx /var/www/laravel
   sudo chmod -R 777 /var/www/laravel/
   sudo systemctl restart nginx
@@ -146,7 +165,7 @@ Copy and paste the following script into the **Script** field:
   #!/bin/bash
   set -ex
   
-  sudo rf /var/www/laravel
+  sudo rm -rf /var/www/laravel
   sudo yum erase -y nginx
 
 .. code-block:: bash
@@ -210,18 +229,25 @@ Select **Service3** and fill out the following fields in the **Configuration Pan
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory (GiB)** - 4
-- Select **Guest Customization**
-- Leave **Cloud-init** selected and paste in the following script
-.. code-block:: bash
+- **Guest Customization** - Depending on your track:
 
-  #cloud-config
-  users:
-    - name: centos
-      ssh-authorized-keys:
-        - @@{INSTANCE_PUBLIC_KEY}@@
-      sudo: ['ALL=(ALL) NOPASSWD:ALL']
+  - **Cloud Track** - Select Guest Customization
 
-.. code-block:: bash
+    - Leave **Cloud-init** selected and paste in the following script
+
+      .. code-block:: bash
+
+        #cloud-config
+        users:
+          - name: centos
+            ssh-authorized-keys:
+              - @@{INSTANCE_PUBLIC_KEY}@@
+            sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
+      .. code-block:: bash
+
+  - **Local Track** - Leave Guest Customization Unselected
+
 - Select :fa:`plus-circle` under **Network Adapters (NICs)**
 - **NIC** - Primary
 - **Credential** - CENTOS
@@ -247,6 +273,10 @@ Copy and paste the following script into the **Script** field:
 
   sudo yum update -y
   sudo yum install -y haproxy
+  sudo setenforce 0
+  sudo sed -i 's/enforcing/disabled/g' /etc/selinux/config /etc/selinux/config 
+  sudo systemctl stop firewalld || true
+  sudo systemctl disable firewalld || true
 
   echo "global
    log 127.0.0.1 local0
@@ -358,6 +388,7 @@ Copy and paste the following script into the **Script** field:
   set -ex
   
   host=$(echo "@@{WebServer.address}@@" | awk -F "," '{print $NF}')
+  port=80
   echo " server host-${host} ${host}:${port} weight 1 maxconn 100 check" | sudo tee -a /etc/haproxy/haproxy.cfg
   
   sudo systemctl daemon-reload

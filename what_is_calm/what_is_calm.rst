@@ -40,22 +40,6 @@ Application Automation
 
 .. figure:: images/what_is_calm_03.png
 
-Not Just a Single Cloud
-.......................
-
-Public Cloud:
-
-- Scalable and elastic
-- Cloud-native applications
-
-Private Cloud:
-
-- Predictable and secure
-- Performance sensitive
-- Mission-critical applications
-
-.. figure:: images/what_is_calm_04.png
-
 Delivering the Enterprise Cloud Vision: Multi-Cloud
 ...................................................
 
@@ -66,11 +50,6 @@ Multi-Cloud Management
 - Visibility and control of public cloud consumption
 
 .. figure:: images/what_is_calm_05.png
-
-Nutanix Calm, Delivered in Prism
-................................
-
-.. figure:: images/what_is_calm_06.png
 
 Calm: Application Lifecycle Automation
 ++++++++++++++++++++++++++++++++++++++
