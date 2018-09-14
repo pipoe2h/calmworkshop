@@ -1,0 +1,12 @@
+# $ gem install bundler# 1.16.2  # https://bundler.io/
+# $ bundle install
+source 'https://rubygems.org'
+gem 'bundler', '>= 1.16.1'
+gem 'test-kitchen'
+gem 'kitchen-vagrant'
+gem 'serverspec'
+gem 'inspec'
+gem 'kitchen-inspec'
+gem 'berkshelf'
+# The `minitar` executable is no longer bundled with `minitar`. If you are
+# expecting this executable, make sure you also install `minitar-cli`.

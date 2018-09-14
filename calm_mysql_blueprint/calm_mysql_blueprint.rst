@@ -53,7 +53,7 @@ Click **Save**, and then **Back**.
 .. note::
    Credentials are unique to each Blueprint.
    Each Blueprint requires a minimum of 1 Credential.
-.. note::
+
 
 Click **Save** to save your Blueprint.
 
@@ -101,7 +101,6 @@ If you're on the **Cloud Track**, then follow these steps.  If you're on the **L
 
 .. note::
    This Cloud based image is the same that's used for the majority of the Nutanix Pre-Seeded Application Blueprints.
-.. note::
 
 .. figure:: images/image_config.png
 
@@ -112,7 +111,6 @@ Adding DB Service
 
 .. note::
    Application Overview - The pane within the Blueprint Editor used to create and manage Blueprint Layers. Blueprint Layers consist of Services, Application Profiles, and Actions.
-.. note::
 
 In **Application Overview > Services**, click :fa:`plus-circle`.
 
@@ -125,7 +123,6 @@ Fill out the following fields:
 
 .. note::
    This defines the name of the substrate within Calm. Names can only contain alphanumeric characters, spaces, and underscores.
-.. note::
 - **Cloud** - Nutanix
 - **OS** - Linux
 - **VM Name** - MYSQL-@@{calm_array_index}@@-@@{calm_time}@@
@@ -147,15 +144,13 @@ Fill out the following fields:
     - Leave **Cloud-init** selected and paste in the following script
 
       .. code-block:: bash
-      
+
         #cloud-config
         users:
           - name: centos
             ssh-authorized-keys:
               - @@{INSTANCE_PUBLIC_KEY}@@
             sudo: ['ALL=(ALL) NOPASSWD:ALL']
-      
-      .. code-block:: bash
 
   - **Local Track** - Leave Guest Customization Unselected
 
@@ -217,7 +212,6 @@ Copy and paste the following script into the **Script** field:
 .. note::
    You can click the **Pop Out** icon on the script field for a larger window to view/edit scripts.
    Looking at the script you can see the package will install MySQL, configure the credentials and create a database based on the variables specified earlier in the exercise.
-.. note::
 
 Select the MySQL service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
 
@@ -237,7 +231,6 @@ Copy and paste the following script into the **Script** field:
 
 .. note::
    The uninstall script can be used for removing packages, updating network services like DHCP and DNS, removing entries from Active Directory, etc. It is not being used for this simple example.
-.. note::
 
 Click **Save**. You will be prompted with specific errors if there are validation issues such as missing fields or unacceptable characters.
 
@@ -250,7 +243,6 @@ In the **Name of the Application** field, specify a unique name (e.g. CalmMySQL*
 
 .. note::
    A single Blueprint can be launched multiple times within the same environment but each instance requires a unique **Application Name** in Calm.
-.. note::
 
 Click **Create**.
 
@@ -271,3 +263,8 @@ Takeaways
 - Variables allow another dimension of customizing an application without having to edit the underlying Blueprint.
 - There are multiple ways of authenticating to a VM (keys or passwords), which is dependent upon the source image.
 - Application status can be monitored in real time.
+
+.. |proj-icon| image:: ../images/projects_icon.png
+.. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
+.. |mkt-icon| image:: ../images/marketplace_icon.png
+.. |bp-icon| image:: ../images/blueprints_icon.png

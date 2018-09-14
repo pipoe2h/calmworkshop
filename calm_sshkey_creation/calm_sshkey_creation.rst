@@ -23,8 +23,8 @@ Open up your terminal of choice, and type in *ssh-keygen -t rsa -f ~/[KEY_FILENA
 
    $ ssh-keygen -t rsa -f ~/calmkey -C centos@nutanix.com
    Generating public/private rsa key pair.
-   Enter passphrase (empty for no passphrase): 
-   Enter same passphrase again: 
+   Enter passphrase (empty for no passphrase):
+   Enter same passphrase again:
    Your identification has been saved in /Users/michael.haigh/calmkey.
    Your public key has been saved in /Users/michael.haigh/calmkey.pub.
    The key fingerprint is:
@@ -42,12 +42,11 @@ Open up your terminal of choice, and type in *ssh-keygen -t rsa -f ~/[KEY_FILENA
    |  .     o.oE.B*+*|
    +----[SHA256]-----+
 
-.. code-block:: bash
 
 Accessing the Private Key
 .........................
 
-When working through Calm blueprints and application launches, you'll need the username you provided in the first step (*centos* in my example, as the majority of the pre-seeded marketplace apps use centos as the usernam), and the contents of the private key (including the **-----BEGIN RSA PRIVATE KEY-----** and **-----END RSA PRIVATE KEY-----** lines, **without** any additional new lines at the end).
+When working through Calm blueprints and application launches, you'll need the username you provided in the first step (*centos* in my example, as the majority of the pre-seeded marketplace apps use centos as the username), and the contents of the private key (including the **-----BEGIN RSA PRIVATE KEY-----** and **-----END RSA PRIVATE KEY-----** lines, **without** any additional new lines at the end).
 
 .. code-block:: bash
 
@@ -80,7 +79,6 @@ When working through Calm blueprints and application launches, you'll need the u
    msuEm+VNsXpZQ4lspARV8kqWcNzrhGSfgq1BEHWIHBKp93mMigL4
    -----END RSA PRIVATE KEY-----
 
-.. code-block:: bash
 
 Accessing the Public Key
 ........................
@@ -89,10 +87,9 @@ Depending on the cloud that you're deploying onto, the public SSH key will be us
 
 .. code-block:: bash
 
-   $ cat calmkey.pub 
+   $ cat calmkey.pub
    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDDoJlPj+ACPyHGm0f+FyTQPRt+m1H6JstyLtvFJUntDyF2/dqpcQ9QfKKw1QcjzGdSS8B6HrdOOjKZz42j01/YLWFy2YrDLQOHcNJi6XowCQ059C7bHehP5lqNN6bRIzdQnqGZGYi8iKYzUChMVusfsPd5ZZo0rHCAiCAP1yFqrcSmq83QNN1X8FZ1COoMB66vKyD2rEoeKz4lilEeWKyP4RLmkOc1eMYQNdyMOCNFFbKmC1nPJ+Mpxo1HfNR84R7WNl5oEaNQOORN+NaOzu5Bxim2hhJvU37J+504azZ1PCUiHiC0+zBw4JfeOKMvtInmkEZQEd3y4RrIHLXKB4Yb centos@nutanix.com
 
-.. code-block:: bash
 
 Windows
 +++++++
@@ -102,13 +99,20 @@ SSH Key Creation
 
 If Putty Keygen is not already present on your machine, first download and install puttygen.exe_.
 
+.. _puttygen.exe: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
 - Open up Putty Key Generator
 - Create a key by clicking **Generate** and then moving your mouse in the blank section
 - Convert the private key to OpenSSH format by selecting **Conversion > Export OpenSSH key**
+
   .. figure:: images/putty1.png
-- On the pop-up, selct **Yes** as a passphrase is not required, and not supported for Prism Central versions less than 5.8.1
+
+- On the pop-up, select **Yes** as a passphrase is not required, and not supported for Prism Central versions less than 5.8.1
+
   .. figure:: images/putty2.png
+
 - Save the key with a name of your choice (I'm using **calmPem.pem** in my example)
+
   .. figure:: images/putty3.png
 
 Accessing the Private Key
@@ -131,4 +135,3 @@ Takeaways
 - Calm and the public clouds use private and public RSA SSH Keys for secure authentication
 - Private keys are always entered in to the **Credentials** section of the blueprint or application launch page
 - Public keys are inputted in different ways depending on the cloud you're deploying onto
-
