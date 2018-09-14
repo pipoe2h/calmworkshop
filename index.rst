@@ -25,8 +25,9 @@
   :hidden:
 
   calm_enable/calm_enable
+  calm_sshkey_creation/calm_sshkey_creation
   calm_mysql_blueprint/calm_mysql_blueprint
-  calm_lamp_blueprint/calm_lamp_blueprint
+  calm_3twa_blueprint/calm_3twa_blueprint
   calm_marketplace/calm_marketplace
 
 .. toctree::
@@ -35,23 +36,13 @@
   :name: _optional_labs
   :hidden:
 
-
 .. toctree::
   :maxdepth: 2
-  :caption: Ansible Lab
-  :name: _ansible_lab
+  :caption: Optional Flow Lab
+  :name: _optional_flow_lab
   :hidden:
 
-  ansible_install/ansible_install
-  ansible_basics/ansible_basics
-  ansible_lamp_playbook/ansible_lamp_playbook
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Flow Lab
-  :name: _flow_lab
-  :hidden:
-
+  what_is_flow/what_is_flow
   flow_enable/flow_enable
   flow_quarantine_vm/flow_quarantine_vm
   flow_isolate_environments/flow_isolate_environments
@@ -81,12 +72,11 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
-    - AOS 5.6
-    - PC 5.7.1
+    - AOS|PC 5.8.1
+
 
 - Optional Lab Updates:
     - Flow
-    - Ansible
 
 Agenda
 ++++++

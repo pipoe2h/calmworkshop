@@ -1,0 +1,7 @@
+To stage this workshop, follow these steps:
+
+1)  SSH into CVM
+
+2)  Run the following command (replace nathan.cox with your email) "curl --remote-name --location https://raw.githubusercontent.com/nutanixworkshops/partnercalmworkshop/master/setup/bootstrap.sh && MY_EMAIL=nathan.cox sh ${_##*/}"
+
+3)  Follow the prompts.

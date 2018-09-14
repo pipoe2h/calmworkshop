@@ -21,7 +21,10 @@ From **Prism Central > Apps**, select |mktmgr-icon| **Marketplace Manager** from
 
 Under **Marketplace Blueprints**, select **Mongo**.
 
-Note the Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations. Click **Publish**.
+.. note::
+The Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations.
+
+Select the **Calm** project from the right-hand side drop down and Click **Publish**.
 
 .. figure:: images/marketplace_p1_1.png
 
@@ -148,11 +151,11 @@ Review the available actions:
 
 Click **Approve**.
 
-Once the application has been successfully approved, assign the appropriate **Category** and **Project Shared With**. Click **Apply**.
+Once the application has been successfully approved, it will appear under the **Marketplace Blueprints** tabs. Find it and assign the appropriate **Category** and **Project Shared With**. Click **Apply**.
 
 .. figure:: images/marketplace_p2_6.png
 
-Select the **Marketplace Blueprints** tab and select your Blueprint. Click **Publish**.
+Select select your Blueprint from the **Marketplace Blueprints** tab and click **Publish**.
 
 Verify the Blueprint's **Status** is now shown as **Published**.
 
@@ -175,9 +178,15 @@ Select the Project **Name** associated with your Blueprint at the time of publis
 
 Select the **Environment** tab.
 
-Under **Credential**, click :fa:`plus-circle` to add new credential.
-Fill out the following fields:
+Under **Credential**, click :fa:`plus-circle` and depending on which track you're on, do *one* of the two following steps to add a new credential:
 
+**Cloud Track**:
+- **Credential Name** - CENTOS
+- **Username** - centos
+- **Secret** - Key
+- **Key** - Paste in your private key from the previous lesson **Calm: SSH Key Creation**
+
+**Local Track**:
 - **Credential Name** - CENTOS
 - **Username** - root
 - **Secret** - Password
@@ -237,3 +246,8 @@ Takeaways
 - Developers can publish Blueprints to the Marketplace for fast and easy consumption by users.
 - Blueprints can be launched directly from the Marketplace with no additional configuration from users, delivering a public cloud-like SaaS experience for end users.
 - Administrators have control over what Blueprints are published to the Marketplace and which projects have access to published Blueprints.
+
+.. |proj-icon| image:: ../images/projects_icon.png
+.. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
+.. |mkt-icon| image:: ../images/marketplace_icon.png
+.. |bp-icon| image:: ../images/blueprints_icon.png

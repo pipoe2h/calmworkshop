@@ -82,8 +82,6 @@ Copy and paste the following script into the **Script** field:
   sudo systemctl restart httpd
   sudo systemctl enable httpd
 
-.. code-block:: bash
-
 Select the Apache service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
 
 Fill out the following fields:
@@ -101,8 +99,6 @@ Copy and paste the following script into the **Script** field:
 
   #!/bin/bash
   echo "Goodbye!"
-
-.. code-block:: bash
 
 Click **Save**.
 
@@ -231,8 +227,6 @@ Copy and paste the following script into the **Script** field:
   sudo systemctl enable haproxy
   sudo systemctl restart haproxy
 
-.. code-block:: bash
-
 Select the HAProxy service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
 
 Fill out the following fields:
@@ -251,8 +245,6 @@ Copy and paste the following script into the **Script** field:
   #!/bin/bash
   echo "Goodbye!"
 
-.. code-block:: bash
-
 Click **Save**.
 
 In the **Workspace**, select the **HAProxy** Service and click the **Create Dependency** icon that appears above the Service icon.
@@ -269,3 +261,8 @@ Takeaways
 - Applications typically span across multiple VMs, each responsible for different services. Calm is capable of automated and orchestrating full applications.
 - Dependencies between services can be easily modeled in the Blueprint Editor.
 - Users can quickly provision entire application stacks for production or testing for repeatable results without time lost to manual configuration.
+
+.. |proj-icon| image:: ../images/projects_icon.png
+.. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
+.. |mkt-icon| image:: ../images/marketplace_icon.png
+.. |bp-icon| image:: ../images/blueprints_icon.png
