@@ -330,11 +330,12 @@ function Images
   # 2.  PUT images/uuid/file: upload uuid, body, checksum and checksum type: sha1, sha256
   # or nuclei, only on PCVM or in container
 
-  for IMG in CentOS7-04282018.qcow2 Windows2012R2-04282018.qcow2 ; do
+  for IMG in CentOS7-06252018.qcow2 Windows2012R2-04282018.qcow2 Windows10-1709-04282018.qcow2 ; do
     log "${IMG} image.create..."
     nuclei image.create name=${IMG} \
        description="${0} via stage_calmhow_pc for ${IMG}" \
-       source_uri=http://10.21.250.221/images/ahv/techsummit/${IMG}
+       #source_uri=http://10.21.250.221/images/ahv/techsummit/${IMG}
+       source_uri=https://s3.amazonaws.com/get-ahv-images/${IMG}
      log "NOTE: image.uuid = RUNNING, but takes a while to show up in:"
      log "TODO: nuclei image.list, state = COMPLETE; image.list Name UUID State"
     if (( $? != 0 )); then
