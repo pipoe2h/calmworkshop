@@ -3,7 +3,7 @@
 # Dependencies: curl, ncli, nuclei, jq #sshpass (removed, needed for remote)
 
 function PC_LDAP
-{ # TODO:140 configure case for each authentication server type?
+{ # TODO:170 configure case for each authentication server type?
   local _GROUP
   local _HTTP_BODY
   local _TEST
@@ -27,7 +27,7 @@ EOF
     https://localhost:9440/PrismGateway/services/rest/v1/authconfig/directories)
   log "_TEST=|${_TEST}|"
 
-  log "Add Role Mappings to Groups for PC logins (not projects, which are separate)..." #TODO:10 hardcoded role mappings
+  log "Add Role Mappings to Groups for PC logins (not projects, which are separate)..." #TODO:40 hardcoded role mappings
   for _GROUP in 'SSP Admins' 'SSP Power Users' 'SSP Developers' 'SSP Basic Users'; do
     _HTTP_BODY=$(cat <<EOF
     {
@@ -58,9 +58,9 @@ function SSP_Auth {
     | jq -r .entities[0].metadata.uuid)
   log "_LDAP_UUID=|${_LDAP_UUID}|"
 
-  # TODO: get directory service name _LDAP_NAME
+  # TODO:20 get directory service name _LDAP_NAME
   _LDAP_NAME=${LDAP_SERVER}
-  # TODO:50 bats? test ldap connection
+  # TODO:80 bats? test ldap connection
 
   log "Connect SSP Authentication (spec-ssp-authrole.json)..."
   _HTTP_BODY=$(cat <<EOF
@@ -100,9 +100,9 @@ EOF
     https://localhost:9440/api/nutanix/v3/directory_services/${_LDAP_UUID})
   log "SSP_CONNECT=|${SSP_CONNECT}|"
 
-  # TODO:30 SSP Admin assignment, cluster, networks (default project?) = spec-project-config.json
+  # TODO:60 SSP Admin assignment, cluster, networks (default project?) = spec-project-config.json
   # PUT https://10.21.47.39:9440/api/nutanix/v3/directory_services/9d8c2c33-9d95-438c-a7f4-2187120ae99e = spec-ssp-direcory_service.json
-  # TODO: make directory_type variable?
+  # TODO:0 make directory_type variable?
   log "Enable SSP Admin Authentication (spec-ssp-direcory_service.json)..."
   _HTTP_BODY=$(cat <<EOF
   {
@@ -133,7 +133,7 @@ EOF
     https://localhost:9440/api/nutanix/v3/directory_services/${_LDAP_UUID})
   log "SSP_CONNECT=|${SSP_CONNECT}|"
   # POST https://10.21.47.39:9440/api/nutanix/v3/groups = spec-ssp-groups.json
-  # TODO can we skip previous step?
+  # TODO:10 can we skip previous step?
   log "Enable SSP Admin Authentication (spec-ssp-groupauth_2.json)..."
   _HTTP_BODY=$(cat <<EOF
   {
@@ -234,7 +234,7 @@ EOF
 
 function PC_Init
 { # depends on ncli
-  # TODO:40 PC_Init: NCLI, type 'cluster get-smtp-server' config for idempotency?
+  # TODO:70 PC_Init: NCLI, type 'cluster get-smtp-server' config for idempotency?
 
   local _TEST
   local OLD_PW='nutanix/4u'
@@ -528,7 +528,7 @@ PC_Init \
 && Enable_Flow \
 && Check_Prism_API_Up 'PC'
 
-PC_Project # TODO:20 PC_Project is a new function, non-blocking at end.
+PC_Project # TODO:50 PC_Project is a new function, non-blocking at end.
 
 if (( $? == 0 )); then
   Dependencies 'remove' 'sshpass' && Dependencies 'remove' 'jq' \

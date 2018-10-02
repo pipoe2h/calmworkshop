@@ -195,7 +195,7 @@ function AuthenticationServer()
           acli image.create ${LDAP_SERVER} \
             container=${MY_IMG_CONTAINER_NAME} \
             image_type=kDiskImage \
-            source_url=https://s3.amazonaws.com/get-ahv-images/AutoDC.qcow2 \
+            source_url=https://s3.amazonaws.com/get-ahv-images/AutoDC-04282018.qcow2 \
             wait=true
         fi
 
@@ -250,7 +250,7 @@ function AuthenticationServer()
 
         while true ; do
           (( _LOOP++ ))
-          # TODO:100 Samba service reload better? vs. force-reload and restart
+          # TODO:130 Samba service reload better? vs. force-reload and restart
           remote_exec 'SSH' 'LDAP_SERVER' \
             "samba-tool dns zonecreate dc1 ${octet[2]}.${octet[1]}.${octet[0]}.in-addr.arpa && service samba-ad-dc restart" \
             'OPTIONAL'
@@ -426,8 +426,8 @@ function PC_Init
     rm -f ${MY_PC_SRC_URL##*/} ${MY_PC_META_URL##*/}
 
     log "Deploy Prism Central (typically takes 17+ minutes)..."
-    # TODO:120 Parameterize DNS Servers & add secondary
-    # TODO:90 make scale-out & dynamic, was: 4vCPU/16GB = 17179869184, 8vCPU/40GB = 42949672960
+    # TODO:150 Parameterize DNS Servers & add secondary
+    # TODO:120 make scale-out & dynamic, was: 4vCPU/16GB = 17179869184, 8vCPU/40GB = 42949672960
     local _LDAP_SERVER=
     HTTP_BODY=$(cat <<EOF
 {
