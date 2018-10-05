@@ -28,6 +28,7 @@
   calm_sshkey_creation/calm_sshkey_creation
   calm_mysql_blueprint/calm_mysql_blueprint
   calm_3twa_blueprint/calm_3twa_blueprint
+  calm_windows_blueprint/calm_windows_blueprint
   calm_marketplace/calm_marketplace
 
 .. toctree::
