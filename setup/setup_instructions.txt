@@ -1,3 +1,12 @@
+Partner Calm Workshop PreReqs and Setup instructions.
+
+PreReqs:
+
+1)  AOS 5.8.1 or 5.8.2
+
+2)  Update AHV to current version shipped with AOS 5.8.x
+
+
 To stage this workshop, follow these steps:
 
 1)  SSH into CVM
