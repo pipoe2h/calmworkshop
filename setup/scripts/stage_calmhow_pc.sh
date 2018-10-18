@@ -330,7 +330,7 @@ function Images
   # 2.  PUT images/uuid/file: upload uuid, body, checksum and checksum type: sha1, sha256
   # or nuclei, only on PCVM or in container
 
-  for IMG in CentOS7-06252018.qcow2 Windows2012R2-04282018.qcow2 Windows10-1709-04282018.qcow2 ; do
+  for IMG in CentOS7-06252018.qcow2 Windows2012R2-04282018.qcow2 Windows10-1709-04282018.qcow2 Nutanix-VirtIO-1.1.3.iso ; do
     log "${IMG} image.create..."
     nuclei image.create name=${IMG} \
        description="${0} via stage_calmhow_pc for ${IMG}" \
