@@ -46,7 +46,7 @@ In the Set Categories text box, type **AppType** and select **AppType: app-abc**
 Assign VM **flow-abc-1** the default category **Environment: Dev**
 ------------------------------------------------------------------
 
-Within the **Explore > VMs** view in Prism Central, click the check box beside the **flow-abc-5** VM.
+Within the **Explore > VMs** view in Prism Central, click the check box beside the **flow-abc-1** VM.
 
 Click **Actions > Manage Categories**.
 
