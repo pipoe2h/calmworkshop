@@ -25,6 +25,7 @@
   :hidden:
 
   calm_enable/calm_enable
+  calm_projects/calm_projects
   calm_sshkey_creation/calm_sshkey_creation
   calm_mysql_blueprint/calm_mysql_blueprint
   calm_3twa_blueprint/calm_3twa_blueprint

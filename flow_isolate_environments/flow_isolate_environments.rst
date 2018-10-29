@@ -42,7 +42,7 @@ Navigate to **Explore > Security Policies** within Prism Central.
 
 Click **Create Security Policy** > Select **Isolate Environments**.
 
-Fill out the following fields and click **Apply Now**:
+Fill out the following fields:
 
 - **Name** - isolate-interns-sales-abc, replacing abc with your initials.
 - **Purpose** - Isolate intern vm traffic from sales.
@@ -52,6 +52,7 @@ Do NOT select the check box for **Apply the isolation only within a subset of th
 
 •	Enter interns-abc as a possible value of this category, replacing abc with your initials.
 •	Click the plus sign and enter sales-abc as another value in this category, replacing abc with your initials.
+• Click **Apply Now** to save and apply the policy.
 
 .. note::
   The Save and Monitor button allows you to save the configuration and monitor how the security policy works without applying it.
