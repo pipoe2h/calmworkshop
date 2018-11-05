@@ -16,6 +16,8 @@ To stage this workshop, follow these steps:
 
 3)  Follow the prompts.
 
+** You may see "Failed connect to localhost:8181" That is OK as long as you see the connection to external repo for SSHPASS **
+
 ********************************************************************
 
 The script will do the following:
