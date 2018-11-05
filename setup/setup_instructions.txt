@@ -6,6 +6,7 @@ PreReqs:
 
 2)  Update AHV to current version shipped with AOS 5.8.x
 
+** You do not need to install Prism Central, that happens as part of the script. **
 
 To stage this workshop, follow these steps:
 
@@ -14,3 +15,15 @@ To stage this workshop, follow these steps:
 2)  Run the following command (replace nathan.cox with your email) "curl --remote-name --location https://raw.githubusercontent.com/nutanixworkshops/partnercalmworkshop/master/setup/bootstrap.sh && MY_EMAIL=nathan.cox sh ${_##*/}"
 
 3)  Follow the prompts.
+
+********************************************************************
+
+The script will do the following:
+
+- Configure Primary and Secondary Network
+- Download AutoDC image, and deploy it
+- Configure Authentication to AutoDC
+- Change DNS to point at AutoDC
+- Download & Deploy Prism Central
+- Enable calm
+- Download Images and ISOs needed for the bootcamp

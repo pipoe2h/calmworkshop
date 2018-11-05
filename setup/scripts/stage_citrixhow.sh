@@ -316,7 +316,7 @@ rm ${MY_PC_SRC_URL##*/} ${MY_PC_META_URL##*/}
 
 # Deploy Prism Central
 my_log "Deploy Prism Central"
-# TODO:80 Parameterize DNS Servers & add secondary
+# TODO:110 Parameterize DNS Servers & add secondary
 MY_DEPLOY_BODY=$(cat <<EOF
 {
   "resources": {
