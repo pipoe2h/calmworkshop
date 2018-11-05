@@ -180,7 +180,7 @@ Copy and paste the following script into the **Script** field:
   #!/bin/bash
   set -ex
 
-  sudo yum install -y "http://repo.mysql.com/mysql-community-release-el7.rpm"
+  sudo yum install -y "http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm"
   sudo yum update -y
   sudo setenforce 0
   sudo sed -i 's/enforcing/disabled/g' /etc/selinux/config /etc/selinux/config

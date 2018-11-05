@@ -1,0 +1,5 @@
+# https://github.com/GitTools/GitVersion
+mode: ContinuousDeployment
+branches: {}
+ignore:
+  sha: []
