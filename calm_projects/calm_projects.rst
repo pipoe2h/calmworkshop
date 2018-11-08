@@ -18,6 +18,10 @@ In this exercise you will configure a Project to contain your Blueprints and App
 Creating A Project
 ++++++++++++++++++
 
+Open \https://*<Prism-Central-IP>*:9440/ in a browser and log in.
+
+From the navigation bar, select **Calm** (if you're running PC <5.8.1, then select **Apps**).
+
 Projects are the logical construct that integrate Calm with Nutanix's native Self-Service Portal (SSP) capabilities, allowing an administrator to assign both infrastructure resources and the roles/permissions of Active Directory users/groups to specific Blueprints and Applications.
 
 Click + Create Project
