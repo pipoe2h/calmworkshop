@@ -50,8 +50,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Nutanix Tech Summit 2018'
-copyright = u'2018 Nutanix'
+project = u'Nutanix Calm Bootcamp 2019'
+copyright = u'2019 Nutanix'
 author = u'Nutanix Global Technical Enablement'
 
 # The version info for the project you're documenting, acts as replacement for

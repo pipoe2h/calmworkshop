@@ -1,4 +1,4 @@
-.. title:: Nutanix Partner Calm Workshop
+.. title:: Nutanix Calm Bootcamp
 
 .. toctree::
   :maxdepth: 2
@@ -7,7 +7,7 @@
   :hidden:
 
   what_is_nutanix/what_is_nutanix
-  nutanix_terminology/nutanix_terminology
+.. nutanix_terminology/nutanix_terminology
 
 .. toctree::
   :maxdepth: 2
@@ -16,7 +16,9 @@
   :hidden:
 
   what_is_calm/what_is_calm
-  selling_calm/selling_calm
+  calm_basics/basics
+.. selling_calm/selling_calm
+
 
 .. toctree::
   :maxdepth: 2
@@ -26,6 +28,7 @@
 
   calm_projects/calm_projects
   calm_sshkey_creation/calm_sshkey_creation
+  calm_singlevm_blueprint/calm_singlevm_blueprint
   calm_mysql_blueprint/calm_mysql_blueprint
   calm_3twa_blueprint/calm_3twa_blueprint
   calm_windows_blueprint/calm_windows_blueprint
@@ -33,7 +36,7 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Optional Flow Lab
+.. :caption: Optional Flow Lab
   :name: _optional_flow_lab
   :hidden:
 
@@ -59,7 +62,6 @@
   :hidden:
 
   appendix/glossary
-  appendix/basics
 
 .. _getting_started:
 
@@ -67,19 +69,19 @@
 Getting Started
 ---------------
 
-Welcome to the Nutanix Partner Calm Workshop! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+Welcome to the Nutanix Calm Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
-At the end of the workshop, attendees should understand the basic concepts and technologies that make up Nutanix Calm and should be well prepared to demo and talk about Calm.
+At the end of the bootcamp, attendees should understand the basic concepts and technologies that make up Nutanix Calm and should be well prepared to install, design and operate Calm blueprints and applications.
 
 What's New
 ++++++++++
 
-- Workshop updated for the following software versions:
-    - AOS|PC 5.8.1
+- Bootcamp updated for the following software versions:
+    - AOS|PC 5.10
 
 
-- Optional Lab Updates:
-    - Flow
+.. - Optional Lab Updates:
+..    - Flow
 
 Agenda
 ++++++
@@ -88,9 +90,9 @@ Agenda
 - Technology Overview
 - Nutanix Calm
 - Nutanix Calm Lab
-- Optional Labs
-  - Ansible Lab
-  - Flow Lab
+.. - Optional Labs
+..   - Ansible Lab
+..   - Flow Lab
 
 Introductions
 +++++++++++++
@@ -107,7 +109,7 @@ Initial Setup
 Environment Details
 +++++++++++++++++++
 
-Nutanix Workshops are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
+Nutanix Bootcamps are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
 
 Networking
 ..........
@@ -130,7 +132,7 @@ For example:
 - **Subnet** - 10.21.55.0
 - **Cluster IP** - 10.21.55.37
 
-Throughout the Workshop there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
+Throughout the Bootcamp there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
 
 .. list-table::
   :widths: 25 75
@@ -169,7 +171,7 @@ Credentials
 
 .. note::
 
-  The *<Cluster Password>* is unique to each cluster and will be provided by the leader of the Workshop.
+  The *<Cluster Password>* is unique to each cluster and will be provided by the leader of the Bootcamp.
 
 .. list-table::
   :widths: 25 35 40

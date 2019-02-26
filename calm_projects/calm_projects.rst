@@ -20,15 +20,15 @@ Creating A Project
 
 Open \https://*<Prism-Central-IP>*:9440/ in a browser and log in.
 
-From the navigation bar, select **Calm** (if you're running PC <5.8.1, then select **Apps**).
+From the navigation bar, click ( |menu-icon| top left corner) **Menu** > **Services** > **Calm** (if you're running PC <5.10, then select **Calm** on top navigation bar)
 
 Projects are the logical construct that integrate Calm with Nutanix's native Self-Service Portal (SSP) capabilities, allowing an administrator to assign both infrastructure resources and the roles/permissions of Active Directory users/groups to specific Blueprints and Applications.
 
-Click + Create Project
-
 Select |proj-icon| **Projects** from the sidebar.
 
-.. figure:: images/581enable8.png
+.. figure:: images/510enable8.png
+
+Click **+ Create Project**
 
 Fill out the following fields:
 
@@ -66,6 +66,7 @@ Under **Network**, select the **Primary** and if available, the **Secondary** ne
 Click **Save**.
 
 .. figure:: images/enable7.png
+    :scale: 75 %
 
 .. note::
 
@@ -81,3 +82,5 @@ Takeaways
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
 .. |mkt-icon| image:: ../images/marketplace_icon.png
 .. |bp-icon| image:: ../images/blueprints_icon.png
+.. |menu-icon| image:: ../images/menu_icon.png
+

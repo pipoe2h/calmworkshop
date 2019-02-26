@@ -12,14 +12,6 @@ Creating Blueprint (MySQL)
 
 In this exercise you will explore the basics of Nutanix Calm by building and deploying a Blueprint that installs and configures a single service, MySQL, on a CentOS image.
 
-Depending on how comfortable you are with SSH Keys, in this lab you'll have two options:
-
- - **Cloud Track** - We'll use a Cloud based CentOS image which does not allow password based authentication, instead it relies on *SSH keys*.  Most Public Clouds authenticate in this manner.  If you're comfortable with SSH keys, we recommend you follow this track.
- - **Local Track** - We'll use a local CentOS image which allows password based authentication.  If you've never used SSH keys before, we recommend you follow this track.
-
-Creating Blueprint
-..................
-
 From **Prism Central > Apps** (**Prism Central > Calm** if you're running 5.8.1 or later), select **Blueprints** from the sidebar and click **+ Create Application Blueprint**.
 
 Specify **CalmIntro<INITIALS>** in the **Blueprint Name** field.

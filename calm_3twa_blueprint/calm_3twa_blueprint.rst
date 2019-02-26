@@ -12,73 +12,41 @@ Calm Blueprint (3TWA)
 
 In this exercise you will extend the MySQL Blueprint created previously into a basic 3 Tier Web Application (a Task Manager), as shown below.  You'll also add the ability to perform Day 2 operations (scaling) to the blueprint.
 
-As with the previous MySQL Lab, this lab has two tracks:
-
- - **Cloud Track** - We'll use a Cloud based CentOS image which does not allow password based authentication, instead it relies on *SSH keys*.  Most Public Clouds authenticate in this manner.  If you're comfortable with SSH keys, we recommend you follow this track.
- - **Local Track** - We'll use a local CentOS image which allows password based authentication.  If you've never used SSH keys before, we recommend you follow this track.
-
-You **must** follow the same track as you did for the MySQL lab.
-
 .. figure:: images/3twa1.png
 
 Creating the Web Server
 .......................
 
-From **Prism Central > Apps**, select **Blueprints** from the sidebar and select your Blueprint from the previous exercise.
+From **Prism Central > Services > Calm**, select **Blueprints** from the sidebar and select your Blueprint from the previous exercise. An **Action** menu has been enabled on the top, click on it and **Clone** your blueprint.
 
-In **Application Overview > Services**, click :fa:`plus-circle`.
+Specify **Calm3TWA<INITIALS>** in the **Blueprint Name** field.
 
-Note **Service2** appears in the **Workspace** and the **Configuration Pane** reflects the configuration of the selected Service. You can rearrange the Service icons on the Workspace by clicking and dragging them.
+Click **Clone** to continue.
 
-With the WebServer service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **VM**.
+Select the MySQL service object, and create two clones of the deployment. Click twice on the clone deployment icon ( |clone-icon| )
+
+.. figure:: images/3twa3.png
+
+Choose one of the two new services to convert this into the WebServer. With the WebServer service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **VM**.
+
+Rename the following fields:
 
 - **Service Name** - WebServer
-- **Name** - WebServer\_AHV
-- **Cloud** - Nutanix
-- **OS** - Linux
-- **VM Name** - WebServer-@@{calm\_array\_index}@@-@@{calm\_time}@@
-- **Image** - CentOS\_7\_Cloud
-- **Device Type** - Disk
-- **Device Bus** - SCSI
-- Select **Bootable**
-- **vCPUs** - 2
-- **Cores per vCPU** - 1
-- **Memory (GiB)** - 4
-- **Guest Customization** - Depending on your track:
-
-  - **Cloud Track** - Select Guest Customization
-
-    - Leave **Cloud-init** selected and paste in the following script
-
-      .. code-block:: bash
-
-        #cloud-config
-        users:
-          - name: centos
-            ssh-authorized-keys:
-              - @@{INSTANCE_PUBLIC_KEY}@@
-            sudo: ['ALL=(ALL) NOPASSWD:ALL']
-
-      .. code-block:: bash
-
-  - **Local Track** - Leave Guest Customization Unselected
-
-- Select :fa:`plus-circle` under **Network Adapters (NICs)**
-- **NIC** - Primary
-- **Credential** - CENTOS
+- **Name** - WebServerAHV
+- **VM Name** - WEBSERVER-@@{calm\_array\_index}@@-@@{calm\_time}@@
 
 Click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the issue, and **Save** again.
 
-With the WebServer service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.  Name the Package as **WebServer_PACKAGE**, and then click the **Configure install** button.
+With the WebServer service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.  Rename the Package to **WEBSERVER_PACKAGE**, and then click the **Configure install** button.
 
-On the Blueprint Canvas section, a **Package Install** field will pop up next to the WebServer Service tile.  Click on the **+ Task** button, and fill out the following fields on the **Configuration Panel** on the right:
+On the Blueprint Canvas section, click on the existing task in the **Package Install** field and update all the fields on the **Configuration Panel** on the right with:
 
-- **Name Task** - Install_WebServer
+- **Name Task** - Install_webserver
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+Replace the existing script with the next one:
 
 .. code-block:: bash
 
@@ -133,7 +101,7 @@ Copy and paste the following script into the **Script** field:
    sudo chmod +x /usr/local/bin/composer
   fi
 
-  sudo git clone https://github.com/ideadevice/quickstart-basic.git /var/www/laravel
+  sudo git clone https://github.com/pipoe2h/quickstart-basic.git /var/www/laravel
   sudo sed -i 's/DB_HOST=.*/DB_HOST=@@{MySQL.address}@@/' /var/www/laravel/.env
 
   sudo su - -c "cd /var/www/laravel; composer install"
@@ -145,20 +113,18 @@ Copy and paste the following script into the **Script** field:
   sudo chmod -R 777 /var/www/laravel/
   sudo systemctl restart nginx
 
-.. code-block:: bash
+.. figure:: images/3twa4.png
 
-Select the WebServer service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
+Select the WebServer service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**, and then click the **Configure uninstall** button.
 
-Fill out the following fields:
+On the Blueprint Canvas section, click on the existing task in the **Package Uninstall** field and update all the fields on the **Configuration Panel** on the right with:
 
-- **Click** - Configure uninstall
-- **Click** - + Task
-- **Name Task** - Uninstall_WebServer
+- **Name Task** - Uninstall_webserver
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+Replace the existing script with the next one:
 
 .. code-block:: bash
 
@@ -168,16 +134,16 @@ Copy and paste the following script into the **Script** field:
   sudo rm -rf /var/www/laravel
   sudo yum erase -y nginx
 
-.. code-block:: bash
+.. figure:: images/3twa5.png
 
 Click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the issue, and **Save** again.
 
 Adding Dependencies
 ...................
 
-As our application will require the database to be running before the web server starts, our Blueprint requires a dependency to enforce this ordering.  There are a couple of ways to do this, one of which we've already done without likely realizing it.  If you didn't save after the last step, be sure to do that first.
+As our application will require the database to be running before the web server starts, our Blueprint requires a dependency to enforce this ordering. There are a couple of ways to do this, one of which we've already done without likely realizing it. If you didn't save after the last step, be sure to do that first.
 
-In the **Application Overview > Application Profile** section, expand the **Default** Application Profile (if you renamed the Application Profile at a previous step, then just select that re-named application profile).  Next, click on the **Create** Profile Action and view the **Workspace**:
+In the **Application Overview > Application Profile** section, expand the **Default** Application Profile (if you renamed the Application Profile at a previous step, then just select that re-named application profile). Next, click on the **Create** Profile Action and view the **Workspace**:
 
 .. figure:: images/dependency1.png
 
@@ -213,58 +179,26 @@ Creating the Load Balancer
 
 To take advantage of a scale out web tier our application needs to be able to load balance connections across multiple web server VMs. HAProxy is a free, open source TCP/HTTP load balancer used to distribute workloads across multiple servers. It can be used in small, simple deployments and large web-scale environments such as GitHub, Instagram, and Twitter.
 
-In **Application Overview > Services**, click :fa:`plus-circle`.
+Select the remaining cloned service to convert this into the HAProxy load balancer. With the HAProxy service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **VM**.
 
-Select **Service3** and fill out the following fields in the **Configuration Pane**:
+Rename the following fields:
 
 - **Service Name** - HAProxy
-- **Name** - HAPROXYAHV
-- **Cloud** - Nutanix
-- **OS** - Linux
-- **VM Name** - HAProxy-@@{calm\_array\_index}@@-@@{calm\_time}@@
-- **Image** - CentOS\_7\_Cloud
-- **Device Type** - Disk
-- **Device Bus** - SCSI
-- Select **Bootable**
-- **vCPUs** - 2
-- **Cores per vCPU** - 1
-- **Memory (GiB)** - 4
-- **Guest Customization** - Depending on your track:
+- **Name** - HAProxyAHV
+- **VM Name** - HAPROXY-@@{calm\_array\_index}@@-@@{calm\_time}@@
 
-  - **Cloud Track** - Select Guest Customization
+Click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the issue, and **Save** again.
 
-    - Leave **Cloud-init** selected and paste in the following script
+With the WebServer service icon selected in the workspace window, scroll to the top of the **Configuration Panel**, click **Package**.  Rename the Package to **HAPROXY_PACKAGE**, and then click the **Configure install** button.
 
-      .. code-block:: bash
+On the Blueprint Canvas section, click on the existing task in the **Package Install** field and update all the fields on the **Configuration Panel** on the right with:
 
-        #cloud-config
-        users:
-          - name: centos
-            ssh-authorized-keys:
-              - @@{INSTANCE_PUBLIC_KEY}@@
-            sudo: ['ALL=(ALL) NOPASSWD:ALL']
-
-      .. code-block:: bash
-
-  - **Local Track** - Leave Guest Customization Unselected
-
-- Select :fa:`plus-circle` under **Network Adapters (NICs)**
-- **NIC** - Primary
-- **Credential** - CENTOS
-
-Scroll to the top of the **Configuration Panel**, click **Package**.
-
-Fill out the following fields:
-
-- **Package Name** - HAPROXY_PACKAGE
-- **Click** - Configure install
-- **Click** - + Task
-- **Name Task** - install_haproxy
+- **Name Task** - Install_haproxy
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+Replace the existing script with the next one:
 
 .. code-block:: bash
 
@@ -298,7 +232,7 @@ Copy and paste the following script into the **Script** field:
    balance roundrobin
   # Set up application listeners here.
   listen admin
-   bind 127.0.0.1:22002
+   bind 0.0.0.0:9000
    mode http
    stats uri /
   frontend http
@@ -318,20 +252,18 @@ Copy and paste the following script into the **Script** field:
   sudo systemctl enable haproxy
   sudo systemctl restart haproxy
 
-.. code-block:: bash
+.. figure:: images/3twa6.png
 
-Select the HAProxy service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**.
+Select the HAProxy service icon in the workspace window again and scroll to the top of the **Configuration Panel**, click **Package**, and then click the **Configure uninstall** button.
 
-Fill out the following fields:
+On the Blueprint Canvas section, click on the existing task in the **Package Uninstall** field and update all the fields on the **Configuration Panel** on the right with:
 
-- **Click** - Configure uninstall
-- **Click** - + Task
-- **Name Task** - uninstall_haproxy
+- **Name Task** - Uninstall_haproxy
 - **Type** - Execute
 - **Script Type** - Shell
 - **Credential** - CENTOS
 
-Copy and paste the following script into the **Script** field:
+Replace the existing script with the next one:
 
 .. code-block:: bash
 
@@ -341,11 +273,13 @@ Copy and paste the following script into the **Script** field:
   sudo
   yum -y erase haproxy
 
-.. code-block:: bash
-
 Click **Save**.
 
+.. figure:: images/3twa7.png
+
 In the **Workspace**, select the **HAProxy** Service and click the **Create Dependency** icon that appears above the Service icon.  Select the **WebServer** Service.
+
+.. figure:: images/dependency4.png
 
 Click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the issue, and **Save** again.
 
@@ -360,7 +294,7 @@ In the **Application Overview > Application Profile** section, expand the **Defa
 
 .. figure:: images/scaleout1.png
 
-Next to the **WebServer** service tile, click the **+ Task** button, then fill out the following fields:
+At the bottom outside of the **WebServer** service tile, click the **+ Task** button, then fill out the following fields:
 
 - **Task Name** - web_scale_out
 - **Type** - Scaling
@@ -373,7 +307,7 @@ Click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the
 
 When a user later runs the **Scale Out** task, a new **WebServer** VM will get created, and the **Package Install** tasks for that service will be exectured.  However, we do need to modify the **HAProxy** configuration in order to start taking advantage of this new web server.
 
-Next to the **HAProxy** service tile, click the **+ Task** button, then fill out the following fields:
+At the bottom of the **HAProxy** service tile, click the **+ Task** button, then fill out the following fields:
 
 - **Task Name** - add_webserver
 - **Type** - Execute
@@ -394,8 +328,6 @@ Copy and paste the following script into the **Script** field:
   sudo systemctl daemon-reload
   sudo systemctl restart haproxy
 
-.. code-block:: bash
-
 That script will grab the last address in the WebServer address array, and add it to the haproxy.cfg file.  However, we want to be sure that this doesn't happen until **after** the new WebServer is fully up, otherwise the HAProxy server may send requests to a non-functioning WebServer.
 
 To solve this issue, on the **Workspace**, click on the **web_scale_out** task, then the **Create Edge** arrow icon, and finally click on the **add_webserver** task to draw the edge.  Afterwards your **Workspace** should look like this:
@@ -409,7 +341,7 @@ Again imagine you're the administrator of this Task Manager Application we're bu
 
 .. figure:: images/scalein1.png
 
-Next to the **WebServer** service tile, click the **+ Task** button, then fill out the following fields:
+At the bottom outside of the **WebServer** service tile, click the **+ Task** button, then fill out the following fields:
 
 - **Task Name** - web_scale_in
 - **Type** - Scaling
@@ -422,7 +354,7 @@ Click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the
 
 When a user later runs the **Scale In** task, the last **WebServer** replica will have its **Package Uninstall** task run, the VM will be shut down, and then deleted, which will reclaim resources.  However, we do need to modify the **HAProxy** configuration to ensure that we're no longer sending traffic to the to-be-deleted Web Server.
 
-Next to the **HAProxy** service tile, click the **+ Task** button, then fill out the following fields:
+At the bottom of the **HAProxy** service tile, click the **+ Task** button, then fill out the following fields:
 
 - **Task Name** - del_webserver
 - **Type** - Execute
@@ -441,8 +373,6 @@ Copy and paste the following script into the **Script** field:
 
   sudo systemctl daemon-reload
   sudo systemctl restart haproxy
-
-.. code-block:: bash
 
 That script will grab the last address in the WebServer address array, and remove it from the haproxy.cfg file.  Similar to the last step, we want to be sure that this happens **before** the new WebServer is destroyed, otherwise the HAProxy server may send requests to a non-functioning WebServer.
 
@@ -475,3 +405,4 @@ Takeaways
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
 .. |mkt-icon| image:: ../images/marketplace_icon.png
 .. |bp-icon| image:: ../images/blueprints_icon.png
+.. |clone-icon| image:: ../images/clone_deployment_icon.png
