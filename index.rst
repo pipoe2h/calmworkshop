@@ -223,10 +223,12 @@ Access Instructions
 
 The Nutanix Hosted POC environment can be accessed a number of different ways:
 
-Citrix XenDesktop
+Parallels VDI
 .................
 
-https://citrixready.nutanix.com - *Accessible via the Citrix Receiver client or HTML5*
+1) Login to https://xld-uswest1.nutanix.com (for PHX) or https://xld-useast1.nutanix.com (for RTP) using your supplied credentials
+2) Select HTML5 (web browser) OR Install the Parallels Client
+3) Select a desktop or application of your choice.
 
 **Nutanix Employees** - Use your NUTANIXDC credentials
 
@@ -240,14 +242,20 @@ https://sslvpn.nutanix.com - Use your CORP credentials
 Non-Employee Pulse Secure VPN
 ..............................
 
-https://lab-vpn.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+1) If client already installed skip to step 5
+2) To download the client, login to https://xlv-uswest1nutanix.com or https://xlv-useast1.nutanix.com using the supplied user credentials
+3) Download and install client
+4) Logout of the Web UI
+5) Open client and ADD a connection with the following details:
 
-Under **Client Application Sessions**, click **Start** to the right of **Pulse Secure** to download the client.
+Type: Policy Secure (UAC) or Connection Server(VPN)
+Name: X-Labs - PHX
+Server URL: xlv-uswest1.nutanix.com
 
-Install and open **Pulse Secure**.
+OR
 
-Add a connection:
+Type: Policy Secure (UAC) or Connection Server(VPN)
+Name: X-Labs - RTP
+Server URL: xlv-useast1.nutanix.com
 
-- **Type** - Policy Secure (UAC) or Connection Server
-- **Name** - HPOC VPN
-- **Server URL** - lab-vpn.nutanix.com
+6) Once setup, login with the supplied credentials
