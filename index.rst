@@ -54,6 +54,7 @@
 
   calm_enable/calm_enable
   calm_windows_blueprint/calm_windows_blueprint
+  kalm_wordpress_blueprint/kalm_wordpress_blueprint
 
 
 .. toctree::

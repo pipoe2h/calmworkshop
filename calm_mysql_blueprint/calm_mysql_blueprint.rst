@@ -16,13 +16,11 @@ From **Prism Central > Apps** (**Prism Central > Calm** if you're running 5.8.1 
 
 Specify **CalmIntro<INITIALS>** in the **Blueprint Name** field.
 Enter a **Description** in the Description field.
-Select **Calm** from the **Project** drop down menu and click **Proceed**.
+Select **Calm-<your_initials>** from the Project drop down menu and click **Proceed**.
 
 Click **Proceed** to continue.
 
-Click **Credentials >** :fa:`plus-circle` and depending on which track you're on, do *one* of the two following steps:
-
-**Cloud Track**:
+Click **Credentials >** :fa:`plus-circle` and add a credential with the following details:
 
 - **Credential Name** - CENTOS
 - **Username** - centos
@@ -30,15 +28,6 @@ Click **Credentials >** :fa:`plus-circle` and depending on which track you're on
 - **Key** - Paste in your private key from the previous lesson
 
 .. figure:: images/keycredential.png
-
-**Local Track**:
-
-- **Credential Name** - CENTOS
-- **Username** - root
-- **Secret** - Password
-- **Password** - nutanix/4u
-
-.. figure:: images/passcredential.png
 
 Click **Save**, and then **Back**.
 
@@ -67,8 +56,7 @@ In the **Configuration Pane** under **Variable List**, fill out the following fi
 +------------------------+------------------------------------------------------+------------+
 | Database\_name         | homestead                                            |            |
 +------------------------+------------------------------------------------------+------------+
-| INSTANCE\_PUBLIC\_KEY  | Only required for the **Cloud Track**.               |            |
-|                        | Paste in your public key from the previous lesson.   |            |
+| INSTANCE\_PUBLIC\_KEY  | Paste in your public key from the previous lesson.   |            |
 +------------------------+------------------------------------------------------+------------+
 
 .. figure:: images/variables.png
@@ -78,9 +66,9 @@ Click **Save**.
 Adding a Downloadable Image
 ...........................
 
-All VMs in AHV are based off of a disk image.  You have the option of selecting an image that's already managed by Prism Central (**Local Track**), or specifying a Downloadable Image via a URI (**Cloud Track**).  If the latter is chosen, during the application deployment Prism Central will automatically download and create the image specified.  If an image with the same URI already exists on the cluster, it will skip the download and use that instead.
+All VMs in AHV are based off of a disk image.  You have the option of selecting an image that's already managed by Prism Central, or specifying a Downloadable Image via a URI. If the latter is chosen, during the application deployment Prism Central will automatically download and create the image specified. If an image with the same URI already exists on the cluster, it will skip the download and use that instead.
 
-If you're on the **Cloud Track**, then follow these steps.  If you're on the **Local Track**, skip to the next section (**Adding DB Service**).  Near the top, click **Configuration > Downloadable Image Configuration** :fa:`plus-circle` and fill out the following fields:
+Near the top, click **Configuration > Downloadable Image Configuration** :fa:`plus-circle` and fill out the following fields:
 
 - **Package Name** - CentOS\_7\_Cloud
 - **Description** - CentOS 7 Cloud Image
@@ -120,8 +108,7 @@ Fill out the following fields:
 - **VM Name** - MYSQL-@@{calm_array_index}@@-@@{calm_time}@@
 - **Image**
 
-  - **Cloud Track** - CentOS\_7\_Cloud
-  - **Local Track** - CentOS
+  - **CentOS\_7\_Cloud**
 
 - **Device Type** - Disk
 - **Device Bus** - SCSI
@@ -129,9 +116,9 @@ Fill out the following fields:
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory (GiB)** - 4
-- **Guest Customization** - Depending on your track:
+- **Guest Customization**:
 
-  - **Cloud Track** - Select Guest Customization
+  - Select **Guest Customization**
 
     - Leave **Cloud-init** selected and paste in the following script
 
@@ -143,8 +130,6 @@ Fill out the following fields:
             ssh-authorized-keys:
               - @@{INSTANCE_PUBLIC_KEY}@@
             sudo: ['ALL=(ALL) NOPASSWD:ALL']
-
-  - **Local Track** - Leave Guest Customization Unselected
 
 - Select :fa:`plus-circle` under **Network Adapters (NICs)**
 - **NIC** - Primary
