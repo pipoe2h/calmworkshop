@@ -234,7 +234,13 @@ Parallels VDI
 
 **Nutanix Employees** - Use your NUTANIXDC credentials
 
-**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+PHX
+---
+**Non-Employees** - **Username:** PHX-POCxxx-User01 (up to PHX-POCxxx-User20), **Password:** *<Provided by Instructor>*
+
+RTP
+---
+**Non-Employees** - **Username:** RTP-POCxxx-User01 (up to RTP-POCxxx-User20), **Password:** *<Provided by Instructor>*
 
 Employee Pulse Secure VPN
 ..........................
