@@ -141,12 +141,10 @@ Once finished click **Services** and expand the *Apache* tier to see the two pod
 Takeaways
 +++++++++
 
-- The Blueprint Editor provides a simple UI for modeling potentially complex applications.
-- Blueprints are tied to SSP Projects which can be used to enforce quotas and role based access control.
-- Having a Blueprint install and configure binaries means no longer creating specific images for individual applications. Instead the application can be modified through changes to the Blueprint or installation script, both of which can be stored in source code repositories.
-- Variables allow another dimension of customizing an application without having to edit the underlying Blueprint.
-- There are multiple ways of authenticating to a VM (keys or passwords), which is dependent upon the source image.
-- Application status can be monitored in real time.
+- Deploy Kubernetes applications anywhere and not only VMs.
+- Orchestrate visually complex containerised applications.
+- Create hybrid blueprints with VMs and Pods together.
+- Scale with one-click your applications.
 
 .. |proj-icon| image:: ../images/projects_icon.png
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
