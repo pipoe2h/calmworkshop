@@ -31,7 +31,6 @@
   calm_singlevm_blueprint/calm_singlevm_blueprint
   calm_mysql_blueprint/calm_mysql_blueprint
   calm_3twa_blueprint/calm_3twa_blueprint
-  calm_windows_blueprint/calm_windows_blueprint
   calm_marketplace/calm_marketplace
 
 .. toctree::
@@ -54,6 +53,8 @@
   :hidden:
 
   calm_enable/calm_enable
+  calm_windows_blueprint/calm_windows_blueprint
+
 
 .. toctree::
   :maxdepth: 2
