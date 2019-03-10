@@ -68,10 +68,10 @@
 .. _getting_started:
 
 ---------------
-Getting Started
+Wintrust Calm Bootcamp
 ---------------
 
-Welcome to the Nutanix Calm Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+Welcome to the Wintrust Calm Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 At the end of the bootcamp, attendees should understand the basic concepts and technologies that make up Nutanix Calm and should be well prepared to install, design and operate Calm blueprints and applications.
 
