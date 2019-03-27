@@ -194,7 +194,7 @@ With the Windows10 service icon selected in the workspace window, scroll to the 
 
 On the Blueprint Canvas section, a **Package Install** field will pop up next to the Windows10 Service tile:
 
-.. figure:: images/windows5.png
+.. figure:: images/510windows5.png
 
 Click on the **+ Task** button, and fill out the following fields on the **Configuration Panel** on the right:
 
@@ -208,7 +208,7 @@ Copy and paste the following script into the **Script** field:
 .. code-block:: powershell
 
    $HOSTNAME = "Win-@@{calm_unique}@@"
-   
+
    function Set-Hostname{
      [CmdletBinding()]
      Param(
@@ -221,7 +221,7 @@ Copy and paste the following script into the **Script** field:
        Rename-Computer -NewName $HOSTNAME -ErrorAction Stop
      }
    }
-   
+
    function JointoDomain {
      [CmdletBinding()]
      Param(
@@ -238,7 +238,7 @@ Copy and paste the following script into the **Script** field:
      )
      $adapter = Get-NetAdapter | ? {$_.Status -eq "up"}
      $adapter | Set-DnsClientServerAddress -ServerAddresses $Server
-   
+
      if ($env:computername  -eq $env:userdomain) {
        Write-Host "Not in domain"
        $adminname = "$DomainName\$Username"
@@ -250,17 +250,17 @@ Copy and paste the following script into the **Script** field:
         Write-Host "Already in domain"
      }
    }
-   
+
    if ($HOSTNAME -ne $Null){
      Write-Host "Setting Hostname"
      Set-Hostname -Hostname $HOSTNAME
    }
-   
+
    JointoDomain -DomainName "@@{DOMAIN}@@" -Username "@@{DOMAIN_CRED.username}@@" -Password "@@{DOMAIN_CRED.secret}@@" -Server "@@{AD_IP}@@"
-   
+
    Restart-Computer -Force -AsJob
    exit 0
-   
+
 
 .. note::
    Looking at the script you can see a function that sets the VM's hostname if it is not already set, a function that joins the computer to the domain specified via our macro and credentials that we set earlier, and finally restarts the user VM so the domain join takes affect.
@@ -282,7 +282,7 @@ Copy and paste the following script into the **Script** field:
 .. code-block:: powershell
 
    $HOSTNAME = "Win-@@{calm_unique}@@"
-   
+
    function RemoveFromDomain {
      [CmdletBinding()]
      Param(
@@ -297,7 +297,7 @@ Copy and paste the following script into the **Script** field:
      )
      $adapter = Get-NetAdapter | ? {$_.Status -eq "up"}
      $adapter | Set-DnsClientServerAddress -ServerAddresses $Server
-   
+
      $adminname = "$DomainName\$Username"
      $adminpassword = ConvertTo-SecureString -asPlainText -Force -String "$Password"
      Write-Host "$adminname , $password"
@@ -305,7 +305,7 @@ Copy and paste the following script into the **Script** field:
      Remove-computer -UnjoinDomaincredential $credential -PassThru -Verbose -Force
      Write-Host "Removed from domain @@{DOMAIN}@@"
    }
-   
+
    RemoveFromDomain -DomainName "@@{DOMAIN}@@" -Username "@@{DOMAIN_CRED.username}@@" -Password "@@{DOMAIN_CRED.secret}@@"
 
 
@@ -339,7 +339,7 @@ Verification
 
 Once the application is in a **Running** state, click on the **Services** tab, then select the **Windows10** service.  On the pane that opens to the right, copy the **Name** of the VM (it should be named something like Win-0-123456-789012).  Next, click on the **Explore** tab at the very top of Prism Central, ensure **VMs** is selected on the left side, and paste in the name of your VM to filter.
 
-.. figure:: images/windows7.png
+.. figure:: images/510windows7.png
 
 Next, select your VM as shown above, then click the **Actions** button near the top, and then select **Launch Console**.  You should now be able to access your Windows VM.
 
@@ -352,7 +352,7 @@ Takeaways
 
 - In addition to Linux VM management with shell scripts, Nutanix Calm can natively manage Windows VMs via Powershell and Sysprep.
 - Although the labs have focused solely on either Linux or Windows, Calm also supports managing different OSes within the same blueprint.  You can even manage VMs on different clouds, all within the same blueprint.
-- Calm's system defined **Soft Delete** action allows you to delete an application from Calm, without affecting the underlying VMs, which is useful for Jumpboxes and Developer workstations. 
+- Calm's system defined **Soft Delete** action allows you to delete an application from Calm, without affecting the underlying VMs, which is useful for Jumpboxes and Developer workstations.
 
 .. |proj-icon| image:: ../images/projects_icon.png
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png

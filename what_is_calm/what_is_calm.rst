@@ -32,149 +32,99 @@ Nutanix provides the foundation for your Enterprise cloud.
 Delivering the Enterprise Cloud Vision
 ......................................
 
+Application Automation
+
+- App-centric orchestrationand lifecycle management
+- Policy-based governance
+- Self-Service provisioning
+
 .. figure:: images/what_is_calm_03.png
 
-Self-Service and Governance
-...........................
+Delivering the Enterprise Cloud Vision: Multi-Cloud
+...................................................
 
-- Publish blueprints to different groups using a policy-driven model
-- Reduces miscommunications between teams
-- Provides an attractive alternative to roll-your-own cloud services while maintaining complete control and visibility over operations
-
-Marketplace
------------
-
-- 50+ Pre-integrated blueprints
-- Publish custom apps to marketplace
-
-.. figure:: images/what_is_calm_04.png
-
-Partners
---------
-.. figure:: images/what_is_calm_05.png
-
-User Case 1: Self-Service App Provisioning
-------------------------------------------
-.. figure:: images/what_is_calm_06.png
-.. figure:: images/what_is_calm_07.png
-.. figure:: images/what_is_calm_08.png
-.. figure:: images/what_is_calm_09.png
-
-User Case 2: Self-Service via ServiceNow & Calm
------------------------------------------------
-.. figure:: images/what_is_calm_10.png
-
-Role-Based Access Control
------------------------------------------------
-
-- Full RBAC for self-service
-- Multiple in-built roles out of the box
-- Ability to customize roles and link to AD
-
-.. figure:: images/what_is_calm_11.png
-
-End-to-End Audits
------------------
-
-- Every action and the response is logged
-- Identify who did what and why across environments
-- Export logs to your choice of logging system for archival
-
-.. figure:: images/what_is_calm_12.png
-
-On-Prem Resource Cost
----------------------
-
-- Define vCPU/Memory/Storage cost for On Premise cloud
-
-.. figure:: images/what_is_calm_13.png
-
-- Analyze cost 
-    - Per VM
-    - Per App
-    - Per Project
-
-.. figure:: images/what_is_calm_14.png
-
-Application Lifecycle Management
-................................
-
-- Simplify the set-up and management of custom enterprise applications into an easy-to-use-blueprint
-- Deployment and lifecycle management of common applications both automated and easily repeatable
-- Infrastructure teams can eliminate the hours and days devoted to routine application management
-
-Calm Blueprints
----------------
-
-- Provides a framework to launch ready to go apps
-- Intuitive and visual way to model applications 
-- Drive repeatable provisioning of applications
-
-.. figure:: images/what_is_calm_15.png
-
-- Makes sense of complexity in a visual way
-- Auto generated system action flows
-- Utilize existing Bash or PowerShell scripts
-- Call any external service using HTTP Tasks
-- Easy to understand dependencies
-
-.. figure:: images/what_is_calm_16.png
-
-Kubernetes with Calm
---------------------
-
-- Supports Vanilla K8s API, Karbon, Public K8s Services
-- Combined Life Cycle Management of VMs and Kubernetes Pods in a single blueprint
-- Manage Kubernetes deployments and services using spec editor
-
-.. figure:: images/what_is_calm_17.png
-
-.. figure:: images/what_is_calm_18.png
-
-Use Case 3: Application Life Cycle Management
----------------------------------------------
-
-.. figure:: images/what_is_calm_19.png
-
-Use Case 4: CI/CD using Calm and Jenkins
-----------------------------------------
-
-- Jenkins Calm plugin provides a complete native integration between the CI/CD and life cycle management of the application 
-- This plugin eliminates “configuration silos” in the Jenkins build process by leveraging Nutanix Calm to deploy and test applications in a multi cloud environment
-- Developer/Admin need not worry about 
-    - Configuring multi cloud environments in Jenkins build steps 
-    - Calling multiple runbooks from Jenkins for running tests / cleanup etc. 
-
-.. figure:: images/what_is_calm_20.png
-
-
-Multi-Cloud Orchestration
-.........................
+Multi-Cloud Management
 
 - Abstract applications from cloud infrastructure
 - Deploy and manage applications on any cloud
-- Application mobility between clouds
+- Visibility and control of public cloud consumption
 
-.. figure:: images/what_is_calm_21.png
+.. figure:: images/what_is_calm_05.png
 
-Define Apps Once, Use Everywhere with Profiles
-----------------------------------------------
+Calm: Application Lifecycle Automation
+++++++++++++++++++++++++++++++++++++++
 
-- Application Profiles can be used to define different deployment scenarios, such as public cloud deployments, without redefining the entire application
-- There is no need for complex refactoring or new training required if you wanted to use a new cloud
-- Each Profile also calculates it's unique cost of running 
+Blueprints Capture All Elements of the Application
+..................................................
 
-.. figure:: images/what_is_calm_22.png
+.. figure:: images/what_is_calm_07.png
 
-Compare Cloud Costs and Predict Future Spend
---------------------------------------------
+Make Sense of Complexity in a Visual Way
+........................................
 
-- Track cloud costs across teams
-- Instant information to make informed cloud decisions
+- Capture organizational knowledge
+- Streamline provisioning and lifecycle tasks
+- Easy to understand dependencies
 
-.. figure:: images/what_is_calm_23.png
+.. figure:: images/what_is_calm_08.png
 
-.. figure:: images/what_is_calm_24.png
+Blueprints Are Flexible and Open
+................................
+
+- Utilize existing Bash or Powershell scripts
+- Call any external service using REST API
+
+.. figure:: images/what_is_calm_09.png
+
+Blueprints Are Used for Lifecycle Management
+............................................
+
+- Automate **routine** application management operations
+- Reduce errors,delays and downtime
+
+.. figure:: images/what_is_calm_10.png
+
+Calm: Self-Service and Governance
++++++++++++++++++++++++++++++++++
+
+Nutanix Marketplace Empowers Self-Service
+.........................................
+
+- One-Click App Provisioning
+- Pre-integrated blueprints
+- Self-service based onuser role and group
+
+.. figure:: images/what_is_calm_11.png
+
+Deploy in One-Click
+.........................
+
+.. figure:: images/what_is_calm_12.png
+
+End-to-End Audits and Governance
+................................
+
+.. figure:: images/what_is_calm_13.png
+
+Calm: Hybrid Cloud Management
++++++++++++++++++++++++++++++
+
+Hybrid Cloud Management
+.......................
+
+.. figure:: images/what_is_calm_14.png
+
+Deploy across Clouds Based on Need
+..................................
+
+- Cloud destination is configured once, then used with any blueprint
+
+.. figure:: images/what_is_calm_15.png
+
+Automate. Empower. Relax
+........................
+
+.. figure:: images/what_is_calm_16.png
 
 Takeaways
 +++++++++

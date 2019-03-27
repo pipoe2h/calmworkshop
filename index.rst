@@ -1,4 +1,4 @@
-.. title:: Nutanix Calm Bootcamp
+.. title:: Nutanix Calm and Flow Bootcamp
 
 .. toctree::
   :maxdepth: 2
@@ -7,36 +7,50 @@
   :hidden:
 
   what_is_nutanix/what_is_nutanix
-.. nutanix_terminology/nutanix_terminology
+  nutanix_terminology/nutanix_terminology
+  nutanix101/nutanix101
+
 
 .. toctree::
   :maxdepth: 2
-  :caption: Nutanix Calm
-  :name: _nutanix_calm
+  :caption: Intro Calm Labs
+  :name: _intro_calm_labs
   :hidden:
 
   what_is_calm/what_is_calm
   calm_basics/basics
-.. selling_calm/selling_calm
-
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Nutanix Calm Lab
-  :name: _nutanix_calm_lab
-  :hidden:
-
+  calm_enable/calm_enable
   calm_projects/calm_projects
-  calm_sshkey_creation/calm_sshkey_creation
-  calm_singlevm_blueprint/calm_singlevm_blueprint
-  calm_mysql_blueprint/calm_mysql_blueprint
-  calm_3twa_blueprint/calm_3twa_blueprint
   calm_marketplace/calm_marketplace
 
 .. toctree::
   :maxdepth: 2
-.. :caption: Optional Flow Lab
-  :name: _optional_flow_lab
+  :caption: Main Calm Labs
+  :name: _main_calm_labs
+  :hidden:
+
+  calm_sshkey_creation/calm_sshkey_creation
+  calm_singlevm_blueprint/calm_singlevm_blueprint
+  calm_mysql_blueprint/calm_mysql_blueprint
+  calm_linux/calm_linux
+  calm_day2/calm_day2
+  calm_windows_blueprint/calm_windows_blueprint
+  calm_win/calm_win
+
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Advanced Labs
+  :name: _advanced_labs
+  :hidden:
+
+  calm_escript/calm_escript
+  calm_wordpress_blueprint/calm_wordpress_blueprint
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Flow Labs
+  :name: _flow_labs
   :hidden:
 
   what_is_flow/what_is_flow
@@ -45,16 +59,6 @@
   flow_isolate_environments/flow_isolate_environments
   flow_secure_app/flow_secure_app
   flow_visualization/flow_visualization
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Optional Labs
-  :name: _optional_labs
-  :hidden:
-
-  calm_enable/calm_enable
-  calm_windows_blueprint/calm_windows_blueprint
-  kalm_wordpress_blueprint/kalm_wordpress_blueprint
 
 
 .. toctree::
@@ -67,11 +71,11 @@
 
 .. _getting_started:
 
----------------
-Wintrust Calm Bootcamp
----------------
+-------------
+Calm Bootcamp
+-------------
 
-Welcome to the Wintrust Calm Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+Welcome to the Calm Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 At the end of the bootcamp, attendees should understand the basic concepts and technologies that make up Nutanix Calm and should be well prepared to install, design and operate Calm blueprints and applications.
 
@@ -79,38 +83,43 @@ What's New
 ++++++++++
 
 - Bootcamp updated for the following software versions:
-    - AOS|PC 5.10
+    - AOS|Prism Central 5.10
 
 
-.. - Optional Lab Updates:
-..    - Flow
+- Optional Labs:
+    - Flow
 
 Agenda
 ++++++
 
 - Introductions
 - Technology Overview
-- Nutanix Calm
-- Nutanix Calm Lab
-.. - Optional Labs
-..   - Ansible Lab
-..   - Flow Lab
+- Intro Nutanix Calm Labs
+- Main Calm Labs
+- Advanced Calm Labs
+- Flow Labs
 
 Introductions
 +++++++++++++
 
 - Name
 - Familiarity with Nutanix
+- Experiance with Calm
+- Experiance with DevOps technologies
+- Experiance with Flow
 
 Initial Setup
 +++++++++++++
 
 - Take note of the *Passwords* being used.
-- Log into your virtual desktops (connection info below)
+.. note::
+  - If this workshop is being run on the local infrastrcture you will **not** use the connection information below. Your instructor will communicate this information directly to you.
+  - If this workshop is being hosted on the Nutanix POC environment please see the connection information below.
 
-Environment Details
+Nutanix Hosted Environment Details
 +++++++++++++++++++
 
+**Connection information here is only for classes that are hosted on the Nutanix POC environment.**
 Nutanix Bootcamps are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
 
 Networking
@@ -220,8 +229,8 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
     - basicuser01-basicuser25
     - nutanix/4u
 
-Access Instructions
-+++++++++++++++++++
+Nutanix Hosted Access Instructions
+++++++++++++++++++++++++++++++++++
 
 The Nutanix Hosted POC environment can be accessed a number of different ways:
 

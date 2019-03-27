@@ -4,17 +4,6 @@
 Calm: Projects
 ------------
 
-Overview
-++++++++
-
-.. note::
-
-  Review :ref:`calm_basics` before proceeding with the lab to familiarize yourself with the UI and common terminology used in Nutanix Calm.
-
-  Estimated time to complete: **170 MINUTES**
-
-In this exercise you will configure a Project to contain your Blueprints and Applications created throughout the Workshop.
-
 Creating A Project
 ++++++++++++++++++
 
@@ -36,6 +25,8 @@ Fill out the following fields:
 - **Description** - Calm-*initials*
 
 Under **Users, Groups, and Roles**, click **+ User**.
+
+.. note:: If workshop is being run on a local Nutanix cluster the user names used may be different than listed below.
 
 Fill out the following fields and click **Save**:
 
@@ -83,4 +74,3 @@ Takeaways
 .. |mkt-icon| image:: ../images/marketplace_icon.png
 .. |bp-icon| image:: ../images/blueprints_icon.png
 .. |menu-icon| image:: ../images/menu_icon.png
-

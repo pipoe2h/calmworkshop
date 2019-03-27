@@ -4,9 +4,6 @@
 Calm: Marketplace
 -----------------
 
-Overview
-++++++++
-
 Calm Marketplace Part 1
 +++++++++++++++++++++++
 
@@ -201,6 +198,7 @@ Under **VM Configuration**
 - **vCPUs** - 2
 - **Cores per vCPU** - 1
 - **Memory** - 4GiB
+
 .. figure:: images/marketplace_p2_010.png
 
 
