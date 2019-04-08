@@ -21,8 +21,6 @@ Under **Marketplace Blueprints**, select **Mongo**.
 .. note::
 The Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations.
 
-Select the **Calm** project from the right-hand side drop down and Click **Publish**.
-
 .. figure:: images/marketplace_p1_1.png
 
 Wait for the Blueprint **Status** to appear as **Published**.
@@ -78,10 +76,10 @@ Fill out the following fields and click **Back**:
 
 Select the **Mongo_ConfigSet** Service and make the following changes in the **Configuration Pane**:
 
-- Update the **VM Configuration > Image** to **CentOS**.
+- Update the **VM Configuration > Image** to **CentOS_ConfigSet**.
+- Uncheck **Guest Customization**
 - Update the **Network Adapters > NIC** to **Primary**.
 - Update the **Connection > Credential** to **CENTOS**.
-- Uncheck **Guest Customization**
 
 Repeat these steps for the **Mongo_Router** and **Mongo_ReplicaSet** Services.
 
@@ -152,7 +150,7 @@ Once the application has been successfully approved, it will appear under the **
 
 .. figure:: images/marketplace_p2_6.png
 
-Select select your Blueprint from the **Marketplace Blueprints** tab and click **Publish**.
+Select your Blueprint from the **Marketplace Blueprints** tab and click **Publish**.
 
 Verify the Blueprint's **Status** is now shown as **Published**.
 

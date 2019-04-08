@@ -18,7 +18,7 @@ Verifying the Default Project
 
    .. figure:: images/project0.png
 
-#. Click |projects| **Projects** in the left hand toolbar and select the **default** project.
+#. Click **Projects** in the left hand toolbar and select the **default** project.
 
    .. note::
 

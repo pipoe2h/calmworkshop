@@ -409,6 +409,8 @@ Next lets open a console session:
 
 Select the VM, then click **Launch Console**.
 
+Input administrator password: nutanix/4u
+
 .. note::
 
   When the console window opens, note that there are four actions available in the console (Send Mount ISO, CTRL-ALT-DEL, Take Screen Capture, and Power).

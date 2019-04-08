@@ -24,7 +24,7 @@ In this exercise you will create a Nutanix Calm Blueprint based on a Microsoft W
 Creating Blueprint
 ..................
 
-From **Prism Central > Calm**, select **Blueprints** from the sidebar and click **+ Create Application Blueprint**.
+From **Prism Central > Calm**, select **Blueprints** from the sidebar and click **+ Multi VM/POD Blueprint**.
 
 Specify **Windows<INITIALS>** in the **Blueprint Name** field.
 Enter a **Description** in the Description field.
@@ -41,6 +41,7 @@ Click **Credentials >** :fa:`plus-circle` and enter **both** of the following cr
 - **Secret** - Password
 - **Key** - nutanix/4u
 
+Create Additional User
 
 - **Credential Name** - DOMAIN_CRED
 - **Username** - Administrator
@@ -194,7 +195,7 @@ With the Windows10 service icon selected in the workspace window, scroll to the 
 
 On the Blueprint Canvas section, a **Package Install** field will pop up next to the Windows10 Service tile:
 
-.. figure:: images/510windows5.png
+  .. figure:: images/510windows5.png
 
 Click on the **+ Task** button, and fill out the following fields on the **Configuration Panel** on the right:
 
@@ -261,6 +262,7 @@ Copy and paste the following script into the **Script** field:
    Restart-Computer -Force -AsJob
    exit 0
 
+Select Save
 
 .. note::
    Looking at the script you can see a function that sets the VM's hostname if it is not already set, a function that joins the computer to the domain specified via our macro and credentials that we set earlier, and finally restarts the user VM so the domain join takes affect.

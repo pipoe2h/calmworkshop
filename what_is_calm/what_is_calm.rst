@@ -11,118 +11,35 @@ Calm provides advanced application-level orchestration that transforms how IT te
 
 By approaching applications as complete entities, not just virtual machines (VMs), Calm automates how applications are created, consumed and governed. Calm delivers simple, repeatable and automated management of applications across a variety of environments, including private and public clouds.
 
-What is the State of Things Today
-+++++++++++++++++++++++++++++++++
-
-Managing Apps Is Increasingly Challenging
-.........................................
-
 .. figure:: images/what_is_calm_01.png
-
-How Does Nutanix Solve This Problem
-+++++++++++++++++++++++++++++++++++
-
-Foundation For Enterprise Cloud
-...............................
-
-Nutanix provides the foundation for your Enterprise cloud.
 
 .. figure:: images/what_is_calm_02.png
 
-Delivering the Enterprise Cloud Vision
-......................................
-
-Application Automation
-
-- App-centric orchestrationand lifecycle management
-- Policy-based governance
-- Self-Service provisioning
-
 .. figure:: images/what_is_calm_03.png
 
-Delivering the Enterprise Cloud Vision: Multi-Cloud
-...................................................
-
-Multi-Cloud Management
-
-- Abstract applications from cloud infrastructure
-- Deploy and manage applications on any cloud
-- Visibility and control of public cloud consumption
+.. figure:: images/what_is_calm_04.png
 
 .. figure:: images/what_is_calm_05.png
 
-Calm: Application Lifecycle Automation
-++++++++++++++++++++++++++++++++++++++
-
-Blueprints Capture All Elements of the Application
-..................................................
+.. figure:: images/what_is_calm_06.png
 
 .. figure:: images/what_is_calm_07.png
 
-Make Sense of Complexity in a Visual Way
-........................................
-
-- Capture organizational knowledge
-- Streamline provisioning and lifecycle tasks
-- Easy to understand dependencies
-
 .. figure:: images/what_is_calm_08.png
-
-Blueprints Are Flexible and Open
-................................
-
-- Utilize existing Bash or Powershell scripts
-- Call any external service using REST API
 
 .. figure:: images/what_is_calm_09.png
 
-Blueprints Are Used for Lifecycle Management
-............................................
-
-- Automate **routine** application management operations
-- Reduce errors,delays and downtime
-
 .. figure:: images/what_is_calm_10.png
-
-Calm: Self-Service and Governance
-+++++++++++++++++++++++++++++++++
-
-Nutanix Marketplace Empowers Self-Service
-.........................................
-
-- One-Click App Provisioning
-- Pre-integrated blueprints
-- Self-service based onuser role and group
 
 .. figure:: images/what_is_calm_11.png
 
-Deploy in One-Click
-.........................
-
 .. figure:: images/what_is_calm_12.png
-
-End-to-End Audits and Governance
-................................
 
 .. figure:: images/what_is_calm_13.png
 
-Calm: Hybrid Cloud Management
-+++++++++++++++++++++++++++++
-
-Hybrid Cloud Management
-.......................
-
 .. figure:: images/what_is_calm_14.png
 
-Deploy across Clouds Based on Need
-..................................
-
-- Cloud destination is configured once, then used with any blueprint
-
 .. figure:: images/what_is_calm_15.png
-
-Automate. Empower. Relax
-........................
 
 .. figure:: images/what_is_calm_16.png
 
