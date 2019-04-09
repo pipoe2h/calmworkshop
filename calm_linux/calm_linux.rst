@@ -205,7 +205,7 @@ Fill out the following fields:
 
 - **Cloud** - Nutanix
 - **OS** - Linux
-- **VM Name** - @@{User_initials}@@-MYSQL-@@{calm_array_index}@@-@@{calm_time}@@
+- **VM Name** - @@{User_initials}@@-MYSQL-@@{calm_time}@@
 
 .. note::
 
