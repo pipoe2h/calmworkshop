@@ -346,7 +346,7 @@ Select the new service and fill out the following **VM** fields in the **Configu
 - **Name** - WebServerAHV
 - **Cloud** - Nutanix
 - **OS** - Linux
-- **VM Name** - @@{User_initials}@@-WebServer-@@{calm_array_index}@@-@@{calm_time}@@
+- **VM Name** - @@{User_initials}@@-WebServer-@@{calm_time}@@
 - **Image** - CentOS_7_Cloud
 - **Device Type** - Disk
 - **Device Bus** - SCSI
