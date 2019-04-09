@@ -503,7 +503,7 @@ Select the new service and fill out the following **VM** fields in the **Configu
 - **Name** - HAPROXYAHV
 - **Cloud** - Nutanix
 - **OS** - Linux
-- **VM Name** - @@{User_initials}@@-HAProxy-@@{calm_array_index}@@-@@{calm_time}@@
+- **VM Name** - @@{User_initials}@@-HAProxy-@@{calm_time}@@
 - **Image** - CentOS\_7\_Cloud
 - **Device Type** - Disk
 - **Device Bus** - SCSI
