@@ -41,28 +41,6 @@ Points of differentiation:
 
 .. figure:: images/nutanix_terminology_03.png
 
-Nutanix EC-X (Erasure Coding)
-.............................
-
-- No overhead to the active write path
-- Background job
-- Only cold data is subject to EC-X
-- Lower rebuild times (equal or better than RF2)
-- Patent pending algorithm
-
-.. figure:: images/nutanix_terminology_04.png
-
-Deduplication
-.............
-
-- Inline fingerprinting with post-process deduplication
-- Distributed across all nodes – true scale-out
-- Global deduplication across entire cluster
-- SHA-1 fingerprinting offloaded to Intel processors for greater efficiency
-- 100% software-defined
-- Strong hash allows dedupe to happen based on metadata match
-
-.. figure:: images/nutanix_terminology_05.png
 
 Compression
 ...........
