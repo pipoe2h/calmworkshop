@@ -70,9 +70,16 @@ Click **Credentials** and select **CENTOS (Default)**.
 
 Fill out the following fields and click **Back**:
 
-- **Username** - root
-- **Secret** - Password
-- **Password** - nutanix/4u
+- **Credential Name** - CENTOS
+- **Username** - centos
+- **Secret** - Key
+- **Key** - Paste in your private key from the previous lesson
+
+In the **Configuration Pane** under **Variable List**, fill out the following fields:
+
++------------------------+------------------------------------------------------+------------+
+| INSTANCE\_PUBLIC\_KEY  | Paste in your public key from the previous lesson.   |            |
++------------------------+------------------------------------------------------+------------+
 
 Select the **Mongo_ConfigSet** Service and make the following changes in the **Configuration Pane**:
 
