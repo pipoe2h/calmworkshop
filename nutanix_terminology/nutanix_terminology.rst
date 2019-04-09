@@ -202,10 +202,8 @@ Fully distributed networking, based on open standards, simplifies deployment and
     - Active / Backup
     - Source-NIC Load Balancing
     - LACP
-- Each bridge has a bond, backed by one or more uplinks
 
-.. figure:: images/nutanix_terminology_16.png
-
+    
 Flow (Microsegmentation)
 ........................
 
