@@ -64,10 +64,9 @@ In the **Configuration Pane** under **Variable List**, fill out the following fi
 +------------------------+------------------------------------+
 | DOMAIN                 | ntnxlab.local                      |
 +------------------------+------------------------------------+
-| AD\_IP                 | <DC-VM-IP> (10.X.X.40)             |
+| AD\_IP                 | <DC-VM-IP> (10.X.X.54)             |
 +------------------------+------------------------------------+
 
-.. figure:: images/windows2.png
 
 Click **Save**.
 
@@ -81,7 +80,7 @@ Note that **Service1** appears in the **Workspace** and the **Configuration Pane
 Fill out the following fields:
 
 - **Service Name** - Windows10
-- **Name** - Windows10_AHV
+- **Name** - Windows10_ESXi
 - **Cloud** - Nutanix
 - **OS** - Windows
 - **VM Name** - Win-@@{calm_array_index}@@-@@{calm_time}@@

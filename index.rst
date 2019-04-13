@@ -1,4 +1,4 @@
-.. title:: Nutanix Calm and Flow Bootcamp
+.. title:: Damiler Calm Workshop
 
 .. toctree::
   :maxdepth: 2
@@ -46,20 +46,6 @@
 
   calm_escript/calm_escript
   calm_wordpress_blueprint/calm_wordpress_blueprint
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Flow Labs
-  :name: _flow_labs
-  :hidden:
-
-  what_is_flow/what_is_flow
-  flow_enable/flow_enable
-  flow_quarantine_vm/flow_quarantine_vm
-  flow_isolate_environments/flow_isolate_environments
-  flow_secure_app/flow_secure_app
-  flow_visualization/flow_visualization
-
 
 .. toctree::
   :maxdepth: 2
