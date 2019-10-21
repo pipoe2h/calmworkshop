@@ -32,7 +32,29 @@ Nutanix provides the foundation for your Enterprise cloud.
 Delivering the Enterprise Cloud Vision
 ......................................
 
+Application Automation
+
+- App-centric orchestrationand lifecycle management
+- Policy-based governance
+- Self-Service provisioning
+
 .. figure:: images/what_is_calm_03.png
+
+Delivering the Enterprise Cloud Vision: Multi-Cloud
+...................................................
+
+Multi-Cloud Management
+
+- Abstract applications from cloud infrastructure
+- Deploy and manage applications on any cloud
+- Visibility and control of public cloud consumption
+
+.. figure:: images/what_is_calm_05.png
+
+Automate, Empower, Relax
+++++++++++++++++++++++++
+
+.. figure:: images/what_is_calm_03a.png
 
 Self-Service and Governance
 ...........................
@@ -51,17 +73,23 @@ Marketplace
 
 Partners
 --------
-.. figure:: images/what_is_calm_05.png
+
+.. figure:: images/what_is_calm_05a.png
 
 User Case 1: Self-Service App Provisioning
 ------------------------------------------
+
 .. figure:: images/what_is_calm_06.png
+
 .. figure:: images/what_is_calm_07.png
+
 .. figure:: images/what_is_calm_08.png
+
 .. figure:: images/what_is_calm_09.png
 
 User Case 2: Self-Service via ServiceNow & Calm
 -----------------------------------------------
+
 .. figure:: images/what_is_calm_10.png
 
 Role-Based Access Control
@@ -147,7 +175,6 @@ Use Case 4: CI/CD using Calm and Jenkins
 
 .. figure:: images/what_is_calm_20.png
 
-
 Multi-Cloud Orchestration
 .........................
 
@@ -173,8 +200,6 @@ Compare Cloud Costs and Predict Future Spend
 - Instant information to make informed cloud decisions
 
 .. figure:: images/what_is_calm_23.png
-
-.. figure:: images/what_is_calm_24.png
 
 Takeaways
 +++++++++

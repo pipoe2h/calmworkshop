@@ -4,6 +4,10 @@
 Calm: Single VM Blueprint
 ------------
 
+.. note::
+
+  Estimated time to complete: **30 MINUTES**
+
 Overview
 ++++++++
 
@@ -12,109 +16,113 @@ Creating Single VM Blueprint (CentOS)
 
 In this exercise you will explore the basics of Nutanix Calm by building and deploying a Blueprint that installs and configures a single service, MySQL, on a CentOS image.
 
-Creating Blueprint
-..................
+#. Within the Calm UI, select |blueprints| **Blueprints** in the left hand toolbar to view and manage Calm blueprints.
 
-From the navigation bar, click ( |menu-icon| top left corner) **Menu** > **Services** > **Calm** (if you're running PC <5.10, then select **Calm** on top navigation bar), select **Blueprints** from the sidebar and click **+ Create Blueprint** > **Single VM Blueprint**.
+   .. note::
 
-Blueprint Settings
-..................
+     Mousing over an icon will display its title.
 
-Specify **CalmSingle<INITIALS>** in the **Name** field.
-(Optional) Enter a **Description** in the Description field.
-Select **Calm-<your_initials>** from the **Project** drop down menu.
+#. Click **+ Create Blueprint > Single VM Blueprint**.
 
-Click **VM Details>** to continue.
+#. Fill out the following fields:
 
-.. figure:: images/calm_singlevm_01.png
+   - **Name** - *initials*-CalmSingle
+   - **Project** - *initials*-Calm
 
-VM Details
-..................
+   .. figure:: images/calm_singlevm_01.png
 
-Specify **CentOSAHV** in the **Name** field.
-Leave the default value, **Nutanix**, for the **Cloud** field.
-Leave the default value, **Linux**, for the **Operating System** field. 
-Click **Variables>** to continue.
+#. Click **VM Details >**
 
-.. figure:: images/calm_singlevm_02.png
+#. Fill out the following fields:
 
-Variables
-.........
+   - **Name** - *CentOSAHV*
+   - **Cloud** - *Nutanix*
+   - **Operating System** - *Linux*
 
-Create the following variables:
+   .. figure:: images/calm_singlevm_02.png
 
-+------------------------+------------------------------------------------------+-------------+
-| **Variable Name**      | **Value**                                            | **Runtime** |
-+------------------------+------------------------------------------------------+-------------+
-| INSTANCE\_PUBLIC\_KEY  | Paste in your public key from the previous lesson.   |      X      |
-+------------------------+------------------------------------------------------+-------------+
-| USER_INITIALS          | Type your initials                                   |      X      |
-+------------------------+------------------------------------------------------+-------------+
+#. Click **Variables >**
 
-Click **VM Configuration>** to continue.
+#. Add the following variables (**Runtime** is specified by toggling the **Running Man** icon to Blue):
 
-.. figure:: images/calm_singlevm_03.png
+   +------------------------+-------------------------------+------------+-------------+
+   | **Variable Name**      | **Data Type** | **Value**     | **Secret** | **Runtime** |
+   +------------------------+-------------------------------+------------+-------------+
+   | USER_INITIALS          | String        | xyz           |            |      X      |
+   +------------------------+-------------------------------+------------+-------------+
+   | PASSWORD               | String        |               |     X      |      X      |
+   +------------------------+-------------------------------+------------+-------------+
 
-VM Configuration
-................
+   .. figure:: images/calm_singlevm_03.png
 
-Fill out the following fields:
+#. Click **VM Configuration >**
 
-- **VM Name** - centos@@{USER_INITIALS}@@-@@{calm_time}@@
+#. Fill out the following fields:
 
-.. note::
-   This defines the name of the virtual machine within Nutanix. We are using macros (case sensitive) to use the variables values as inputs. This approach can be used to meet your naming convention.
+   - **VM Name** - @@{USER_INITIALS}@@-centos-@@{calm_time}@@
 
-- **vCPUs** - 2
-- **Cores per vCPU** - 1
-- **Memory (GiB)** - 4
-- Select **Guest Customization**
+   .. note::
+      This defines the name of the virtual machine within Nutanix. We are using macros (case sensitive) to use the variables values as inputs. This approach can be used to meet your naming convention.
 
-  - Leave **Cloud-init** selected and paste in the following script
+   - **vCPUs** - *2*
+   - **Cores per vCPU** - *1*
+   - **Memory (GiB)** - *4*
+   - Select **Guest Customization**
+   
+     - Leave **Cloud-init** selected and paste in the following script
+   
+       .. code-block:: bash
+   
+         #cloud-config
+         users:
+           - name: centos
+             sudo: ['ALL=(ALL) NOPASSWD:ALL']
+         chpasswd:
+           list: |
+             centos:@@{PASSWORD}@@
+           expire: False
+         ssh_pwauth: True
+   
+   .. figure:: images/calm_singlevm_04.png
+   
+   - **Image** - CentOS-7-x86_64-GenericCloud
+   - Select **Bootable**
 
-    .. code-block:: bash
+   .. figure:: images/calm_singlevm_05.png
 
-      #cloud-config
-      users:
-        - name: centos
-          ssh-authorized-keys:
-            - @@{INSTANCE_PUBLIC_KEY}@@
-          sudo: ['ALL=(ALL) NOPASSWD:ALL']
+   - Select :fa:`plus-circle` along **Network Adapters (NICs)**
+   - **NIC 1** - Primary
+   
+   .. figure:: images/calm_singlevm_05b.png
 
-.. figure:: images/calm_singlevm_04.png
+#. Click **Save**
 
-- **Image** - CentOS-7-x86_64-GenericCloud
-- Select **Bootable**
-- Select :fa:`plus-circle` along **Network Adapters (NICs)**
-- **NIC 1** - Primary
+#. Click **Launch** at the top of the Blueprint Editor.
 
-.. figure:: images/calm_singlevm_05.png
+#. Fill out the following fields:
 
-Scroll to the top and click **Save** and ensure no errors or warnings pop-up.  If they do, resolve the issue, and **Save** again.
+   .. note::
+      A single Blueprint can be launched multiple times within the same environment but each instance requires a unique **Application Name** in Calm.
 
-Launching the Blueprint
-.......................
+   - **Name of the Application** - *initials*-CalmCentOS-1
+   - **USER_INITIALS** - *initials*
+   - **PASSWORD** - *any password*
 
-From the toolbar at the top of the Blueprint Editor, click **Launch**.
+#. Click **Create**
 
-In the **Name of the Application** field, specify a unique name (e.g. CalmCentOS*<INITIALS>*-1).
+   .. figure:: images/calm_singlevm_06.png
 
-.. note::
-   A single Blueprint can be launched multiple times within the same environment but each instance requires a unique **Application Name** in Calm.
+   You will be taken directly to the **Applications** page to monitor the provisioning of your Blueprint.
 
-Click **Create**.
+#. Click **Audit > Create** to view the progress of your application.
 
-.. figure:: images/calm_singlevm_06.png
+#. Click **Substrate Create > CentOSAHV - Provision Nutanix** to view the real time output of the provisioning.
 
-You will be taken directly to the **Applications** page to monitor the provisioning of your Blueprint.
+   .. figure:: images/calm_singlevm_07.png
 
-Select **Audit > Create** to view the progress of your application. Select **CentOSAHV - Provision Nutanix** to view the real time output of the provisioning.
+   Note the status changes to **Running** after the Blueprint has been successfully provisioned.
 
-.. figure:: images/calm_singlevm_07.png
-
-Note the status changes to **Running** after the Blueprint has been successfully provisioned.
-
-.. figure:: images/calm_singlevm_08.png
+   .. figure:: images/calm_singlevm_08.png
 
 Takeaways
 +++++++++
@@ -129,4 +137,6 @@ Takeaways
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
 .. |mkt-icon| image:: ../images/marketplace_icon.png
 .. |bp-icon| image:: ../images/blueprints_icon.png
-.. |menu-icon| image:: ../images/menu_icon.png
+.. |blueprints| image:: images/blueprints.png
+.. |applications| image:: images/blueprints.png
+.. |projects| image:: images/projects.png

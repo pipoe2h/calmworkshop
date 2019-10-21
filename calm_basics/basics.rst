@@ -9,7 +9,9 @@ Accessing Calm
 
 Open \https://<*Prism-Central-IP*>:9440/ in a browser and log in.
 
-From the navigation bar, select **Apps**.
+In **Prism Central**, select :fa:`bars` **> Services > Calm**.
+
+.. figure:: images/1.png
 
 The **Applications** tab shows all of the instances of applications that have been launched from a Blueprint.
 
@@ -50,8 +52,8 @@ A blueprint is the framework for every application that you model by using Nutan
 
 You can use blueprints to model the applications of various complexities; from simply provisioning a single virtual machine to provisioning and managing a multi-node, multi-tier application.
 
-  - **Single VM Blueprint** - This new Calm feature helps you to create new blueprints with only few clicks. Customers looking to build very quickly a private cloud with Infrastructure as a Service and Self-Service Portal capabilities, the Single VM Blueprint simplifies the task. (only AHV)
-  - **Multi VM/Pod Blueprint** - The Multi VM Bluprint supports Kubernetes applications now. Keep virtual machines and containers together on a blueprint and help with the deployment and operations of hybrid applications. Start containerising the stateless layer of your applications (web servers, app servers, ...) and leave your databases as virtual machines. This will help you on your journey to containers and also cloud-native applications.
+- **Single VM Blueprint** - This new Calm feature helps you to create new blueprints with only few clicks. Customers looking to build very quickly a private cloud with Infrastructure as a Service and Self-Service Portal capabilities, the Single VM Blueprint simplifies the task. (only AHV)
+- **Multi VM/Pod Blueprint** - The Multi VM Bluprint supports Kubernetes applications now. Keep virtual machines and containers together on a blueprint and help with the deployment and operations of hybrid applications. Start containerising the stateless layer of your applications (web servers, app servers, ...) and leave your databases as virtual machines. This will help you on your journey to containers and also cloud-native applications.
 
 Blueprint Editor
 ................
@@ -63,30 +65,30 @@ Service
 
 Services are the virtual machine instances, existing machines or bare-metal machines, that you can provision and configure by using Nutanix Calm. You can either provision a single service instance or multiple services based on the topology of your application. Different Services serve different purposes (e.g. a web-tier Service and a database Service), but an individual Service can also be comprised of multiple VMs all providing the same functionality (e.g. scaling out a web-tier to multiple VMs). A Service is comprised of a VM, a Package, and a Service.
 
-  - **VM** - A VM defines the configuration of the virtual machine instance, the platform on which the VM will be installed, and the connection information of the machine. Note this may also include existing machines that could be virtual or physical.
+- **VM** - A VM defines the configuration of the virtual machine instance, the platform on which the VM will be installed, and the connection information of the machine. Note this may also include existing machines that could be virtual or physical.
 
-  - **Package** - A package enables you to install and uninstall software on a VM by using a script. You need to provide the credentials of the VM on which you need to run the script. The package also defines the port number and the protocol that is used to access the service.
+- **Package** - A package enables you to install and uninstall software on a VM by using a script. You need to provide the credentials of the VM on which you need to run the script. The package also defines the port number and the protocol that is used to access the service.
 
-  - **Service** - A service enables you to create the variables that are used to define the service-level tasks and service-level actions. As part of the service, you can also define the number of replicas that you want to create of a service.
+- **Service** - A service enables you to create the variables that are used to define the service-level tasks and service-level actions. As part of the service, you can also define the number of replicas that you want to create of a service.
 
 Pod
 ...
 
 Pods are Kubernetes compute units that run containerised applications, that you can provision and configure by using Nutanix Calm. You can either provision a single Kubernetes deployment instance or multiple deployments based on the topology of your application. Different Pods serve different purposes (e.g. a web-tier Pod and a database Pod), but an individual Pod can also be comprised of multiple Pods all providing the same functionality (e.g. scaling out a web-tier to multiple replicas). A Pod is comprised of a Deployment, one or more containers, and a Service.
 
-  - **Deployment** - A Deployment defines the configuration of the desired state for the Pod, namespace, number of replicas, and metadata to be referenced by other Kubernetes objects like services.
+- **Deployment** - A Deployment defines the configuration of the desired state for the Pod, namespace, number of replicas, and metadata to be referenced by other Kubernetes objects like services.
 
-  - **Containers** - A Pod can have one or more containers. You configure the details for each container like name, container image, and so on.
+- **Containers** - A Pod can have one or more containers. You configure the details for each container like name, container image, and so on.
 
-  - **Service** - A Service enables you to publish your containerised application internally or externally to your Kubernetes cluster. Details like Service Type (ClusterIP, LoadBalancer and NodePort), port settings, or metadata are configured here.
+- **Service** - A Service enables you to publish your containerised application internally or externally to your Kubernetes cluster. Details like Service Type (ClusterIP, LoadBalancer and NodePort), port settings, or metadata are configured here.
 
 Action
 ......
 
 An action is a set of operations that you can run on your application that are created as a result of running a Blueprint. There are two types of Actions:
 
-  - **System Action** - Pre-defined functions including Create, Start, Stop, Delete, and Soft Delete. System Actions cannot be deleted.
-  - **Custom Action** - User created actions that can be used to carry out additional orchestration workflows, such as updating a running application.
+- **System Action** - Pre-defined functions including Create, Start, Stop, Delete, and Soft Delete. System Actions cannot be deleted.
+- **Custom Action** - User created actions that can be used to carry out additional orchestration workflows, such as updating a running application.
 
 Application Profile
 ...................
@@ -104,6 +106,10 @@ Macro
 Macros enable you to access the value of variables and properties that are set on Services. The variables can be user defined or system generated. Macros help in making scripts generic and creating reusable workflows.
 
 The syntax of a macro is @@{variable_name}@@, where variable_name is the name of the variable. See Calm documentation for additional details on using Macros, including working with built-in Macros and array Services.
+
+.. note::
+
+  You can find more information about the available macros `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v271:nuc-components-macros-overview-c.html>`_.
 
 Application
 ...........
@@ -124,6 +130,10 @@ Marketplace
 ...........
 
 The Marketplace provides a set of pre-seeded application Blueprints that are available for you to use. The Marketplace is a common platform for both the publisher and the consumer. The Marketplace provides you with the ability to provision an application instantly.
+
+.. note::
+
+  There are also community application Blueprints. You can find them `here <https://github.com/nutanix/blueprints>`_.
 
 Takeaways
 .........

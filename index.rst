@@ -2,49 +2,20 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Technology Overview
-  :name: _technology_overview
-  :hidden:
-
-  what_is_nutanix/what_is_nutanix
-.. nutanix_terminology/nutanix_terminology
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Nutanix Calm
-  :name: _nutanix_calm
+  :caption: Calm
+  :name: _calm
   :hidden:
 
   what_is_calm/what_is_calm
   calm_basics/basics
-.. selling_calm/selling_calm
-
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Nutanix Calm Lab
-  :name: _nutanix_calm_lab
-  :hidden:
-
+  calm_enable/calm_enable
   calm_projects/calm_projects
-  calm_sshkey_creation/calm_sshkey_creation
   calm_singlevm_blueprint/calm_singlevm_blueprint
-  calm_mysql_blueprint/calm_mysql_blueprint
-  calm_3twa_blueprint/calm_3twa_blueprint
+  calm_linux/calm_linux
+  calm_win/calm_win
+  calm_day2/calm_day2
+  calm_escript/calm_escript
   calm_marketplace/calm_marketplace
-
-.. toctree::
-  :maxdepth: 2
-.. :caption: Optional Flow Lab
-  :name: _optional_flow_lab
-  :hidden:
-
-  what_is_flow/what_is_flow
-  flow_enable/flow_enable
-  flow_quarantine_vm/flow_quarantine_vm
-  flow_isolate_environments/flow_isolate_environments
-  flow_secure_app/flow_secure_app
-  flow_visualization/flow_visualization
 
 .. toctree::
   :maxdepth: 2
@@ -52,10 +23,7 @@
   :name: _optional_labs
   :hidden:
 
-  calm_enable/calm_enable
-  calm_windows_blueprint/calm_windows_blueprint
-  kalm_wordpress_blueprint/kalm_wordpress_blueprint
-
+  flow_assign_categories_in_calm/flow_assign_categories_in_calm
 
 .. toctree::
   :maxdepth: 2
@@ -63,7 +31,8 @@
   :name: _appendix
   :hidden:
 
-  appendix/glossary
+  tools_vms/windows_tools_vm
+  tools_vms/linux_tools_vm
 
 .. _getting_started:
 
@@ -71,30 +40,36 @@
 Getting Started
 ---------------
 
-Welcome to the Nutanix Calm Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+Welcome to the Nutanix Calm Bootcamp!
 
-At the end of the bootcamp, attendees should understand the basic concepts and technologies that make up Nutanix Calm and should be well prepared to install, design and operate Calm blueprints and applications.
+
+
+This workbook accompanies an instructor-led session that introduces Nutanix Calm. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 What's New
 ++++++++++
 
-- Bootcamp updated for the following software versions:
-    - AOS|PC 5.10
+- Workshop updated for the following software versions:
+    - AOS & PC 5.10.x
 
-
-.. - Optional Lab Updates:
-..    - Flow
+- Optional Lab Updates:
 
 Agenda
 ++++++
 
-- Introductions
-- Technology Overview
-- Nutanix Calm
-- Nutanix Calm Lab
-.. - Optional Labs
-..   - Ansible Lab
-..   - Flow Lab
+- What is Calm
+- Calm basics
+
+- Nutanix Calm Labs
+    - Calm: Enable
+    - Calm: Projects
+    - Calm: Linux 3-Tier Application
+    - Calm: Windows 2-Tier Application
+    - Calm: Day 2 Actions - Scaling Out/In
+    - Calm: eScript
+    - Calm: Marketplace
+
+- Optional Labs
 
 Introductions
 +++++++++++++
@@ -111,7 +86,7 @@ Initial Setup
 Environment Details
 +++++++++++++++++++
 
-Nutanix Bootcamps are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
+Nutanix Workshops are intended to be run in the Nutanix Hosted POC environment. Your cluster will be provisioned with all necessary images, networks, and VMs required to complete the exercises.
 
 Networking
 ..........
@@ -134,7 +109,7 @@ For example:
 - **Subnet** - 10.21.55.0
 - **Cluster IP** - 10.21.55.37
 
-Throughout the Bootcamp there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
+Throughout the Workshop there are multiple instances where you will need to substitute *XYZ* with the correct octet for your subnet, for example:
 
 .. list-table::
   :widths: 25 75
@@ -173,7 +148,7 @@ Credentials
 
 .. note::
 
-  The *<Cluster Password>* is unique to each cluster and will be provided by the leader of the Bootcamp.
+  The *<Cluster Password>* is unique to each cluster and will be provided by the leader of the Workshop.
 
 .. list-table::
   :widths: 25 35 40
@@ -228,42 +203,36 @@ The Nutanix Hosted POC environment can be accessed a number of different ways:
 Parallels VDI
 .................
 
-1) Login to https://xld-uswest1.nutanix.com (for PHX) or https://xld-useast1.nutanix.com (for RTP) using your supplied credentials
-2) Select HTML5 (web browser) OR Install the Parallels Client
-3) Select a desktop or application of your choice.
+Login to: https://xld-uswest1.nutanix.com (for PHX) or https://xld-useast1.nutanix.com (for RTP)
 
 **Nutanix Employees** - Use your NUTANIXDC credentials
+**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
 
-PHX
----
-**Non-Employees** - **Username:** PHX-POCxxx-User01 (up to PHX-POCxxx-User20), **Password:** *<Provided by Instructor>*
-
-RTP
----
-**Non-Employees** - **Username:** RTP-POCxxx-User01 (up to RTP-POCxxx-User20), **Password:** *<Provided by Instructor>*
-
-Employee Pulse Secure VPN
+Pulse Secure VPN
 ..........................
 
-https://sslvpn.nutanix.com - Use your CORP credentials
+To download the client: login to https://xlv-uswest1.nutanix.com or https://xlv-useast1.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
 
-Non-Employee Pulse Secure VPN
-..............................
+Download and install the client.
 
-1) If client already installed skip to step 5
-2) To download the client, login to https://xlv-uswest1nutanix.com or https://xlv-useast1.nutanix.com using the supplied user credentials
-3) Download and install client
-4) Logout of the Web UI
-5) Open client and ADD a connection with the following details:
+In Pulse Secure Client, **Add** a connection:
 
-Type: Policy Secure (UAC) or Connection Server(VPN)
-Name: X-Labs - PHX
-Server URL: xlv-uswest1.nutanix.com
+For PHX:
 
-OR
+- **Type** - Policy Secure (UAC) or Connection Server
+- **Name** - X-Labs - PHX
+- **Server URL** - xlv-uswest1.nutanix.com
 
-Type: Policy Secure (UAC) or Connection Server(VPN)
-Name: X-Labs - RTP
-Server URL: xlv-useast1.nutanix.com
+For RTP:
 
-6) Once setup, login with the supplied credentials
+- **Type** - Policy Secure (UAC) or Connection Server
+- **Name** - X-Labs - RTP
+- **Server URL** - xlv-useast1.nutanix.com
+
+
+Nutanix Version Info
+++++++++++++++++++++
+
+- **AHV Version** - AHV 20170830.279 (5.10+)
+- **AOS Version** - 5.11
+- **PC Version** - 5.11

@@ -11,66 +11,65 @@ Overview
 
   Review :ref:`calm_basics` before proceeding with the lab to familiarize yourself with the UI and common terminology used in Nutanix Calm.
 
-  Estimated time to complete: **170 MINUTES**
+  Estimated time to complete: **15 MINUTES**
 
-In this exercise you will configure a Project to contain your Blueprints and Applications created throughout the Workshop.
+In this exercise you will configure a Project to contain your Blueprints and Applications created throughout the Bootcamp.
 
 Creating A Project
 ++++++++++++++++++
 
-Open \https://*<Prism-Central-IP>*:9440/ in a browser and log in.
-
-From the navigation bar, click ( |menu-icon| top left corner) **Menu** > **Services** > **Calm** (if you're running PC <5.10, then select **Calm** on top navigation bar)
-
 Projects are the logical construct that integrate Calm with Nutanix's native Self-Service Portal (SSP) capabilities, allowing an administrator to assign both infrastructure resources and the roles/permissions of Active Directory users/groups to specific Blueprints and Applications.
 
-Select |proj-icon| **Projects** from the sidebar.
+#. Within the Calm UI, Select |proj-icon| **Projects** from the sidebar.
 
-.. figure:: images/510enable8.png
+   .. figure:: images/510projects1.png
 
-Click **+ Create Project**
+#. Click + Create Project
 
-Fill out the following fields:
+#. Fill out the following fields:
 
-- **Project Name** - Calm-*initials*
-- **Description** - Calm-*initials*
+   - **Project Name** - *initials*-Calm
+   - **Description** - *initials*-Calm
 
-Under **Users, Groups, and Roles**, click **+ User**.
+#. Under **Users, Groups, and Roles**, click **+ User**.
 
-Fill out the following fields and click **Save**:
+#. Fill out the following fields and click **Save**:
 
-- **Name** - SSP Admins
-- **Role** - Project Admin
+   - **Name** - SSP Admins
+   - **Role** - Project Admin
 
-Click **+ User**, fill out the following fields and click **Save**:
+#. Click **+ User**, fill out the following fields and click **Save**:
 
-- **Name** - SSP Developers
-- **Role** - Developer
+   - **Name** - SSP Developers
+   - **Role** - Developer
 
-Click **+ User**, fill out the following fields and click **Save**:
+#. Click **+ User**, fill out the following fields and click **Save**:
 
-- **Name** - SSP Power Users
-- **Role** - Consumer
+   - **Name** - SSP Power Users
+   - **Role** - Consumer
 
-Click **+ User**, fill out the following fields and click **Save**:
+#. Click **+ User**, fill out the following fields and click **Save**:
 
-- **Name** - SSP Basic Users
-- **Role** - Operator
+   - **Name** - SSP Basic Users
+   - **Role** - Operator
 
-Under **Infrastructure**, fill out the following fields:
-- **Select which resources you want this project to consume** - Local only
-- **AHV Cluster** - *<Cluster Name>*
+   .. figure:: images/projects_name_users.png
 
-Under **Network**, select the **Primary** and if available, the **Secondary** networks. Select :fa:`star` for the **Primary** network to make it the default virtual network for VMs in the **Calm** project.
+#. Under **Infrastructure**, click the blue **Select Provider** button, and then **Nutanix**.
 
-Click **Save**.
+#. In the box that appears, click the white **Select Clusters & Subnets** button, and in the pop-up, select your AHV cluster.  Once your cluster is selected, choose the **Primary** network, and if available, the **Secondary** network, and click **Confirm**.
 
-.. figure:: images/enable7.png
-    :scale: 75 %
+   .. figure:: images/projects_cluster_subnet_selection.png
+
+#. Within the **Selected Subnets** table, select :fa:`star` for the **Primary** network to make it the default virtual network for VMs in the **Calm** project.
+
+   .. figure:: images/projects_infrastructure.png
+
+#. Click **Save**.
 
 .. note::
 
-  Click `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v56:nuc-roles-responsibility-matrix-c.html>`_ to view the complete matrix of default SSP roles and associated permissions.
+  Click `here <hhttps://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v271:nuc-roles-responsibility-matrix-c.html>`_ to view the complete matrix of default Calm roles and associated permissions.
 
 Takeaways
 +++++++++
@@ -82,5 +81,6 @@ Takeaways
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
 .. |mkt-icon| image:: ../images/marketplace_icon.png
 .. |bp-icon| image:: ../images/blueprints_icon.png
-.. |menu-icon| image:: ../images/menu_icon.png
-
+.. |blueprints| image:: images/blueprints.png
+.. |applications| image:: images/blueprints.png
+.. |projects| image:: images/projects.png
