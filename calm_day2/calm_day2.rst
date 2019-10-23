@@ -4,6 +4,10 @@
 Calm: Day 2 Operations
 ---------------------------------
 
+.. note::
+
+  Estimated time to complete: **45 MINUTES**
+
 Overview
 ++++++++
 
@@ -327,7 +331,5 @@ Takeaways
 What are the key things you should know about **Nutanix Calm**?
 
 - Not only can Calm orchestrate complex application deployments, it can manage applications throughout their entire lifecycle, by modeling complex Day 2 operations.
-
 - Whether it's a built in task, like scaling, or a custom task, like upgrades, Calm can be directed to perform the operations in specific order, or if order doesn't matter, perform them in parallel to save on time.
-
 - What operation are you currently doing on a regular basis?  It's likely that it can be modeled in Calm, saving you countless hours.  Take back your weekend!

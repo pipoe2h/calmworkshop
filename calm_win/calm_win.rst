@@ -278,6 +278,9 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
      Get-Disk -Number 1 | Initialize-Disk -ErrorAction SilentlyContinue
      New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter -ErrorAction SilentlyContinue | Format-Volume -Confirm:$false
 
+     # Enable CredSSP
+     Enable-WSManCredSSP -Role Server -Force
+
    The above script simply performs an initialization and format of the extra 100GB VDisk added during VM configuration of the service.
 
 #. Click **Publish To Library > Publish** to save this task script to the Task Library for future use.
@@ -343,7 +346,7 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
 
 #. Name the package and click **Configure install** to begin adding installation tasks.
 
-#. Under **MSSQL > Package Install**, click **+ Task**.
+#. Under **MSIIS > Package Install**, click **+ Task**.
 
 #. Similar to the first step of the MSSQL service installation, you will need to initialize and format the additional 100GB VDisk. Rather than manually specifying the same script for this task, click **Browse Library**.
 
@@ -366,7 +369,11 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
      New-Item c:/msi -Type Directory
      Invoke-WebRequest 'http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi' -OutFile c:/msi/WebPlatformInstaller_amd64_en-US.msi
      Start-Process 'c:/msi/WebPlatformInstaller_amd64_en-US.msi' '/qn' -PassThru | Wait-Process
-     cd 'C:/Program Files/Microsoft/Web Platform Installer'; .\WebpiCmd.exe /Install /Products:'UrlRewrite2,ARRv3_0' /AcceptEULA /Log:c:/msi/WebpiCmd.log
+
+     Invoke-WebRequest 'https://download.microsoft.com/download/4/B/1/4B1E9B0E-A4F3-4715-B417-31C82302A70A/ENU/x86/SQLSysClrTypes.msi' -OutFile c:/msi/SQLSysClrTypes.msi-x86.msi
+     Start-Process 'c:/msi/SQLSysClrTypes.msi-x86.msi' '/qn' -PassThru | Wait-Process
+     Invoke-WebRequest 'https://download.microsoft.com/download/4/B/1/4B1E9B0E-A4F3-4715-B417-31C82302A70A/ENU/x64/SQLSysClrTypes.msi' -OutFile c:/msi/SQLSysClrTypes.msi-x64.msi
+     Start-Process 'c:/msi/SQLSysClrTypes.msi-x64.msi' '/qn' -PassThru | Wait-Process
 
    The above script installs the Microsoft Web Platform Installer (WebPI), which is used to download, install, and update components of the Microsoft Web Platform, including Internet Information Services (IIS), IIS Media Platform technologies, SQL Server Express, .NET Framework, and Visual Web Developer.
 
