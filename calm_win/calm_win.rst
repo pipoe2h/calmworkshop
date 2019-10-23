@@ -32,7 +32,7 @@ Creating the Blueprint
 
    .. note::
 
-   When copying the values in the table, ensure you don't include any white-space at the beginning or end of the values as this will cause the blueprint to fail. If required manually type the passwords to ensure they are entered accurately
+     When copying the values in the table, ensure you don't include any white-space at the beginning or end of the values as this will cause the blueprint to fail. If required manually type the passwords to ensure they are entered accurately
 
    +---------------------+---------------------+---------------------+
    | **Credential Name** | WIN_VM_CRED         | SQL_CRED            |
