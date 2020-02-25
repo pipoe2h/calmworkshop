@@ -1,8 +1,8 @@
 .. _calm_marketplace:
 
------------------
+---------------------------------------
 Self-Service Catalog (Calm Marketplace)
------------------
+---------------------------------------
 
 Overview
 ++++++++
@@ -21,8 +21,8 @@ By default, Calm comes pre-seeded with validated Blueprints for multiple open so
 
 #. Under **Marketplace Blueprints**, select **Mongo**.
 
-.. note::
-The Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations.
+.. note:
+ The Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations.
 
 #. Select the **Calm** project from the right-hand side drop down and Click **Publish**.
 
@@ -215,8 +215,6 @@ Launching Blueprint from the Marketplace
 #. From **Prism Central > Calm**, select |mkt-icon| **Marketplace** from the sidebar.
 
 #. Select the Blueprint published as part of this exercise and click **Launch**.
-
-.. figure:: images/510marketplace_p2_12.png
 
 #. Select the **Calm** Project and click **Launch**.
 
