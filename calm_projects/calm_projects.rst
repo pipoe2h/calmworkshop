@@ -1,7 +1,7 @@
 .. _calm_projects:
 
 ------------
-Calm: Projects
+Governance (Calm Projects)
 ------------
 
 Overview

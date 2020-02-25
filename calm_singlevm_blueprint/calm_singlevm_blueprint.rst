@@ -1,7 +1,7 @@
 .. _calm_singlevm_blueprint:
 
 ------------
-Calm: Single VM Blueprint
+Infrastructure as a Service (Calm Single VM Blueprint)
 ------------
 
 .. note::

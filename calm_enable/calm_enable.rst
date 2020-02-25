@@ -32,7 +32,7 @@ Calm is built into Prism Central and requires no additional appliances or consol
 
 #. Select **Enable App Management** and click **Save**.
 
-   .. note:: Nutanix Calm is a separately licensed product that can be used with Acropolis Starter, Pro, or Ultimate editions. Each Prism Central instance can manage up to 25 VMs for free before additional licensing is required.
+   .. note:: Nutanix Calm is a separately licensed product that can be used with Acropolis Starter, Pro, or Ultimate editions. If you want to test Calm, there is a 60 days trial starting when you enable it.
 
    .. figure:: images/510enable2.png
 

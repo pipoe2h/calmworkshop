@@ -11,28 +11,11 @@
   calm_enable/calm_enable
   calm_projects/calm_projects
   calm_singlevm_blueprint/calm_singlevm_blueprint
+  calm_marketplace/calm_marketplace
   calm_linux/calm_linux
   calm_win/calm_win
   calm_day2/calm_day2
   calm_escript/calm_escript
-  calm_marketplace/calm_marketplace
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Optional Labs
-  :name: _optional_labs
-  :hidden:
-
-  flow_assign_categories_in_calm/flow_assign_categories_in_calm
-
-.. toctree::
-  :maxdepth: 2
-  :caption: Appendix
-  :name: _appendix
-  :hidden:
-
-  tools_vms/windows_tools_vm
-  tools_vms/linux_tools_vm
 
 .. _getting_started:
 
@@ -62,14 +45,14 @@ Agenda
 
 - Nutanix Calm Labs
     - Calm: Enable
-    - Calm: Projects
-    - Calm: Linux 3-Tier Application
-    - Calm: Windows 2-Tier Application
-    - Calm: Day 2 Actions - Scaling Out/In
+    - Governance (Calm Projects)
+    - Infrastructure as a Service (Calm Single VM Blueprint)
+    - Self-Service Catalog (Calm Marketplace)
+    - Platform as a Service:
+       - Linux 3-Tier Application
+       - Windows 2-Tier Application
+    - Day 2 Operation Management (Calm Actions - Scaling Out/In)
     - Calm: eScript
-    - Calm: Marketplace
-
-- Optional Labs
 
 Introductions
 +++++++++++++

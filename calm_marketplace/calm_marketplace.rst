@@ -1,7 +1,7 @@
 .. _calm_marketplace:
 
 -----------------
-Calm: Marketplace
+Self-Service Catalog (Calm Marketplace)
 -----------------
 
 Overview
