@@ -1,8 +1,8 @@
 .. _calm_singlevm_blueprint:
 
-------------
+------------------------------------------------------
 Infrastructure as a Service (Calm Single VM Blueprint)
-------------
+------------------------------------------------------
 
 .. note::
 
@@ -11,10 +11,12 @@ Infrastructure as a Service (Calm Single VM Blueprint)
 Overview
 ++++++++
 
-Creating Single VM Blueprint (CentOS)
-++++++++++++++++++++++++++
+The most common use case for starting a private cloud is Infrastructure as a Service. With Calm this can be done extremely quickly, providing the agility that IT is seeking and the time to market for your business.
 
-In this exercise you will explore the basics of Nutanix Calm by building and deploying a Blueprint that installs and configures a single service, MySQL, on a CentOS image.
+Creating Single VM Blueprint (CentOS)
++++++++++++++++++++++++++++++++++++++
+
+In this exercise you will explore the basics of Nutanix Calm by building and deploying a Blueprint that provides IaaS with a CentOS image.
 
 #. Within the Calm UI, select |blueprints| **Blueprints** in the left hand toolbar to view and manage Calm blueprints.
 
@@ -41,20 +43,6 @@ In this exercise you will explore the basics of Nutanix Calm by building and dep
 
    .. figure:: images/calm_singlevm_02.png
 
-#. Click **Variables >**
-
-#. Add the following variables (**Runtime** is specified by toggling the **Running Man** icon to Blue):
-
-   +------------------------+-------------------------------+------------+-------------+
-   | **Variable Name**      | **Data Type** | **Value**     | **Secret** | **Runtime** |
-   +------------------------+-------------------------------+------------+-------------+
-   | USER_INITIALS          | String        | xyz           |            |      X      |
-   +------------------------+-------------------------------+------------+-------------+
-   | PASSWORD               | String        |               |     X      |      X      |
-   +------------------------+-------------------------------+------------+-------------+
-
-   .. figure:: images/calm_singlevm_03.png
-
 #. Click **VM Configuration >**
 
 #. Fill out the following fields:
@@ -62,9 +50,9 @@ In this exercise you will explore the basics of Nutanix Calm by building and dep
    - **VM Name** - @@{USER_INITIALS}@@-centos-@@{calm_time}@@
 
    .. note::
-      This defines the name of the virtual machine within Nutanix. We are using macros (case sensitive) to use the variables values as inputs. This approach can be used to meet your naming convention.
+      This defines the name of the virtual machine within Nutanix. We are using macros (case sensitive) to use the variables values as inputs. This approach can be used to meet your naming convention. Macros are defined using **@@{}@@**
 
-   - **vCPUs** - *2*
+   - **vCPUs** - *2* - Enable *runtime* (Runtime is specified by toggling the Running Man icon to Blue)
    - **Cores per vCPU** - *1*
    - **Memory (GiB)** - *4*
    - Select **Guest Customization**
@@ -94,6 +82,22 @@ In this exercise you will explore the basics of Nutanix Calm by building and dep
    - **NIC 1** - Primary
    
    .. figure:: images/calm_singlevm_05b.png
+
+#. Click **App variables (0) >**
+
+#. Add the following variables (**Runtime** is specified by toggling the **Running Man** icon to Blue):
+
+   +------------------------+-------------------------------+------------+-------------+
+   | **Variable Name**      | **Data Type** | **Value**     | **Secret** | **Runtime** |
+   +------------------------+-------------------------------+------------+-------------+
+   | USER_INITIALS          | String        | xyz           |            |      X      |
+   +------------------------+-------------------------------+------------+-------------+
+   | PASSWORD               | String        |               |     X      |      X      |
+   +------------------------+-------------------------------+------------+-------------+
+
+   .. figure:: images/calm_singlevm_03.png
+
+#. Click **Done**
 
 #. Click **Save**
 

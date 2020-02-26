@@ -69,7 +69,7 @@ Projects are the logical construct that integrate Calm with Nutanix's native Sel
 
 .. note::
 
-  Click `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v271:nuc-roles-responsibility-matrix-c.html>`_ to view the complete matrix of default Calm roles and associated permissions.
+  Click `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v297:nuc-roles-responsibility-matrix-c.html>`_ to view the complete matrix of default Calm roles and associated permissions.
 
 Takeaways
 +++++++++
