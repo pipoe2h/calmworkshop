@@ -68,13 +68,9 @@ Marketplace
 
 - 50+ Pre-integrated blueprints
 - Publish custom apps to marketplace
+- `Community blueprints <https://github.com/nutanix/blueprints>`_
 
 .. figure:: images/what_is_calm_04.png
-
-Partners
---------
-
-.. figure:: images/what_is_calm_05a.png
 
 User Case 1: Self-Service App Provisioning
 ------------------------------------------
@@ -143,7 +139,7 @@ Calm Blueprints
 - Makes sense of complexity in a visual way
 - Auto generated system action flows
 - Utilize existing Bash or PowerShell scripts
-- Call any external service using HTTP Tasks
+- Call any external service using HTTP Tasks or EScript (Python)
 - Easy to understand dependencies
 
 .. figure:: images/what_is_calm_16.png

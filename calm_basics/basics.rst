@@ -52,7 +52,7 @@ A blueprint is the framework for every application that you model by using Nutan
 
 You can use blueprints to model the applications of various complexities; from simply provisioning a single virtual machine to provisioning and managing a multi-node, multi-tier application.
 
-- **Single VM Blueprint** - This new Calm feature helps you to create new blueprints with only few clicks. Customers looking to build very quickly a private cloud with Infrastructure as a Service and Self-Service Portal capabilities, the Single VM Blueprint simplifies the task. (only AHV)
+- **Single VM Blueprint** - This new Calm feature helps you to create new blueprints with only few clicks. Customers looking to build very quickly a private cloud with Infrastructure as a Service and Self-Service Portal capabilities, the Single VM Blueprint simplifies the task.
 - **Multi VM/Pod Blueprint** - The Multi VM Bluprint supports Kubernetes applications now. Keep virtual machines and containers together on a blueprint and help with the deployment and operations of hybrid applications. Start containerising the stateless layer of your applications (web servers, app servers, ...) and leave your databases as virtual machines. This will help you on your journey to containers and also cloud-native applications.
 
 Blueprint Editor
@@ -109,7 +109,7 @@ The syntax of a macro is @@{variable_name}@@, where variable_name is the name of
 
 .. note::
 
-  You can find more information about the available macros `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v271:nuc-components-macros-overview-c.html>`_.
+  You can find more information about the available macros `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v297:nuc-components-macros-overview-c.html>`__.
 
 Application
 ...........
@@ -133,7 +133,7 @@ The Marketplace provides a set of pre-seeded application Blueprints that are ava
 
 .. note::
 
-  There are also community application Blueprints. You can find them `here <https://github.com/nutanix/blueprints>`_.
+  There are also community application Blueprints. You can find them `here <https://github.com/nutanix/blueprints>`__.
 
 Takeaways
 .........

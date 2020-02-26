@@ -278,13 +278,13 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
    - **Script** -
 
    .. code-block:: powershell
-
+   
      Get-Disk -Number 1 | Initialize-Disk -ErrorAction SilentlyContinue
      New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter -ErrorAction SilentlyContinue | Format-Volume -Confirm:$false
-
+   
      # Enable CredSSP
      Enable-WSManCredSSP -Role Server -Force
-
+     
    The above script simply performs an initialization and format of the extra 100GB VDisk added during VM configuration of the service.
 
 #. Click **Publish To Library > Publish** to save this task script to the Task Library for future use.

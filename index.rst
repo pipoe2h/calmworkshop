@@ -1,4 +1,4 @@
-.. title:: Nutanix Calm Bootcamp
+.. title:: Nutanix DevOps and Automation Bootcamp
 
 .. toctree::
   :maxdepth: 2
@@ -23,7 +23,7 @@
 Getting Started
 ---------------
 
-Welcome to the Nutanix Calm Bootcamp!
+Welcome to the DevOps and Automation Bootcamp!
 
 
 
@@ -52,7 +52,7 @@ Agenda
        - Linux 3-Tier Application
        - Windows 2-Tier Application
     - Day 2 Operation Management (Calm Actions - Scaling Out/In)
-    - Calm: eScript
+    - Calm: EScript
 
 Introductions
 +++++++++++++
