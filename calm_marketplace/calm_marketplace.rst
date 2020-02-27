@@ -96,8 +96,6 @@ Configuring Project Environment
    - **Username** - root
    - **Secret** - Password
    - **Password** - nutanix/4u
-   - Select **Use as default**
-
 
 #. Under **VM Configuration**
 
