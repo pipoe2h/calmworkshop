@@ -179,7 +179,7 @@ Cloning Blueprints from Marketplace
 
    .. figure:: images/510marketplace_p1_4.png
 
-#. Select the **Mongo** Blueprint and click **Clone**.
+#. Select the **MongoDB Sharding (4.0.0)** Blueprint and click **Clone**.
 
    .. note::
 
