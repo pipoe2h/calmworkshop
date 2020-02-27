@@ -34,7 +34,7 @@ Publishing Blueprints
 - **Name** (e.g. Blueprint Name *<INITIALS>*)
 - **Publish as a** - New Marketplace blueprint
 - **Initial Version** - 1.0.0
-- **Description** - Finished MySQL app
+- **Description** - Finished IaaS
 
 #. Click **Submit for Approval**.
 
