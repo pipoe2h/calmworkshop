@@ -23,18 +23,18 @@ Publishing Blueprints
 
 #. Open any **Active** Blueprint by clicking on its **Name**.
 
-.. figure:: images/510marketplace_p2_1.png
+   .. figure:: images/510marketplace_p2_1.png
 
 #. Click **Publish**.
 
-.. figure:: images/510marketplace_p2_2.png
+   .. figure:: images/510marketplace_p2_2.png
 
 #. Provide the following details:
 
-- **Name** (e.g. Blueprint Name *<INITIALS>*)
-- **Publish as a** - New Marketplace blueprint
-- **Initial Version** - 1.0.0
-- **Description** - Finished IaaS
+   - **Name** (e.g. Blueprint Name *<INITIALS>*)
+   - **Publish as a** - New Marketplace blueprint
+   - **Initial Version** - 1.0.0
+   - **Description** - Finished IaaS
 
 #. Click **Submit for Approval**.
 
@@ -43,39 +43,39 @@ Approving Blueprints
 
 #. From **Prism Central > Apps**, select |mktmgr-icon| **Marketplace Manager** from the sidebar.
 
-.. note:: You must be logged in as a Cluster Admin user to access the Marketplace Manager.
+   .. note:: You must be logged in as a Cluster Admin user to access the Marketplace Manager.
 
 #. Note your Blueprint does not appear in the list of **Marketplace Items**.
 
 #. Select the **Approval Pending** tab.
 
-.. figure:: images/510marketplace_p2_4.png
+   .. figure:: images/510marketplace_p2_4.png
 
 #. Select your **Pending** Blueprint.
 
-.. figure:: images/510marketplace_p2_5.png
+   .. figure:: images/510marketplace_p2_5.png
 
 #. Review the available actions:
 
-- **Reject** - Prevents  Blueprint from being launched or published in the Marketplace. The Blueprint will need to be submitted again after being rejected before it can be published.
-- **Approve** - Approves the Blueprint for publication to the Marketplace.
-- **Launch** - Launches the Blueprint as an application, similar to launching from the Blueprint Editor.
+   - **Reject** - Prevents  Blueprint from being launched or published in the Marketplace. The Blueprint will need to be submitted again after being rejected before it can be published.
+   - **Approve** - Approves the Blueprint for publication to the Marketplace.
+   - **Launch** - Launches the Blueprint as an application, similar to launching from the Blueprint Editor.
 
 #. Click **Approve**.
 
 #. Once the application has been successfully approved, it will appear under the **Marketplace Blueprints** tabs. Find it and assign the appropriate **Category** and **Project Shared With**. Click **Apply**.
 
-.. figure:: images/510marketplace_p2_6.png
+   .. figure:: images/510marketplace_p2_6.png
 
 #. Select select your Blueprint from the **Marketplace Blueprints** tab and click **Publish**.
 
 #. Verify the Blueprint's **Status** is now shown as **Published**.
 
-.. figure:: images/510marketplace_p2_7.png
+   .. figure:: images/510marketplace_p2_7.png
 
 #. From **Prism Central > Apps**, select |mkt-icon| **Marketplace** from the sidebar. Verify your Blueprint is available for launching as an application.
 
-.. figure:: images/510marketplace_p2_8.png
+   .. figure:: images/510marketplace_p2_8.png
 
 Configuring Project Environment
 ...............................
@@ -86,39 +86,34 @@ Configuring Project Environment
 
 #. Select the Project **Name** associated with your Blueprint at the time of publishing (e.g. the **Calm** Project that was assigned as **Project Shared With**).
 
-.. figure:: images/510marketplace_p2_9.png
+   .. figure:: images/510marketplace_p2_9.png
 
 #. Select the **Environment** tab.
 
 #. Under **Credential**, click :fa:`plus-circle` and depending on which track you're on, do *one* of the two following steps to add a new credential:
 
-**Cloud Track**:
-- **Credential Name** - CENTOS
-- **Username** - centos
-- **Secret** - Key
-- **Key** - Paste in your private key from the previous lesson **Calm: SSH Key Creation**
-
-**Local Track**:
-- **Credential Name** - CENTOS
-- **Username** - root
-- **Secret** - Password
-- **Password** - nutanix/4u
-- Select **Use as default**
+   - **Credential Name** - CENTOS
+   - **Username** - root
+   - **Secret** - Password
+   - **Password** - nutanix/4u
+   - Select **Use as default**
 
 
-Under **VM Configuration**
-- select **AHV on NUTANIX**.
-- **VM Name** - add prefix "default" to the name
-- **Image** - CentOS
-- **vCPUs** - 2
-- **Cores per vCPU** - 1
-- **Memory** - 4GiB
-.. figure:: images/510marketplace_p2_010.png
+#. Under **VM Configuration**
+
+   - select **AHV on NUTANIX**.
+   - **VM Name** - add prefix "default" to the name
+   - **Image** - CentOS
+   - **vCPUs** - 2
+   - **Cores per vCPU** - 1
+   - **Memory** - 4GiB
+
+   .. figure:: images/510marketplace_p2_010.png
 
 
 #. Under **Network Adapters (NICs)**, click :fa:`plus-circle` and select **Primary**.
 
-.. figure:: images/510marketplace_p2_10.png
+   .. figure:: images/510marketplace_p2_10.png
 
 #. Click **Save**.
 
@@ -131,19 +126,19 @@ Launching Blueprint from the Marketplace
 
 #. Select the **Calm** Project and click **Launch**.
 
-.. figure:: images/510marketplace_p2_13.png
+   .. figure:: images/510marketplace_p2_13.png
 
 #. Specify a unique **Application Name** (e.g. Marketplace*<INITIALS>*) and click **Create**.
 
-.. note::
+   .. note::
 
-  To see the configured **Environment** details, expand the **VM Configurations** entities.
+     To see the configured **Environment** details, expand the **VM Configurations** entities.
 
-.. figure:: images/510marketplace_p2_14.png
+   .. figure:: images/510marketplace_p2_14.png
 
 #. Monitor the provisioning of the Blueprint until complete.
 
-.. figure:: images/510marketplace_p2_15.png
+   .. figure:: images/510marketplace_p2_15.png
 
 Calm Marketplace Part 2
 +++++++++++++++++++++++
@@ -159,70 +154,71 @@ By default, Calm comes pre-seeded with validated Blueprints for multiple open so
 
 #. Under **Marketplace Blueprints**, select **Mongo**.
 
-.. note:
- The Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations.
+   .. note::
+     
+     The Blueprint description contains key information including licensing, hardware requirements, OS, supported platforms, and limitations.
 
 #. Select the **Calm** project from the right-hand side drop down and Click **Publish**.
 
-.. figure:: images/510marketplace_p1_1.png
+   .. figure:: images/510marketplace_p1_1.png
 
 #. Wait for the Blueprint **Status** to appear as **Published**.
 
-.. figure:: images/510marketplace_p1_2.png
+   .. figure:: images/510marketplace_p1_2.png
 
 #. Under **Projects Shared With**, select the **Calm** Project and click **Apply**.
 
-.. figure:: images/510marketplace_p1_3.png
+   .. figure:: images/510marketplace_p1_3.png
 
-.. note::
+   .. note::
 
-  If the **Projects Shared With** drop down menu is unavailable, refresh your browser.
+     If the **Projects Shared With** drop down menu is unavailable, refresh your browser.
 
 Cloning Blueprints from Marketplace
 ...................................
 
 #. From **Prism Central > Calm**, select |mkt-icon| **Marketplace** from the sidebar. All Blueprints published in Marketplace Manager are visible here.
 
-.. figure:: images/510marketplace_p1_4.png
+   .. figure:: images/510marketplace_p1_4.png
 
 #. Select the **Mongo** Blueprint and click **Clone**.
 
-.. note::
+   .. note::
 
-  Selecting **Actions Included** for a Blueprint will display the actions that have been implemented for a given Blueprint, such as Create, Start, Stop, Delete, Update, Scale Up, Scale Down, etc.
+     Selecting **Actions Included** for a Blueprint will display the actions that have been implemented for a given Blueprint, such as Create, Start, Stop, Delete, Update, Scale Up, Scale Down, etc.
 
-.. figure:: images/510marketplace_p1_5.png
+   .. figure:: images/510marketplace_p1_5.png
 
 #. Fill out the following fields and click **Clone**:
 
-- **Blueprint Name** - MongoDB*<INITIALS>*
-- **Project** - Calm
+   - **Blueprint Name** - MongoDB*<INITIALS>*
+   - **Project** - Calm
 
 Editing Cloned Blueprint
 ........................
 
 #. Select |bp-icon| **Blueprints** from the sidebar and click your **MongoDB<INITIALS>** Blueprint to open the Blueprint Editor.
 
-.. figure:: images/510marketplace_p1_6.png
+   .. figure:: images/510marketplace_p1_6.png
 
 #. Click :fa:`exclamation-circle` to review the list of errors that would prevent a successful deployment of the Blueprint.
 
-.. figure:: images/510marketplace_p1_7.png
+   .. figure:: images/510marketplace_p1_7.png
 
 #. Click **Credentials** and select **CENTOS (Default)**.
 
 #. Fill out the following fields and click **Back**:
 
-- **Username** - root
-- **Secret** - Password
-- **Password** - nutanix/4u
+   - **Username** - root
+   - **Secret** - Password
+   - **Password** - nutanix/4u
 
 #. Select the **Mongo_ConfigSet** Service and make the following changes in the **Configuration Pane**:
 
-- Update the **VM Configuration > Image** to **CentOS**.
-- Update the **Network Adapters > NIC** to **Primary**.
-- Update the **Connection > Credential** to **CENTOS**.
-- Uncheck **Guest Customization**
+   - Update the **VM Configuration > Image** to **CentOS**.
+   - Update the **Network Adapters > NIC** to **Primary**.
+   - Update the **Connection > Credential** to **CENTOS**.
+   - Uncheck **Guest Customization**
 
 #. Repeat these steps for the **Mongo_Router** and **Mongo_ReplicaSet** Services.
 
@@ -230,7 +226,7 @@ Editing Cloned Blueprint
 
 #. Click **Launch**. Specify a unique **Application Name** (e.g. MongoDB*<INITIALS>*-1) and click **Create**.
 
-.. figure:: images/510marketplace_p1_8.png
+   .. figure:: images/510marketplace_p1_8.png
 
 
 Takeaways
