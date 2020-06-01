@@ -37,7 +37,12 @@ In this exercise you will explore the basics of Nutanix Calm by building and dep
 
 #. Fill out the following fields:
 
-   - **Name** - *CentOSAHV*
+   - **Name** - 
+
+     .. code-block:: text
+       
+       CentOSAHV
+
    - **Cloud** - *Nutanix*
    - **Operating System** - *Linux*
 
@@ -47,7 +52,11 @@ In this exercise you will explore the basics of Nutanix Calm by building and dep
 
 #. Fill out the following fields:
 
-   - **VM Name** - @@{USER_INITIALS}@@-centos-@@{calm_time}@@
+   - **VM Name** - 
+
+     .. code-block:: text
+       
+       @@{USER_INITIALS}@@-centos-@@{calm_time}@@
 
    .. note::
       This defines the name of the virtual machine within Nutanix. We are using macros (case sensitive) to use the variables values as inputs. This approach can be used to meet your naming convention. Macros are defined using **@@{}@@**

@@ -21,7 +21,12 @@ Creating the Blueprint
 #. Fill out the following fields and click **Proceed** to launch the Blueprint Editor:
 
    - **Name** - *Initials*-CalmWindowsIntro
-   - **Description** - [BugNET](\http://@@{MSIIS.address}@@/bugnet)
+   - **Description** - 
+
+     .. code-block:: text
+       
+       [BugNET](http://@@{MSIIS.address}@@/bugnet)
+
    - **Project** - *Initials*-Calm
 
    .. note::
@@ -103,24 +108,6 @@ Adding Services
    +------------------------------+---------------------------+---------------------------+
    | **VM Name**                  | @@{User_initials}@@-MSSQL | @@{User_initials}@@-MSIIS |
    +------------------------------+---------------------------+---------------------------+
-   | **Number of Images**         | 2                         | 1                         |
-   +------------------------------+---------------------------+---------------------------+
-   | **Image 1**                  | Windows2012R2             | Windows2012R2             |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Type 1**            | DISK                      | DISK                      |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Bus 1**             | SCSI                      | SCSI                      |
-   +------------------------------+---------------------------+---------------------------+
-   | **Bootable 1**               | Yes                       | Yes                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Image 2**                  | MSSQL2014_ISO             | N/A                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Type 2**            | CD-ROM                    | N/A                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Device Bus 2**             | IDE                       | N/A                       |
-   +------------------------------+---------------------------+---------------------------+
-   | **Bootable 2**               | No                        | N/A                       |
-   +------------------------------+---------------------------+---------------------------+
    | **vCPUs**                    | 2                         | 2                         |
    +------------------------------+---------------------------+---------------------------+
    | **Cores per vCPU**           | 2                         | 2                         |
@@ -135,13 +122,43 @@ Adding Services
    +------------------------------+---------------------------+---------------------------+
    | **Script**                   | *Copy script below table* | *Copy script below table* |
    +------------------------------+---------------------------+---------------------------+
-   | **Additional vDisks**        | 1                         | 1                         |
+   | **Number of Images**         | 2                         | 1                         |
+   +------------------------------+---------------------------+---------------------------+
+   | **Disk 1**                   |                           |                           |
+   +------------------------------+---------------------------+---------------------------+
+   | **Device Type 1**            | DISK                      | DISK                      |
+   +------------------------------+---------------------------+---------------------------+
+   | **Device Bus 1**             | SCSI                      | SCSI                      |
+   +------------------------------+---------------------------+---------------------------+
+   | **Operation**                | Clone                     | Clone                     |
+   +------------------------------+---------------------------+---------------------------+
+   | **Image 1**                  | Windows2016               | Windows2012R2             |
+   +------------------------------+---------------------------+---------------------------+
+   | **Bootable 1**               | Yes                       | Yes                       |
+   +------------------------------+---------------------------+---------------------------+
+   | **Disk 2**                   |                           |                           |
+   +------------------------------+---------------------------+---------------------------+
+   | **Device Type 2**            | CD-ROM                    | N/A                       |
+   +------------------------------+---------------------------+---------------------------+
+   | **Device Bus 2**             | IDE                       | N/A                       |
+   +------------------------------+---------------------------+---------------------------+
+   | **Operation**                | Clone                     | N/A                       |
+   +------------------------------+---------------------------+---------------------------+
+   | **Image 2**                  | MSSQL2014_ISO             | N/A                       |
+   +------------------------------+---------------------------+---------------------------+
+   | **Bootable 2**               | No                        | N/A                       |
+   +------------------------------+---------------------------+---------------------------+
+   | **Additional vDisk**         | 1                         | 1                         |
    +------------------------------+---------------------------+---------------------------+
    | **Device Type**              | DISK                      | DISK                      |
    +------------------------------+---------------------------+---------------------------+
    | **Device Buse**              | SCSI                      | SCSI                      |
    +------------------------------+---------------------------+---------------------------+
+   | **Operation**                | Allocate                  | Allocate                  |
+   +------------------------------+---------------------------+---------------------------+
    | **Size (GiB)**               | 100                       | 100                       |
+   +------------------------------+---------------------------+---------------------------+
+   | **Boot**                     | Legacy                    | Legacy                    |
    +------------------------------+---------------------------+---------------------------+
    | **VGPUs**                    | None                      | None                      |
    +------------------------------+---------------------------+---------------------------+
@@ -253,6 +270,8 @@ Adding Services
 
    .. figure:: images/services.png
 
+#. Click **Save**
+
 Defining Package Install
 ++++++++++++++++++++++++
 
@@ -274,16 +293,21 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
 
 #. Under **MSSQL > Package Install**, click **+ Task** and fill out the following fields:
 
-   - **Task Name** - InitializeDisk1
+   - **Task Name** - 
+
+     .. code-block:: text
+
+       InitializeDisk1
+
    - **Script** -
 
-   .. code-block:: powershell
+     .. code-block:: powershell
    
-     Get-Disk -Number 1 | Initialize-Disk -ErrorAction SilentlyContinue
-     New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter -ErrorAction SilentlyContinue | Format-Volume -Confirm:$false
-   
-     # Enable CredSSP
-     Enable-WSManCredSSP -Role Server -Force
+       Get-Disk -Number 1 | Initialize-Disk -ErrorAction SilentlyContinue
+       New-Partition -DiskNumber 1 -UseMaximumSize -AssignDriveLetter -ErrorAction SilentlyContinue | Format-Volume -Confirm:$false
+
+       # Enable CredSSP
+       Enable-WSManCredSSP -Role Server -Force
      
    The above script simply performs an initialization and format of the extra 100GB VDisk added during VM configuration of the service.
 
@@ -291,54 +315,64 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
 
 #. Repeat clicking **+ Task** to add the remaining two scripts:
 
-   - **Task Name** - InstallMSSQL
+   - **Task Name** - 
+
+     .. code-block:: text
+
+       InstallMSSQL
+
    - **Script** -
 
-   .. code-block:: powershell
+     .. code-block:: powershell
 
-     $DriveLetter = $(Get-Partition -DiskNumber 1 -PartitionNumber 2 | select DriveLetter -ExpandProperty DriveLetter)
-     $edition = "Standard"
-     $HOSTNAME=$(hostname)
-     $PackageName = "MsSqlServer2014Standard"
-     $Prerequisites = "Net-Framework-Core"
-     $silentArgs = "/IACCEPTSQLSERVERLICENSETERMS /Q /ACTION=install /FEATURES=SQLENGINE,SSMS,ADV_SSMS,CONN,IS,BC,SDK,BOL /SECURITYMODE=sql /SAPWD=`"@@{SQL_CRED.secret}@@`" /ASSYSADMINACCOUNTS=`"@@{SQL_CRED.username}@@`" /SQLSYSADMINACCOUNTS=`"@@{SQL_CRED.username}@@`" /INSTANCEID=MSSQLSERVER /INSTANCENAME=MSSQLSERVER /UPDATEENABLED=False /INDICATEPROGRESS /TCPENABLED=1 /INSTALLSQLDATADIR=`"${DriveLetter}:\Microsoft SQL Server`""
-     $setupDriveLetter = "D:"
-     $setupPath = "$setupDriveLetter\setup.exe"
-     $validExitCodes = @(0)
+       $DriveLetter = $(Get-Partition -DiskNumber 1 -PartitionNumber 2 | select DriveLetter -ExpandProperty DriveLetter)
+       $edition = "Standard"
+       $HOSTNAME=$(hostname)
+       $PackageName = "MsSqlServer2014Standard"
+       $Prerequisites = "Net-Framework-Core"
+       $silentArgs = "/IACCEPTSQLSERVERLICENSETERMS /Q /ACTION=install /FEATURES=SQLENGINE,SSMS,ADV_SSMS,CONN,IS,BC,SDK,BOL /SECURITYMODE=sql /SAPWD=`"@@{SQL_CRED.secret}@@`" /ASSYSADMINACCOUNTS=`"@@{SQL_CRED.username}@@`" /SQLSYSADMINACCOUNTS=`"@@{SQL_CRED.username}@@`" /INSTANCEID=MSSQLSERVER /INSTANCENAME=MSSQLSERVER /UPDATEENABLED=False /INDICATEPROGRESS /TCPENABLED=1 /INSTALLSQLDATADIR=`"${DriveLetter}:\Microsoft SQL Server`""
+       $setupDriveLetter = "D:"
+       $setupPath = "$setupDriveLetter\setup.exe"
+       $validExitCodes = @(0)
 
-     if ($Prerequisites){
-     Install-WindowsFeature -IncludeAllSubFeature -ErrorAction Stop $Prerequisites
-     }
+       if ($Prerequisites){
+       Install-WindowsFeature -IncludeAllSubFeature -ErrorAction Stop $Prerequisites
+       }
 
-     Write-Output "Installing $PackageName...."
+       Write-Output "Installing $PackageName...."
 
-     $install = Start-Process -FilePath $setupPath -ArgumentList $silentArgs -Wait -NoNewWindow -PassThru
-     $install.WaitForExit()
+       $install = Start-Process -FilePath $setupPath -ArgumentList $silentArgs -Wait -NoNewWindow -PassThru
+       $install.WaitForExit()
 
-     $exitCode = $install.ExitCode
-     $install.Dispose()
+       $exitCode = $install.ExitCode
+       $install.Dispose()
 
-     Write-Output "Command [`"$setupPath`" $silentArgs] exited with `'$exitCode`'."
-     if ($validExitCodes -notcontains $exitCode) {
-     Write-Output "Running [`"$setupPath`" $silentArgs] was not successful. Exit code was '$exitCode'. See log for possible error messages."
-     exit 1
-     }
+       Write-Output "Command [`"$setupPath`" $silentArgs] exited with `'$exitCode`'."
+       if ($validExitCodes -notcontains $exitCode) {
+       Write-Output "Running [`"$setupPath`" $silentArgs] was not successful. Exit code was '$exitCode'. See log for possible error messages."
+       exit 1
+       }
 
    Reviewing the above script you can see it is performing an automated installation of SQL Server, using the SQL_CRED credential details and using the extra 100GB VDisk for the SQL data files.
 
    According to Nutanix best practices for production database deployments, what else would need to be added to the VM/installation?
 
-   - **Task Name** - FirewallRules
+   - **Task Name** - 
+
+     .. code-block:: text
+
+       FirewallRules
+
    - **Script** -
 
-   .. code-block:: powershell
-
-     New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433 -Action allow
-     New-NetFirewallRule -DisplayName "SQL Admin Connection" -Direction Inbound -Protocol TCP -LocalPort 1434 -Action allow
-     New-NetFirewallRule -DisplayName "SQL Database Management" -Direction Inbound -Protocol UDP -LocalPort 1434 -Action allow
-     New-NetFirewallRule -DisplayName "SQL Service Broker" -Direction Inbound -Protocol TCP -LocalPort 4022 -Action allow
-     New-NetFirewallRule -DisplayName "SQL Debugger/RPC" -Direction Inbound -Protocol TCP -LocalPort 135 -Action allow
-     New-NetFirewallRule -DisplayName "SQL Browser" -Direction Inbound -Protocol TCP -LocalPort 2382 -Action allow
+     .. code-block:: powershell
+  
+       New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433 -Action allow
+       New-NetFirewallRule -DisplayName "SQL Admin Connection" -Direction Inbound -Protocol TCP -LocalPort 1434 -Action allow
+       New-NetFirewallRule -DisplayName "SQL Database Management" -Direction Inbound -Protocol UDP -LocalPort 1434 -Action allow
+       New-NetFirewallRule -DisplayName "SQL Service Broker" -Direction Inbound -Protocol TCP -LocalPort 4022 -Action allow
+       New-NetFirewallRule -DisplayName "SQL Debugger/RPC" -Direction Inbound -Protocol TCP -LocalPort 135 -Action allow
+       New-NetFirewallRule -DisplayName "SQL Browser" -Direction Inbound -Protocol TCP -LocalPort 2382 -Action allow
 
    Reviewing the above script you can see it is allowing inbound access through the Windows Firewall for key SQL services.
 
@@ -346,11 +380,20 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
 
    .. figure:: images/mssql_package_install.png
 
+#. Click **Save**
+
 #. Select the **MSIIS** service and open the **Package** tab in the **Configuration Panel**.
 
 #. Name the package and click **Configure install** to begin adding installation tasks.
 
 #. Under **MSIIS > Package Install**, click **+ Task**.
+
+   - **Task Name** - 
+
+     .. code-block:: text
+
+       InitializeDisk1
+
 
 #. Similar to the first step of the MSSQL service installation, you will need to initialize and format the additional 100GB VDisk. Rather than manually specifying the same script for this task, click **Browse Library**.
 
@@ -364,57 +407,73 @@ For **each** of the following 7 scripts (3 for MSSSQL and 4 for MSIIS), the **Ty
 
 #. Specify the **Name** and **Credential**, then repeat clicking **+ Task** to add the remaining three scripts:
 
-   - **Task Name** - InstallWebPI
+   - **Task Name** - 
+
+     .. code-block:: text
+
+       InstallWebPI
+
    - **Script** -
 
-   .. code-block:: powershell
-
-     # Install WPI
-     New-Item c:/msi -Type Directory
-     Invoke-WebRequest 'http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi' -OutFile c:/msi/WebPlatformInstaller_amd64_en-US.msi
-     Start-Process 'c:/msi/WebPlatformInstaller_amd64_en-US.msi' '/qn' -PassThru | Wait-Process
-
-     Invoke-WebRequest 'https://download.microsoft.com/download/4/B/1/4B1E9B0E-A4F3-4715-B417-31C82302A70A/ENU/x86/SQLSysClrTypes.msi' -OutFile c:/msi/SQLSysClrTypes.msi-x86.msi
-     Start-Process 'c:/msi/SQLSysClrTypes.msi-x86.msi' '/qn' -PassThru | Wait-Process
-     Invoke-WebRequest 'https://download.microsoft.com/download/4/B/1/4B1E9B0E-A4F3-4715-B417-31C82302A70A/ENU/x64/SQLSysClrTypes.msi' -OutFile c:/msi/SQLSysClrTypes.msi-x64.msi
-     Start-Process 'c:/msi/SQLSysClrTypes.msi-x64.msi' '/qn' -PassThru | Wait-Process
+     .. code-block:: powershell
+  
+       # Install WPI
+       New-Item c:/msi -Type Directory
+       Invoke-WebRequest 'http://download.microsoft.com/download/C/F/F/CFF3A0B8-99D4-41A2-AE1A-496C08BEB904/WebPlatformInstaller_amd64_en-US.msi' -OutFile c:/msi/WebPlatformInstaller_amd64_en-US.msi
+       Start-Process 'c:/msi/WebPlatformInstaller_amd64_en-US.msi' '/qn' -PassThru | Wait-Process
+  
+       Invoke-WebRequest 'https://download.microsoft.com/download/4/B/1/4B1E9B0E-A4F3-4715-B417-31C82302A70A/ENU/x86/SQLSysClrTypes.msi' -OutFile c:/msi/SQLSysClrTypes.msi-x86.msi
+       Start-Process 'c:/msi/SQLSysClrTypes.msi-x86.msi' '/qn' -PassThru | Wait-Process
+       Invoke-WebRequest 'https://download.microsoft.com/download/4/B/1/4B1E9B0E-A4F3-4715-B417-31C82302A70A/ENU/x64/SQLSysClrTypes.msi' -OutFile c:/msi/SQLSysClrTypes.msi-x64.msi
+       Start-Process 'c:/msi/SQLSysClrTypes.msi-x64.msi' '/qn' -PassThru | Wait-Process
 
    The above script installs the Microsoft Web Platform Installer (WebPI), which is used to download, install, and update components of the Microsoft Web Platform, including Internet Information Services (IIS), IIS Media Platform technologies, SQL Server Express, .NET Framework, and Visual Web Developer.
 
-   - **Task Name** - InstallNetFeatures
+   - **Task Name** - 
+
+     .. code-block:: text
+
+       InstallNetFeatures
+
+
    - **Script** -
 
-   .. code-block:: powershell
-
-     # Enable Repair via Windows Update
-     $servicing = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Servicing"
-     New-Item -Path $servicing -Force
-     Set-ItemProperty -Path $servicing -Name RepairContentServerSource -Value 2
-
-     # Install Features
-     Install-WindowsFeature -Name NET-Framework-Core
-     Install-WindowsFeature -Name NET-WCF-Services45 -IncludeAllSubFeature
+     .. code-block:: powershell
+  
+       # Enable Repair via Windows Update
+       $servicing = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Servicing"
+       New-Item -Path $servicing -Force
+       Set-ItemProperty -Path $servicing -Name RepairContentServerSource -Value 2
+  
+       # Install Features
+       Install-WindowsFeature -Name NET-Framework-Core
+       Install-WindowsFeature -Name NET-WCF-Services45 -IncludeAllSubFeature
 
    The above script installs .NET Framework 4.5 on the VM.
 
-   - **Task Name** - InstallBugNetApp
+   - **Task Name** - 
+
+     .. code-block:: text
+
+       InstallBugNetApp
+
    - **Script** -
 
-   .. code-block:: powershell
-
-     # Create the installation configuration file
-     $configFile = "AppPath[@]Default Web Site/bugnet
-     DbServer[@]@@{MSSQL.address}@@
-     DbName[@]@@{DbName}@@
-     DbUsername[@]@@{DbUsername}@@
-     Database Password[@]@@{DbPassword}@@
-     DbAdminUsername[@]sa
-     DbAdminPassword[@]@@{SQL_CRED.secret}@@"
-
-     echo $configFile >> BugNET0.app
-
-     # Install the application via Web PI
-     WebpiCmd-x64.exe /Install /UseRemoteDatabase /Application:BugNET@BugNET0.app /AcceptEula
+     .. code-block:: powershell
+  
+       # Create the installation configuration file
+       $configFile = "AppPath[@]Default Web Site/bugnet
+       DbServer[@]@@{MSSQL.address}@@
+       DbName[@]@@{DbName}@@
+       DbUsername[@]@@{DbUsername}@@
+       Database Password[@]@@{DbPassword}@@
+       DbAdminUsername[@]sa
+       DbAdminPassword[@]@@{SQL_CRED.secret}@@"
+  
+       echo $configFile >> BugNET0.app
+  
+       # Install the application via Web PI
+       WebpiCmd-x64.exe /Install /UseRemoteDatabase /Application:BugNET@BugNET0.app /AcceptEula
 
    The above script uses the Application Profile variables you defined at the beginning of the exercise to populate the configuration file of the Bug Tracker app. It then leverages WebPI to install the application from the `Microsoft Web App Gallery <https://webgallery.microsoft.com/gallery>`_. With minimal changes, you could leverage many popular applications from the Gallery, including apps for CMS, eCommerce, Wiki, ticketing, and more.
 

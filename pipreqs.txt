@@ -12,3 +12,6 @@ sphinxcontrib-fulltoc == 1.2.0
 sphinx-bootstrap-theme == 0.6.0
 sphinx_fontawesome
 Pygments == 2.4.2
+
+mkdocs==1.0.4
+Markdown==3.0.1
