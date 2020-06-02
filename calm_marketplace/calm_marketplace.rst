@@ -31,7 +31,7 @@ Publishing Blueprints
 
 #. Provide the following details:
 
-   - **Name** (e.g. Blueprint Name *<INITIALS>*)
+   - **Name** *<INITIALS>*-CentOS7
    - **Publish as a** - New Marketplace blueprint
    - **Initial Version** - 1.0.0
    - **Description** - Finished IaaS
