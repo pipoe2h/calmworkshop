@@ -99,8 +99,8 @@ Configuring Project Environment
 
 #. Under **VM Configuration**
 
-   - select **AHV on NUTANIX**.
-   - **VM Name** - add prefix "default" to the name
+   - Select **NUTANIX** and expand **Linux**.
+   - **VM Name** - Replace prefix *vm* with **default**
    - **Image** - CentOS
    - **vCPUs** - 2
    - **Cores per vCPU** - 1
