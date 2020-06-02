@@ -101,10 +101,11 @@ Configuring Project Environment
 
    - Select **NUTANIX** and expand **Linux**.
    - **VM Name** - Replace prefix *vm* with **default**
-   - **Image** - CentOS
    - **vCPUs** - 2
    - **Cores per vCPU** - 1
    - **Memory** - 4GiB
+   - **Disk** - Clone from Image
+   - **Image** - CentOS7 (Your image can have a different name)
 
    .. figure:: images/510marketplace_p2_010.png
 
